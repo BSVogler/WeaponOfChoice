@@ -1,7 +1,9 @@
 package com.BombingGames.WeaponOfChoice;
 
 import com.BombingGames.WurfelEngine.Core.View;
+import com.BombingGames.WurfelEngine.WEMain;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.backends.openal.Ogg.Sound;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import java.util.ArrayList;
 
@@ -12,7 +14,7 @@ import java.util.ArrayList;
 public class SpinningWheel extends ArrayList<Weapon> {
     private static final long serialVersionUID = 1L;
     
-    private CustomGameController controller;
+    private final CustomGameController controller;
     private boolean visible;
     private int current = 0;
     private final int spintime = 5000;
@@ -27,6 +29,8 @@ public class SpinningWheel extends ArrayList<Weapon> {
      * Returns a new selection
      */
     public void spin(){
+        Sound dudeldi = (Sound) WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/dudeldi.ogg");
+        dudeldi.play();
         visible = true;
         int newSelection;
         do 

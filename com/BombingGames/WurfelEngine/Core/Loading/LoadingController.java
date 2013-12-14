@@ -43,6 +43,7 @@ public class LoadingController {
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/shot.wav", Sound.class);
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/shotgun.wav", Sound.class);
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/wiz.wav", Sound.class);
+        manager.load("com/BombingGames/WeaponOfChoice/Sounds/dudeldi.ogg", Sound.class);
         //manager.load("com/BombingGames/WurfelEngine/Core/arial.fnt", BitmapFont.class);
     }
     
