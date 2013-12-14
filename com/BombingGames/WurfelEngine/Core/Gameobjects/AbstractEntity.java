@@ -98,6 +98,7 @@ public abstract class AbstractEntity extends AbstractGameObject implements IsSel
         
         entity.setPos(point);
         entity.setValue(value);
+        entity.setLightlevel(1);
         return entity;
     }
     
