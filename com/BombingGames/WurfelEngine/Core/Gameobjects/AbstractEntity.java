@@ -77,7 +77,10 @@ public abstract class AbstractEntity extends AbstractGameObject implements IsSel
             break;
             case 14:
                 entity = new Enemy(id, point);
-            break;    
+            break;
+            case 15:case 16:
+                entity = new AnimatedEntity(id, value, new int[]{500}, true, false);
+            break;     
             case 40:
                     entity = new Player(id, point);
                     break;

@@ -62,7 +62,7 @@ public class Bullet extends AbstractEntity {
         //if enemy is hit
         if (i < entitylist.size() && Arrays.equals(entitylist.get(i).getPos().getCoord().getRel(), coords)) {
             entitylist.get(i).damage(20);
-            AbstractEntity.getInstance(15, 1, getPos().cpy()).existNext();
+            AbstractEntity.getInstance(16, 0, getPos().cpy()).existNext();//spawn blood
             destroy();
         }
     }

@@ -360,7 +360,7 @@ public abstract class AbstractCharacter extends AbstractEntity {
 
     @Override
     public void destroy() {
-        AbstractEntity.getInstance(16, 0, getPos().cpy()).existNext();
+        AbstractEntity.getInstance(17, 0, getPos().cpy()).existNext();//spawn blood
         super.destroy();
         //shadow.destroy();
     } 
