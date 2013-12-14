@@ -23,7 +23,7 @@ public class SpinningWheel extends ArrayList<Weapon> {
         visible = true;
         int newSelection;
         do 
-            newSelection = (int) ((size()-1)+Math.random());
+            newSelection = (int) ((size()-1)*Math.random());
         while(newSelection == current);
         current = newSelection;
         timer = spintime;

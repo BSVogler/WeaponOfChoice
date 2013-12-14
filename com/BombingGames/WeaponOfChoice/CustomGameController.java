@@ -17,7 +17,7 @@ import com.badlogic.gdx.Input;
 public class CustomGameController extends Controller {
     private SpinningWheel spinningWheel;
     private int round = 1;
-    private final int roundLength = 100000;
+    private final int roundLength = 10000;
     private int roundtimer;
     
         
@@ -96,7 +96,7 @@ public class CustomGameController extends Controller {
             //reset
             roundtimer = roundLength;
             round++;
-            GameplayScreen.msgSystem().add("New Round! Round:"+round, "System");
+            GameplayScreen.msgSystem().add("New Round! Round:"+round, "Warning");
             spinningWheel.spin();
         }
         spinningWheel.update(delta);
