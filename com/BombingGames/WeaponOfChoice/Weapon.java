@@ -28,8 +28,8 @@ public class Weapon {
     private int distance;
     
     private int shotsLoaded;
-    private int reloadTimer;
-    private int delayTimer;
+    private int reloading;
+    private int shooting;
 
     public static void init(){
         if (spritesheetBig == null) {
@@ -60,7 +60,7 @@ public class Weapon {
             case 1:
                 name="pistol";
                 delay = 600;
-                relodingTime =0;
+                relodingTime =1000;
                 shots = 7;
                 distance = 10;
                 
@@ -69,7 +69,7 @@ public class Weapon {
             break;
             case 2:
                 name="fist";
-                delay = 400;
+                delay = 500;
                 relodingTime =0;
                 shots = 1;
                 distance = 1;
@@ -78,12 +78,16 @@ public class Weapon {
                 reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/melee.wav"); 
             break;
             case 3:
-                name="poop";
-                delay = 900;
-                relodingTime =0;
-                shots = 1;
-                distance = 7;
-            break;
+                name="shotgun";
+                delay = 500;
+                relodingTime =1800;
+                shots = 2;
+                distance = 5;
+                
+                fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
+                reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
+            break;    
+
             case 4:
                 name="rocket launcher";
                 delay = 0;
@@ -93,18 +97,16 @@ public class Weapon {
                 
                 fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
                 reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
-                
             break;
+            
             case 5:
-                name="shotgun";
-                delay = 200;
-                relodingTime =0;
-                shots = 2;
-                distance = 5;
-                
-                fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
-                reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
-            break;
+                name="poop";
+                delay = 900;
+                relodingTime =500;
+                shots = 1;
+                distance = 7;
+            break;    
+
             case 6:
                 name="machine gun";
                 delay = 30;
@@ -152,29 +154,34 @@ public class Weapon {
      * @param delta
      */
     public void update(boolean trigger, float delta){
-        if (delayTimer>0)
-            delayTimer-=delta;
-        else {
-            if (shotsLoaded <= 0)//autoreload
-                reload();
-            
-            if (trigger && shotsLoaded>0)
-                shoot();  
+        if (shooting > 0){
+            shooting-=delta;
+        } else {
+            if (reloading >= 0) {
+                reloading-=delta;
+                if (reloading<=0)//finished reloading
+                    shotsLoaded = shots;
+            } else {
+                //if not shootring or loading
+                if (shotsLoaded <= 0)//autoreload
+                    reload();
+
+                if (trigger && shotsLoaded>0)
+                    shoot();  
+            }
         }
-    
     }
+    
     
     private void shoot(){
         fire.play();
                 
-        delayTimer = delay;
-        shotsLoaded--;
-            
+        shooting = delay;
+        shotsLoaded--;      
     }
     
     public void reload(){
-        shotsLoaded =shots;
-        delayTimer = delay;
+        reloading =relodingTime;
         reload.play();
     }
 
@@ -185,8 +192,14 @@ public class Weapon {
     public int getShots() {
         return shots;
     }
-    
-    
+
+    public int getReloading() {
+        return reloading;
+    }
+
+    public int getShooting() {
+        return shooting;
+    }
     
     
 }
