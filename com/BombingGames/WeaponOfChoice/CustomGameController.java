@@ -18,7 +18,8 @@ public class CustomGameController extends Controller {
     private SpinningWheel spinningWheel;
     private int round = 1;
     private final int roundLength = 10000;
-    private int roundtimer;
+    private int roundTimer;
+    private Weapon currentWeapon;
     
         
     @Override
@@ -46,8 +47,8 @@ public class CustomGameController extends Controller {
         );
         Weapon.init();
         
-        roundtimer = roundLength;
-        spinningWheel = new SpinningWheel();
+        roundTimer = roundLength;
+        spinningWheel = new SpinningWheel(this);
         spinningWheel.add(new Weapon(0));
         spinningWheel.add(new Weapon(1));
         spinningWheel.add(new Weapon(2));
@@ -81,26 +82,26 @@ public class CustomGameController extends Controller {
                 camera.setOutputPosY( camera.getOutputPosY()
                     - (input.isKeyPressed(Input.Keys.W)? 3: 0)
                     + (input.isKeyPressed(Input.Keys.S)? 3: 0)
-                    );
+                );
                 camera.setOutputPosX( camera.getOutputPosX()
                     + (input.isKeyPressed(Input.Keys.D)? 3: 0)
                     - (input.isKeyPressed(Input.Keys.A)? 3: 0)
-                    );
+                );
             }
         }
         
         
-        roundtimer -= delta;
-        if (roundtimer <= 0){
+        roundTimer -= delta;
+        if (roundTimer <= 0){
             //reset
-            roundtimer = roundLength;
+            roundTimer = roundLength;
             round++;
             GameplayScreen.msgSystem().add("New Round! Round:"+round, "Warning");
             spinningWheel.spin();
         }
         spinningWheel.update(delta);
         
-        
+
         super.update(delta);
     }
 
@@ -109,5 +110,14 @@ public class CustomGameController extends Controller {
      */
     public SpinningWheel getSpinningWheel() {
         return spinningWheel;
+    }
+    
+    public void equipWeapon(int id){
+        currentWeapon = new Weapon(id);
+        currentWeapon.reload();
+    }
+
+    public Weapon getCurrentWeapon() {
+        return currentWeapon;
     }
 }

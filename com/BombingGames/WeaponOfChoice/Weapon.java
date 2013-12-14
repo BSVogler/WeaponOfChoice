@@ -18,7 +18,7 @@ public class Weapon {
     private static final int scaling = 2;
     
     //sound
-    private Sound shot;
+    private Sound fire;
     private Sound reload;
     private Sound melee;
     
@@ -55,8 +55,7 @@ public class Weapon {
                 shots = 1;
                 distance = 1;
                 
-                shot = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
-                melee = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/melee.wav");
+                fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
                 reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;
             case 1:
@@ -66,8 +65,7 @@ public class Weapon {
                 shots = 7;
                 distance = 10;
                 
-                shot = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
-                melee = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/melee.wav");
+                fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
                 reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;
             case 2:
@@ -77,9 +75,8 @@ public class Weapon {
                 shots = 1;
                 distance = 1;
                 
-                shot = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
-                melee = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/melee.wav");
-                reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
+                fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/punch.wav");
+                reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/melee.wav"); 
             break;
             case 3:
                 name="poop";
@@ -95,8 +92,7 @@ public class Weapon {
                 shots = 1;
                 distance = 6;
                 
-                shot = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
-                melee = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/melee.wav");
+                fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
                 reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
                 
             break;
@@ -107,8 +103,7 @@ public class Weapon {
                 shots = 2;
                 distance = 5;
                 
-                shot = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
-                melee = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/melee.wav");
+                fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
                 reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;
             case 6:
@@ -118,8 +113,7 @@ public class Weapon {
                 shots = 30;
                 distance = 10;
                 
-                shot = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
-                melee = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/melee.wav");
+                fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
                 reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;
         }
@@ -167,9 +161,7 @@ public class Weapon {
     }
     
     public void shoot(){
-        if (distance<1)
-            melee.play();
-        else shot.play();
+        fire.play();
                 
         delayTimer = delay;
         shotsLoaded--;
@@ -183,7 +175,4 @@ public class Weapon {
         shotsLoaded =shots;
         reload.play();
     }
-    
-    
-    
 }

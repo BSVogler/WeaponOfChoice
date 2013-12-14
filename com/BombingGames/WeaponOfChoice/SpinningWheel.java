@@ -11,11 +11,18 @@ import java.util.ArrayList;
  */
 public class SpinningWheel extends ArrayList<Weapon> {
     private static final long serialVersionUID = 1L;
+    
+    private CustomGameController controller;
     private boolean visible;
     private int current = 0;
     private final int spintime = 5000;
     private int timer;
+
+    public SpinningWheel(CustomGameController ctlr) {
+        controller = ctlr;
+    }
    
+    
     /**
      * Returns a new selection
      */
@@ -27,10 +34,7 @@ public class SpinningWheel extends ArrayList<Weapon> {
         while(newSelection == current);
         current = newSelection;
         timer = spintime;
-    }
-    
-    public Weapon getCurrentWeapon(){
-        return get(current);
+        controller.equipWeapon(current);
     }
     
     public void update(float delta){
