@@ -2,7 +2,7 @@ SpritesBig.png
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-katana
+0
   rotate: false
   xy: 2, 2
   size: 350, 350

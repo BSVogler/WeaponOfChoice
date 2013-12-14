@@ -29,7 +29,7 @@ public class LoadingController {
         // Add everything to be loaded, for instance:
         //WurfelEngine.getInstance().manager.load("com/BombingGames/Game/Blockimages/Spritesheet.png", Pixmap.class);       
         manager.load("com/BombingGames/WurfelEngine/Game/Blockimages/Spritesheet.txt", TextureAtlas.class);
-        manager.load("com/BombingGames/WeaponOfChoice/SpritesBig.txt", Sound.class);
+        manager.load("com/BombingGames/WeaponOfChoice/SpritesBig.txt", TextureAtlas.class);
        // manager.load("com/BombingGames/WurfelEngine/Game/Blockimages/Spritesheet.png", Pixmap.class);
         manager.load("com/BombingGames/WurfelEngine/Game/Sounds/wind.ogg", Sound.class);
         manager.load("com/BombingGames/WurfelEngine/Game/Sounds/victorcenusa_running.ogg", Sound.class);

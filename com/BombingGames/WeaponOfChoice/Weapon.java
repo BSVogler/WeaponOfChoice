@@ -15,7 +15,7 @@ public class Weapon {
     private static TextureAtlas spritesheetBig;
 
     public static void initClass(){
-        spritesheetBig = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/SpritesheetBig.txt");
+        spritesheetBig = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/SpritesBig.txt");
     }
     
     public Weapon(int id) {

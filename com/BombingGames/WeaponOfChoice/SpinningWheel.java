@@ -1,5 +1,6 @@
 package com.BombingGames.WeaponOfChoice;
 
+import com.BombingGames.WurfelEngine.Core.View;
 import com.badlogic.gdx.Gdx;
 import java.util.ArrayList;
 
@@ -28,11 +29,11 @@ public class SpinningWheel extends ArrayList<Weapon> {
         return get(current);
     }
         
-    public void render(){
+    public void render(View view){
         if (visible){
             int y=50;
             for (Weapon weapon : this) {
-                weapon.renderBig(Gdx.graphics.getWidth()/2,y);
+                weapon.renderBig(view, Gdx.graphics.getWidth()/2,y);
                 y = y +50;
             }
         }
