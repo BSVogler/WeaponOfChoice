@@ -17,6 +17,7 @@ import com.badlogic.gdx.InputProcessor;
  */
 public class CustomGameView extends View{
     private final CustomGameController controller;
+    
      /**
      *
      * @param controller
@@ -31,7 +32,9 @@ public class CustomGameView extends View{
      @Override
      public void render(){
          super.render();
+         getBatch().begin();
          controller.getSpinningWheel().render(this);
+         getBatch().end();
      }
  
      private class InputListener implements InputProcessor {
