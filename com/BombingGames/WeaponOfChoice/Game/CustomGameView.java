@@ -1,4 +1,4 @@
-package com.BombingGames.WurfelEngine.Game;
+package com.BombingGames.WeaponOfChoice.Game;
 
 import static com.BombingGames.WurfelEngine.Core.Controller.getLightengine;
 import static com.BombingGames.WurfelEngine.Core.Controller.getMap;

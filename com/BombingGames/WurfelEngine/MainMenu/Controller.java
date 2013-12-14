@@ -1,9 +1,7 @@
 package com.BombingGames.WurfelEngine.MainMenu;
 
-import com.BombingGames.WurfelEngine.Game.CustomGameController;
-import com.BombingGames.WurfelEngine.Game.CustomGameView;
-import com.BombingGames.WurfelEngine.Game.ExplosivesDemoController;
-import com.BombingGames.WurfelEngine.Game.ExplosivesDemoView;
+import com.BombingGames.WeaponOfChoice.Game.CustomGameController;
+import com.BombingGames.WeaponOfChoice.Game.CustomGameView;
 import com.BombingGames.WurfelEngine.WEMain;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -18,7 +16,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
  */
 public class Controller {
     
-    private final MenuItem[] menuItems = new MenuItem[4];
+    private final MenuItem[] menuItems = new MenuItem[2];
     private final Sound fx;
     
     /**
@@ -27,10 +25,10 @@ public class Controller {
     public Controller() {
         TextureAtlas texture = new TextureAtlas(Gdx.files.internal("com/BombingGames/WurfelEngine/MainMenu/Images/MainMenu.txt"), true);
                 
-        menuItems[0] = new MenuItem(0, texture.getRegions().get(3));
-        menuItems[1] = new MenuItem(1, texture.getRegions().get(1));
-        menuItems[2] = new MenuItem(2, texture.getRegions().get(0));
-        menuItems[3] = new MenuItem(3, texture.getRegions().get(2));
+        //menuItems[0] = new MenuItem(0, texture.getRegions().get(3));
+        menuItems[0] = new MenuItem(1, texture.getRegions().get(1));
+        //menuItems[2] = new MenuItem(2, texture.getRegions().get(0));
+        menuItems[1] = new MenuItem(3, texture.getRegions().get(2));
         
         fx = Gdx.audio.newSound(Gdx.files.internal("com/BombingGames/WurfelEngine/MainMenu/click2.wav"));
         Gdx.input.setInputProcessor(new InputListener());
@@ -41,19 +39,11 @@ public class Controller {
      * @param delta
      */
     public void update(int delta){
-        if (menuItems[0].isClicked()){
-            MainMenuScreen.setLoadMap(true);
-            fx.play();
-            WEMain.initGame(new CustomGameController(), new CustomGameView());
-        } else if (menuItems[1].isClicked()) { 
+        if (menuItems[0].isClicked()) { 
                 MainMenuScreen.setLoadMap(false);
                 fx.play();
                 WEMain.initGame(new CustomGameController(), new CustomGameView());
-            } else if (menuItems[2].isClicked()){
-                    MainMenuScreen.setLoadMap(false);
-                    fx.play();
-                    WEMain.initGame(new ExplosivesDemoController(), new ExplosivesDemoView());
-                } else if (menuItems[3].isClicked()){
+            } else if (menuItems[1].isClicked()){
                     fx.play();
                     Gdx.app.exit();
         }

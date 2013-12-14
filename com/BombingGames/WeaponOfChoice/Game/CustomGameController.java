@@ -1,4 +1,4 @@
-package com.BombingGames.WurfelEngine.Game;
+package com.BombingGames.WeaponOfChoice.Game;
 
 import com.BombingGames.WurfelEngine.Core.Controller;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractCharacter;
