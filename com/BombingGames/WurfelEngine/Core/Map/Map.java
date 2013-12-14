@@ -40,8 +40,8 @@ public class Map {
     private Cell[][][] data;
     
     /** every entity on the map is stored in this field */
-    private final ArrayList<AbstractEntity> entitylist = new ArrayList<AbstractEntity>();
-    private final ArrayList<AbstractEntity> newentitys = new ArrayList<AbstractEntity>();
+    private final ArrayList<AbstractEntity> entitylist = new ArrayList<>();
+    private final ArrayList<AbstractEntity> newentitys = new ArrayList<>();
     
     /**
      *Creates an empty  map. Fill the map with fillWithBlocks(boolean load);
@@ -319,11 +319,11 @@ public class Map {
         }
         
         if (z >= blocksZ){
+            //Gdx.app.error("Map","Z:"+z+">="+blocksZ);
             z = blocksZ-1;
-            Gdx.app.error("Map","Z:"+z+">="+blocksZ);
         } else if( z < 0 ){
+            //Gdx.app.error("Map","Z:"+z+"<"+0);
             z = 0;
-            Gdx.app.error("Map","Z:"+z+">="+blocksZ);
         }
         
         return data[x][y][z].getBlock();    
@@ -470,7 +470,7 @@ public class Map {
      * @return a list with the entitys
      */
     public <type> ArrayList<type> getAllEntitysOfType(Class<type> type) {
-        ArrayList<type> list = new ArrayList<type>();
+        ArrayList<type> list = new ArrayList<>();
         //e inst=(e) e.newInstance();
 
         for (AbstractEntity entity : entitylist) {//check every entity
