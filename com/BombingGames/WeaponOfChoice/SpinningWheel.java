@@ -58,7 +58,7 @@ public class SpinningWheel extends ArrayList<Weapon> {
                     sprite.draw(view.getBatch());
                 }
                     
-                y = y +350;
+                y = y +70*Weapon.getScaling();
             }
         }
     }

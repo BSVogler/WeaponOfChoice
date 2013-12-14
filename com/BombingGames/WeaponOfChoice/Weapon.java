@@ -15,7 +15,7 @@ public class Weapon {
     private String name;
     private final int id;
     private static TextureAtlas spritesheetBig;
-    private static final int scaling = 4;
+    private static final int scaling = 2;
     
     //sound
     private Sound shot;
