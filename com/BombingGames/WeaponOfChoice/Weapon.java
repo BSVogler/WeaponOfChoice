@@ -21,6 +21,8 @@ public class Weapon {
     private int shots;
     private int relodingTime;
     private int distance;
+    
+    private int shotsLoaded;
 
     public static void init(){
         if (spritesheetBig == null) {
@@ -33,6 +35,7 @@ public class Weapon {
             }
         }
     }
+    private int delayTimer;
     
     public Weapon(int id) {
         this.id = id;
@@ -87,8 +90,9 @@ public class Weapon {
                 relodingTime =900;
                 shots = 30;
                 distance = 10;
-            break;    
+            break;
         }
+        shotsLoaded = shots; //fully loaded
     }
     
     /**
@@ -116,6 +120,33 @@ public class Weapon {
 
     public static int getScaling() {
         return scaling;
+    }
+    
+    /**
+     * Manages the weapon
+     * @param trigger Is the trigger down?
+     * @param delta
+     */
+    public void update(boolean trigger, float delta){
+        if (delayTimer>0)
+            delayTimer-=delta;
+        else if (trigger)
+            shoot();            
+    
+    }
+    
+    public void shoot(){
+        delayTimer = delay;
+        shotsLoaded--;
+        if (distance<1)
+            
+        if (shotsLoaded<=0)
+            reload();
+    
+    }
+    
+    public void reload(){
+        shotsLoaded =shots;
     }
     
     
