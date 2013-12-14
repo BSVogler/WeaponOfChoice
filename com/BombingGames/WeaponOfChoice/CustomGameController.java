@@ -101,6 +101,8 @@ public class CustomGameController extends Controller {
         }
         spinningWheel.update(delta);
         
+        currentWeapon.update(input.isButtonPressed(0), delta);
+        
 
         super.update(delta);
     }
