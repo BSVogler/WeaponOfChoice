@@ -197,7 +197,7 @@ public abstract class AbstractCharacter extends AbstractEntity {
             //uncomment this line to see where to player stands:
             //Controller.getMapDataSafe(getRelCoords()[0], getRelCoords()[1], getRelCoords()[2]-1).setLightlevel(30);
 
-            shadow.update(delta, this);
+            if (shadow!= null) shadow.update(delta, this);
 
             //slow walking down
             if (speed > 0) speed -= delta/ smoothBreaks;

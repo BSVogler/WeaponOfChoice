@@ -18,7 +18,7 @@ public class Enemy extends AbstractCharacter{
      * @param pos
      */
     public Enemy(int id, Point pos) {
-        super(id, 3, pos, false);
+        super(id, 1, pos, false);
         setTransparent(true);
         setObstacle(true);
         setDimensionZ(1);
