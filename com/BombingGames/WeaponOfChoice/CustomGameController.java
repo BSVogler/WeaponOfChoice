@@ -89,7 +89,6 @@ public class CustomGameController extends Controller {
             }
         }
         
-        super.update(delta);
         
         roundtimer -= delta;
         if (roundtimer <= 0){
@@ -101,6 +100,8 @@ public class CustomGameController extends Controller {
         }
         spinningWheel.update(delta);
         
+        
+        super.update(delta);
     }
 
     /**
