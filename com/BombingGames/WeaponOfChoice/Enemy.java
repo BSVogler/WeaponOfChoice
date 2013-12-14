@@ -40,7 +40,7 @@ public class Enemy extends AbstractCharacter{
             //update the movement vector
             setMovementX((float) (dX/length));
             setMovementY((float) (dY/length));
-            move(0.5f);
+            move(0.4f);
              
         }
         //update as usual
