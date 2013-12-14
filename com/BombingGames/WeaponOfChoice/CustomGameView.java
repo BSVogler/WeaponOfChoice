@@ -9,6 +9,7 @@ import com.BombingGames.WurfelEngine.WEMain;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.graphics.Color;
 
 
 /**
@@ -32,9 +33,12 @@ public class CustomGameView extends View{
      @Override
      public void render(){
          super.render();
+         
          getBatch().begin();
          controller.getSpinningWheel().render(this);
          getBatch().end();
+         Weapon weapon = controller.getCurrentWeapon();
+         drawString("Shots: "+weapon.getShotsLoaded()+"/"+weapon.getShots(), Gdx.graphics.getWidth()-100, Gdx.graphics.getHeight()-100, Color.WHITE.cpy());
      }
  
      private class InputListener implements InputProcessor {
@@ -97,8 +101,7 @@ public class CustomGameView extends View{
 
         @Override
         public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-            controller.getCurrentWeapon().shoot();
-            return true;
+            return false;
         }
 
         @Override
