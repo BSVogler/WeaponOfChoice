@@ -16,9 +16,16 @@ repeat: none
   orig: 350, 350
   offset: 0, 0
   index: -1
-canvas
+2
   rotate: false
   xy: 2, 354
+  size: 350, 350
+  orig: 350, 350
+  offset: 0, 0
+  index: -1
+canvas
+  rotate: false
+  xy: 354, 354
   size: 420, 420
   orig: 420, 420
   offset: 0, 0
