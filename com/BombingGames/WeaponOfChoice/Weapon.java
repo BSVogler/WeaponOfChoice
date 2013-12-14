@@ -49,7 +49,7 @@ public class Weapon {
         switch (id){
             case 0:
                 name="katana";
-                delay = 600;
+                delay = 900;
                 relodingTime =0;
                 shots = 1;
                 distance = 1;
