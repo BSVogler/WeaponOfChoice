@@ -1,7 +1,7 @@
 package com.BombingGames.WurfelEngine.MainMenu;
 
-import com.BombingGames.WeaponOfChoice.Game.CustomGameController;
-import com.BombingGames.WeaponOfChoice.Game.CustomGameView;
+import com.BombingGames.WeaponOfChoice.CustomGameController;
+import com.BombingGames.WeaponOfChoice.CustomGameView;
 import com.BombingGames.WurfelEngine.WEMain;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
