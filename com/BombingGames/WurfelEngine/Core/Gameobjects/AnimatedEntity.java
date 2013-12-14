@@ -6,7 +6,7 @@ package com.BombingGames.WurfelEngine.Core.Gameobjects;
  */
 public class AnimatedEntity extends AbstractEntity implements Animatable {
     private final int[] animationsduration;
-    private int counter = 0;
+    private int timer = 0;
     private boolean running;
     private final boolean loop;
     
@@ -32,18 +32,19 @@ public class AnimatedEntity extends AbstractEntity implements Animatable {
     @Override
     public void update(float delta) {
         if (running) {
-            counter += delta;
-            if (counter >= animationsduration[getValue()]){
-                setValue(getValue()+1);
-                counter=0;
-                if (getValue() >= animationsduration.length)//if over animation array
+            timer += delta;
+            if (timer >= animationsduration[getValue()]){
+                if (getValue()+1 >= animationsduration.length){//if over animation array
                     if (loop)
                         setValue(0);
                     else{//delete
                         setHidden(true);
-                        setValue(getValue()-1);
                         destroy();
                     }
+                } else {
+                    setValue(getValue()+1);
+                }
+                timer=0;
             }
         }
     }
