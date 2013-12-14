@@ -2,6 +2,7 @@ package com.BombingGames.WeaponOfChoice;
 
 import com.BombingGames.WurfelEngine.Core.View;
 import com.BombingGames.WurfelEngine.WEMain;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
@@ -13,12 +14,16 @@ public class Weapon {
     private String Name;
     private final int id;
     private static TextureAtlas spritesheetBig;
+    private static int scaling = 4;
 
     public static void init(){
         if (spritesheetBig == null) {
             spritesheetBig = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/SpritesBig.txt");
             for (TextureAtlas.AtlasRegion region : spritesheetBig.getRegions()) {
                     region.flip(false, true);
+            }
+            for (Texture tex : spritesheetBig.getTextures()) {
+                tex.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
             }
         }
     }
@@ -37,6 +42,7 @@ public class Weapon {
         Sprite sprite = new Sprite(spritesheetBig.findRegion(""+id));
         sprite.setX(x);
         sprite.setY(y);
+        sprite.scale(scaling);
         sprite.draw(view.getBatch());
     
     }
@@ -48,5 +54,11 @@ public class Weapon {
     public int getId() {
         return id;
     }
+
+    public static int getScaling() {
+        return scaling;
+    }
+    
+    
     
 }
