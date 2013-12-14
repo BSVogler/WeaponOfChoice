@@ -100,7 +100,10 @@ public class CustomGameController extends Controller {
             round++;
             GameplayScreen.msgSystem().add("New Round! Round:"+round, "Warning");
             spinningWheel.spin();
-            AbstractEntity enemy = AbstractCharacter.getInstance(14, 0,Map.getCenter());
+            
+            //spawn an enemy
+            Enemy enemy = (Enemy) AbstractCharacter.getInstance(14, 0,Map.getCenter());
+            enemy.setTarget(getPlayer());
             enemy.exist();
         }
         spinningWheel.update(delta);
