@@ -48,12 +48,13 @@ public class SpinningWheel extends ArrayList<Weapon> {
         if (visible){
             int y=50*Weapon.getScaling();
             for (Weapon weapon : this) {
-                weapon.renderBig(view, Gdx.graphics.getWidth()/2-50*Weapon.getScaling(),y);
+                weapon.renderBig(view, Gdx.graphics.getWidth()/2-25*Weapon.getScaling(),y);
                 
                 if (weapon.getId() == current){
                     Sprite sprite = new Sprite(Weapon.getSpritesheetBig().findRegion("canvas"));
-                    sprite.setX(Gdx.graphics.getWidth()/2-60*Weapon.getScaling());
+                    sprite.setX(Gdx.graphics.getWidth()/2-30*Weapon.getScaling());
                     sprite.setY(y);
+                    sprite.scale(Weapon.getScaling());
                     sprite.draw(view.getBatch());
                 }
                     
