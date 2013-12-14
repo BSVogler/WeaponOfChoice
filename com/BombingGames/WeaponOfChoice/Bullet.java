@@ -29,7 +29,7 @@ public class Bullet extends AbstractEntity {
         if (updates > 500)
             destroy();
         
-        if (getPos().onLoadedMap() && getPos().getBlock().getId() != 0){
+        if (getPos().onLoadedMap() && getPos().getBlockSafe().getId() != 0){
             AbstractEntity flash = AbstractEntity.getInstance(15, 0, getPos().cpy());
             flash.existNext();
             destroy();
