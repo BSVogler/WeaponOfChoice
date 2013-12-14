@@ -28,6 +28,12 @@ public class Bullet extends AbstractEntity {
         updates++;
         if (updates > 500)
             destroy();
+        
+        if (getPos().onLoadedMap() && getPos().getBlock().getId() != 0){
+            AbstractEntity flash = AbstractEntity.getInstance(15, 0, getPos().cpy());
+            flash.exist();
+            destroy();
+        }
     }
 
     void setDirection(float[] dir) {
