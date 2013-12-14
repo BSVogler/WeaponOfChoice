@@ -41,7 +41,8 @@ public class Map {
     
     /** every entity on the map is stored in this field */
     private final ArrayList<AbstractEntity> entitylist = new ArrayList<AbstractEntity>();
-        
+    private final ArrayList<AbstractEntity> newentitys = new ArrayList<AbstractEntity>();
+    
     /**
      *Creates an empty  map. Fill the map with fillWithBlocks(boolean load);
      * @param newMap when "true" a new map will be generated, when "false" a map will be loaded from disk 
@@ -522,4 +523,22 @@ public class Map {
     public static int getGameHeight(){
         return blocksZ*AbstractGameObject.GAME_DIMENSION;
     }
+    
+   public void addEntity(AbstractEntity entity){
+        newentitys.add(entity);
+    }
+   
+   public void update(){
+       //put every new entity in the main entity list
+       for (AbstractEntity entity : newentitys) {
+           Controller.getMap().getEntitys().add(entity);
+       }
+       newentitys.clear();
+       
+       //delete old objects
+        for (int i = entitylist.size()-1; i >= 0; i--) {
+            if (entitylist.get(i).shouldBeDestroyed())
+                entitylist.remove(i);
+        }
+   }
 }

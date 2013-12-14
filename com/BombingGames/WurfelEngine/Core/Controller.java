@@ -86,11 +86,8 @@ public class Controller {
         //update every entity
         for (AbstractEntity entity : map.getEntitys())
             entity.update(delta);
-       
-        for (int i = map.getEntitys().size()-1; i >= 0; i--) {
-            if (map.getEntitys().get(i).shouldBeDestroyed())
-                map.getEntitys().remove(i);
-        }
+        
+        map.update();     
         
         for (WECamera camera : cameras) {
             camera.update();

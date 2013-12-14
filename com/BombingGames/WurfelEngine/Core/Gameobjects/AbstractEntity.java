@@ -147,6 +147,13 @@ public abstract class AbstractEntity extends AbstractGameObject implements IsSel
     }
     
     /**
+     * add this entity to the map after every update calls
+     */
+    public void existNext(){
+        Controller.getMap().addEntity(this);
+    }
+    
+     /**
      * add this entity to the map-> let it exist
      */
     public void exist(){

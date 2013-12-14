@@ -31,7 +31,7 @@ public class Bullet extends AbstractEntity {
         
         if (getPos().onLoadedMap() && getPos().getBlock().getId() != 0){
             AbstractEntity flash = AbstractEntity.getInstance(15, 0, getPos().cpy());
-            flash.exist();
+            flash.existNext();
             destroy();
         }
     }
