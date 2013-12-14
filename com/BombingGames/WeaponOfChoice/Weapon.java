@@ -110,7 +110,7 @@ public class Weapon {
                 distance = 10;
                 bps = 1;
                 
-                fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
+                fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/bust.wav");
                 reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;
                      
