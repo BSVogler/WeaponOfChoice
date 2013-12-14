@@ -271,6 +271,22 @@ public abstract class AbstractCharacter extends AbstractEntity {
     public float[] getDirectionVector(){
         return dir;
     }
+    
+    public void setMovementX(float x){
+        dir[0] = x;
+    }
+    
+    public void setMovementY(float y){
+        dir[1] = y;
+    }
+    
+    public void move(float walkingspeed){
+        speed = walkingspeed;
+    }
+    
+    
+    
+    
 
     /**
      * Sets the sound to be played when falling.
@@ -384,4 +400,6 @@ public abstract class AbstractCharacter extends AbstractEntity {
     public void damage(int value) {
         health -= value;
     }
+    
+    
 }

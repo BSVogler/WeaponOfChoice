@@ -33,13 +33,15 @@ public class Enemy extends AbstractCharacter{
     public void update(float delta) {
         //follow the target
         if (target != null) {
-            walk(
-                (target.getPos().getAbsY()<getPos().getAbsY()),
-                (target.getPos().getAbsY()>getPos().getAbsY()),
-                (target.getPos().getAbsX()<getPos().getAbsX()),
-                (target.getPos().getAbsX()>getPos().getAbsX()),
-                .35f
-            );
+            
+            float dX = target.getPos().getAbsX()-getPos().getAbsX();
+            float dY = target.getPos().getAbsY()-getPos().getAbsY();
+            double length = Math.sqrt(dY*dY+dX*dX);
+            //update the movement vector
+            setMovementX((float) (dX/length));
+            setMovementY((float) (dY/length));
+            move(0.5f);
+             
         }
         //update as usual
         super.update(delta);
