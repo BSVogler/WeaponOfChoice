@@ -225,6 +225,7 @@
             <filename>sprites prelit/e41-1.png</filename>
             <filename>sprites prelit/e12-0.png</filename>
             <filename>sprites prelit/error.png</filename>
+            <filename>sprites prelit/e42-0.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
