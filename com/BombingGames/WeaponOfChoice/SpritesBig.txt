@@ -5,28 +5,28 @@ repeat: none
 0
   rotate: false
   xy: 2, 2
-  size: 350, 350
-  orig: 350, 350
+  size: 50, 50
+  orig: 50, 50
   offset: 0, 0
   index: -1
 1
   rotate: false
-  xy: 354, 2
-  size: 350, 350
-  orig: 350, 350
+  xy: 54, 2
+  size: 50, 50
+  orig: 50, 50
   offset: 0, 0
   index: -1
 2
   rotate: false
-  xy: 2, 354
-  size: 350, 350
-  orig: 350, 350
+  xy: 2, 54
+  size: 50, 50
+  orig: 50, 50
   offset: 0, 0
   index: -1
 canvas
   rotate: false
-  xy: 354, 354
-  size: 420, 420
-  orig: 420, 420
+  xy: 54, 54
+  size: 60, 60
+  orig: 60, 60
   offset: 0, 0
   index: -1
