@@ -71,15 +71,19 @@ public class SpinningWheel extends ArrayList<Weapon> {
             
             get(currentRandom).renderBig(view,
                 Gdx.graphics.getWidth()/2-25*Weapon.getScaling(),
-                Gdx.graphics.getHeight()/2-25*Weapon.getScaling());
+                Gdx.graphics.getHeight()/2-25*Weapon.getScaling()
+            );
 
             Sprite sprite = new Sprite(Weapon.getSpritesheetBig().findRegion("canvas"));
             sprite.setX(Gdx.graphics.getWidth()/2-30*Weapon.getScaling());
             sprite.setY(Gdx.graphics.getHeight()/2-30*Weapon.getScaling());
             sprite.scale(Weapon.getScaling());
             sprite.draw(view.getBatch());
-
         }
+        get(current).renderBig(view,
+                Gdx.graphics.getWidth()-150,
+                Gdx.graphics.getHeight()-150
+            );
     }
 
     public boolean isVisible() {
