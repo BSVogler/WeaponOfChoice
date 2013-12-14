@@ -13,6 +13,7 @@ import java.util.Arrays;
 public class Bullet extends AbstractEntity {
     private float[] dir = new float[3];
     private float speed;
+    private int damage;
     private int distance =0;
     private AbstractCharacter parent;
     private int maxDistance = 1000;
@@ -62,7 +63,7 @@ public class Bullet extends AbstractEntity {
         
         //if enemy is hit
         if (i < entitylist.size() && Arrays.equals(entitylist.get(i).getPos().getCoord().getRel(), coords)) {
-            entitylist.get(i).damage(20);
+            entitylist.get(i).damage(damage);
             AbstractEntity.getInstance(16, 0, getPos().cpy()).existNext();//spawn blood
             destroy();
         }
@@ -82,5 +83,9 @@ public class Bullet extends AbstractEntity {
     
     public void setMaxDistance(int maxDistance){
         this.maxDistance = maxDistance;
+    }
+
+    void setDamage(int damage) {
+        this.damage = damage;
     }
 }
