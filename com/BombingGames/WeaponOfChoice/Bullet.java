@@ -13,8 +13,9 @@ import java.util.Arrays;
 public class Bullet extends AbstractEntity {
     private float[] dir = new float[3];
     private float speed;
-    private int updates =0;
+    private int distance =0;
     private AbstractCharacter parent;
+    private int maxDistance = 1000;
     
    public Bullet(int id){
        super(id);
@@ -31,8 +32,8 @@ public class Bullet extends AbstractEntity {
         );
         
         //only exist 150 update calls then destroy self
-        updates++;
-        if (updates > 500)
+        distance += (dir[0]+dir[1])*delta*speed;
+        if (distance > maxDistance)
             destroy();
         
         if (getPos().onLoadedMap() && getPos().getBlockSafe().getId() != 0){
@@ -77,5 +78,9 @@ public class Bullet extends AbstractEntity {
 
     public void setParent(AbstractCharacter parent) {
         this.parent = parent;
+    }
+    
+    public void setMaxDistance(int maxDistance){
+        this.maxDistance = maxDistance;
     }
 }
