@@ -16,7 +16,7 @@ public class SpinningWheel extends ArrayList<Weapon> {
     
     private final CustomGameController controller;
     private boolean visible;
-    private int current = 0;
+    private int current = -1;
     private final int spintime = 5000;
     private int timer;
     private int currentRandom;
@@ -80,7 +80,8 @@ public class SpinningWheel extends ArrayList<Weapon> {
             sprite.scale(Weapon.getScaling());
             sprite.draw(view.getBatch());
         }
-        get(current).renderBig(view,
+        if (current>-1)
+            get(current).renderBig(view,
                 Gdx.graphics.getWidth()-150,
                 Gdx.graphics.getHeight()-150
             );
@@ -96,6 +97,6 @@ public class SpinningWheel extends ArrayList<Weapon> {
 
     @Override
     public Object clone() {
-        return super.clone(); //To change body of generated methods, choose Tools | Templates.
+        return super.clone();
     }
 }
