@@ -20,7 +20,6 @@ public class Weapon {
     //sound
     private Sound fire;
     private Sound reload;
-    private Sound melee;
     
     //stats
     private int delay;
@@ -155,24 +154,39 @@ public class Weapon {
     public void update(boolean trigger, float delta){
         if (delayTimer>0)
             delayTimer-=delta;
-        else if (trigger)
-            shoot();            
+        else {
+            if (shotsLoaded <= 0)//autoreload
+                reload();
+            
+            if (trigger && shotsLoaded>0)
+                shoot();  
+        }
     
     }
     
-    public void shoot(){
+    private void shoot(){
         fire.play();
                 
         delayTimer = delay;
         shotsLoaded--;
-        
-        if (shotsLoaded <= 0)//autoreload
-            reload();
-    
+            
     }
     
     public void reload(){
         shotsLoaded =shots;
+        delayTimer = delay;
         reload.play();
     }
+
+    public int getShotsLoaded() {
+        return shotsLoaded;
+    }
+
+    public int getShots() {
+        return shots;
+    }
+    
+    
+    
+    
 }

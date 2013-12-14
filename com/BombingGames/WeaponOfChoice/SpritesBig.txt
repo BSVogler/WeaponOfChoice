@@ -23,9 +23,16 @@ repeat: none
   orig: 50, 50
   offset: 0, 0
   index: -1
-canvas
+3
   rotate: false
   xy: 54, 54
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+canvas
+  rotate: false
+  xy: 2, 106
   size: 60, 60
   orig: 60, 60
   offset: 0, 0
