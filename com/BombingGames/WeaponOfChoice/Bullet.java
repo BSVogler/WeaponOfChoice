@@ -32,7 +32,7 @@ public class Bullet extends AbstractEntity {
         );
         
         //only exist 150 update calls then destroy self
-        distance += (dir[0]+dir[1])*delta*speed;
+        distance += (Math.abs(dir[0])+Math.abs(dir[1]))*delta*speed;
         if (distance > maxDistance)
             destroy();
         
