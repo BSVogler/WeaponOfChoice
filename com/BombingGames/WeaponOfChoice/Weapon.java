@@ -79,8 +79,8 @@ public class Weapon {
             break;
             case 3:
                 name="shotgun";
-                delay = 500;
-                relodingTime =1800;
+                delay = 600;
+                relodingTime =1500;
                 shots = 2;
                 distance = 5;
                 
@@ -200,6 +200,15 @@ public class Weapon {
     public int getShooting() {
         return shooting;
     }
-    
-    
+
+    void trigger() {
+         if (shooting <= 0 && reloading <= 0){
+            //if not shootring or loading
+            if (shotsLoaded <= 0)//autoreload
+                reload();
+
+            if (shotsLoaded>0)
+                shoot();  
+        }
+    }
 }

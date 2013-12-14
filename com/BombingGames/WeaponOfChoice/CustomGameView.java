@@ -101,7 +101,8 @@ public class CustomGameView extends View{
 
         @Override
         public boolean touchDown(int screenX, int screenY, int pointer, int button) {
-            return false;
+            controller.getCurrentWeapon().trigger();
+            return true;
         }
 
         @Override
