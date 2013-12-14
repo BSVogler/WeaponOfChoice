@@ -6,7 +6,6 @@ import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractEntity;
 import com.BombingGames.WurfelEngine.Core.GameplayScreen;
 import com.BombingGames.WurfelEngine.Core.Map.Chunk;
 import com.BombingGames.WurfelEngine.Core.Map.Map;
-import com.BombingGames.WurfelEngine.Core.Map.Minimap;
 import com.BombingGames.WurfelEngine.Core.WECamera;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -16,6 +15,7 @@ import com.badlogic.gdx.Input;
  * @author Benedikt
  */
 public class CustomGameController extends Controller {
+    private SpinningWheel spinningWheel;
         
     @Override
     public void init(){
@@ -40,6 +40,8 @@ public class CustomGameController extends Controller {
                 Gdx.graphics.getHeight()//height
             )
         );
+        
+        setSpinningWheel(new SpinningWheel());
                 
 //        setMinimap(
 //            new Minimap(this, getCameras().get(0), Gdx.graphics.getWidth() - 400,10)
@@ -84,5 +86,19 @@ public class CustomGameController extends Controller {
         }
         
         super.update(delta);
+    }
+
+    /**
+     * @return the spinningWheel
+     */
+    public SpinningWheel getSpinningWheel() {
+        return spinningWheel;
+    }
+
+    /**
+     * @param spinningWheel the spinningWheel to set
+     */
+    public void setSpinningWheel(SpinningWheel spinningWheel) {
+        this.spinningWheel = spinningWheel;
     }
 }
