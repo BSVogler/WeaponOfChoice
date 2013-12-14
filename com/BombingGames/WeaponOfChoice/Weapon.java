@@ -2,6 +2,7 @@ package com.BombingGames.WeaponOfChoice;
 
 import com.BombingGames.WurfelEngine.Core.View;
 import com.BombingGames.WurfelEngine.WEMain;
+import com.badlogic.gdx.backends.openal.Wav.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
@@ -16,6 +17,11 @@ public class Weapon {
     private static TextureAtlas spritesheetBig;
     private static final int scaling = 4;
     
+    //sound
+    private Sound shot;
+    private Sound reload;
+    private Sound melee;
+    
     //stats
     private int delay;
     private int shots;
@@ -23,6 +29,8 @@ public class Weapon {
     private int distance;
     
     private int shotsLoaded;
+    private int reloadTimer;
+    private int delayTimer;
 
     public static void init(){
         if (spritesheetBig == null) {
@@ -35,7 +43,6 @@ public class Weapon {
             }
         }
     }
-    private int delayTimer;
     
     public Weapon(int id) {
         this.id = id;
@@ -47,6 +54,10 @@ public class Weapon {
                 relodingTime =0;
                 shots = 1;
                 distance = 1;
+                
+                shot = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
+                melee = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/melee.wav");
+                reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;
             case 1:
                 name="pistol";
@@ -54,6 +65,10 @@ public class Weapon {
                 relodingTime =0;
                 shots = 7;
                 distance = 10;
+                
+                shot = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
+                melee = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/melee.wav");
+                reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;
             case 2:
                 name="fist";
@@ -61,6 +76,10 @@ public class Weapon {
                 relodingTime =0;
                 shots = 1;
                 distance = 1;
+                
+                shot = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
+                melee = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/melee.wav");
+                reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;
             case 3:
                 name="poop";
@@ -76,6 +95,10 @@ public class Weapon {
                 shots = 1;
                 distance = 6;
                 
+                shot = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
+                melee = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/melee.wav");
+                reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
+                
             break;
             case 5:
                 name="shotgun";
@@ -83,6 +106,10 @@ public class Weapon {
                 relodingTime =0;
                 shots = 2;
                 distance = 5;
+                
+                shot = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
+                melee = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/melee.wav");
+                reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;
             case 6:
                 name="machine gun";
@@ -90,6 +117,10 @@ public class Weapon {
                 relodingTime =900;
                 shots = 30;
                 distance = 10;
+                
+                shot = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
+                melee = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/melee.wav");
+                reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;
         }
         shotsLoaded = shots; //fully loaded
@@ -136,17 +167,21 @@ public class Weapon {
     }
     
     public void shoot(){
+        if (distance<1)
+            melee.play();
+        else shot.play();
+                
         delayTimer = delay;
         shotsLoaded--;
-        if (distance<1)
-            
-        if (shotsLoaded<=0)
+        
+        if (shotsLoaded <= 0)//autoreload
             reload();
     
     }
     
     public void reload(){
         shotsLoaded =shots;
+        reload.play();
     }
     
     
