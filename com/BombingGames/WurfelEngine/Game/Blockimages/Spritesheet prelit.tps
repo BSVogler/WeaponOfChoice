@@ -225,11 +225,15 @@
             <filename>sprites prelit/e41-1.png</filename>
             <filename>sprites prelit/e12-0.png</filename>
             <filename>sprites prelit/error.png</filename>
-            <filename>../../../../../../sprites/e14-0.png</filename>
-            <filename>../../../../../../sprites/e14-2.png</filename>
-            <filename>../../../../../../sprites/e14-4.png</filename>
-            <filename>../../../../../../sprites/e14-6.png</filename>
             <filename>sprites prelit/e42-0.png</filename>
+            <filename>sprites prelit/e15-0.png</filename>
+            <filename>sprites prelit/e14-0.png</filename>
+            <filename>sprites prelit/e14-2.png</filename>
+            <filename>sprites prelit/e14-4.png</filename>
+            <filename>sprites prelit/e14-6.png</filename>
+            <filename>sprites prelit/e14-3.png</filename>
+            <filename>sprites prelit/e16-0.png</filename>
+            <filename>sprites prelit/e17-0.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
