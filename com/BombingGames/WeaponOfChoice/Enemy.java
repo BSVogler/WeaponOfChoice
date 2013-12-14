@@ -2,6 +2,9 @@ package com.BombingGames.WeaponOfChoice;
 
 import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractCharacter;
 import com.BombingGames.WurfelEngine.Core.Map.Point;
+import com.BombingGames.WurfelEngine.WEMain;
+import com.badlogic.gdx.audio.Sound;
+import java.util.Arrays;
 
 /**
  *An enemy which can follow a character.
@@ -11,6 +14,7 @@ public class Enemy extends AbstractCharacter{
     private AbstractCharacter target;
     private int runningagainstwallCounter = 0;
     private Point lastPos;
+    private int damageReload;
     
     /**
      * Zombie constructor. Use AbstractEntitiy.getInstance to create an zombie.
@@ -22,6 +26,9 @@ public class Enemy extends AbstractCharacter{
         setTransparent(true);
         setObstacle(true);
         setDimensionZ(1);
+        setDamageSounds(new Sound[]{
+            (Sound) WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/impactFlesh.wav")
+        });
     }
 
     @Override
@@ -42,6 +49,13 @@ public class Enemy extends AbstractCharacter{
             setMovementY((float) (dY/length));
             move(0.4f);
              
+            if (Arrays.equals(target.getPos().getCoord().getRel(), getPos().getCoord().getRel())){
+                damageReload -= delta;
+                if (damageReload<0){
+                    damageReload=1000;//reset
+                    target.damage(5);
+                }
+            }
         }
         //update as usual
         super.update(delta);

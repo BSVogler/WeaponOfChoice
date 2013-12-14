@@ -29,6 +29,7 @@ public abstract class AbstractCharacter extends AbstractEntity {
    private boolean runningSoundPlaying;
    private Sound jumpingSound;
    private Sound landingSound;
+   private Sound[] damageSounds;
 
 
    private boolean inliquid;
@@ -332,6 +333,10 @@ public abstract class AbstractCharacter extends AbstractEntity {
         AbstractCharacter.waterSound = waterSound;
     }
     
+    public void setDamageSounds(Sound[] sound){
+        damageSounds = sound;
+    }
+    
     
     
    /**
@@ -398,7 +403,13 @@ public abstract class AbstractCharacter extends AbstractEntity {
     }
 
     public void damage(int value) {
+        if (damageSounds.length > 0)
+            damageSounds[(int) (Math.random()*(damageSounds.length-1))].play(0.7f);
         health -= value;
+    }
+
+    public int getLife() {
+       return health;
     }
     
     

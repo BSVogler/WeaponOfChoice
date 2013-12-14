@@ -10,6 +10,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 
 
 /**
@@ -40,6 +41,21 @@ public class CustomGameView extends View{
          Weapon weapon = controller.getCurrentWeapon();
          if (weapon != null)
             drawString("Shots: "+weapon.getShotsLoaded()+"/"+weapon.getShots(), Gdx.graphics.getWidth()-100, Gdx.graphics.getHeight()-100, Color.WHITE.cpy());
+        ShapeRenderer sh = new ShapeRenderer();
+        sh.begin(ShapeRenderer.ShapeType.Filled);
+        if (controller.getPlayer().getLife()>50)
+            sh.setColor(Color.GREEN);
+        else
+            sh.setColor(Color.RED);
+        sh.rect(10, 10, 50, controller.getPlayer().getLife());
+        sh.end();
+        
+        sh.begin(ShapeRenderer.ShapeType.Line);
+        sh.setColor(Color.BLACK);
+        sh.rect(10, 10, 50, 100);
+        sh.end();
+        
+             
      }
  
      private class InputListener implements InputProcessor {

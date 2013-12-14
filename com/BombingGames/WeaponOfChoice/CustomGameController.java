@@ -8,8 +8,10 @@ import com.BombingGames.WurfelEngine.Core.Map.Chunk;
 import com.BombingGames.WurfelEngine.Core.Map.Coordinate;
 import com.BombingGames.WurfelEngine.Core.Map.Map;
 import com.BombingGames.WurfelEngine.Core.WECamera;
+import com.BombingGames.WurfelEngine.WEMain;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.audio.Sound;
 
 /**
  *The <i>CustomGameController</i> is for the game code. Put engine code into <i>Controller</i>.
@@ -36,6 +38,12 @@ public class CustomGameController extends Controller {
         );
         player.setControls("WASD");
         setPlayer(player);
+        player.setDamageSounds(new Sound[]{
+            (Sound) WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/scream1.wav"),
+            (Sound) WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/scream2.wav"),
+            (Sound) WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/scream3.wav"),
+            (Sound) WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/scream4.wav")
+        });
         
         addCamera(
             new WECamera(

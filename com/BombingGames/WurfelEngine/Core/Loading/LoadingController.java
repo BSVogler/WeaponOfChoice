@@ -49,6 +49,7 @@ public class LoadingController {
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/scream2.wav", Sound.class);
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/scream3.wav", Sound.class);
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/scream4.wav", Sound.class);
+        manager.load("com/BombingGames/WeaponOfChoice/Sounds/impactFlesh.wav", Sound.class);
         //manager.load("com/BombingGames/WurfelEngine/Core/arial.fnt", BitmapFont.class);
     }
     
