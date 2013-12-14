@@ -57,6 +57,8 @@ public abstract class AbstractCharacter extends AbstractEntity {
      */
     public abstract void jump();
     
+   public abstract float[] getAiming();
+    
    /**
      * Jump with a specific speed
      * @param velo the velocity in m/s

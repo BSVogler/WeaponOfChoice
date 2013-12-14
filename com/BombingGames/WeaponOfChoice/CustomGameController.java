@@ -49,10 +49,11 @@ public class CustomGameController extends Controller {
         
         roundTimer = roundLength;
         spinningWheel = new SpinningWheel(this);
-        spinningWheel.add(new Weapon(0));
-        spinningWheel.add(new Weapon(1));
-        spinningWheel.add(new Weapon(2));
-        spinningWheel.add(new Weapon(3));
+        spinningWheel.add(new Weapon(0, null));
+        spinningWheel.add(new Weapon(1, null));
+        spinningWheel.add(new Weapon(2, null));
+        spinningWheel.add(new Weapon(3, null));
+        spinningWheel.add(new Weapon(4, null));
         spinningWheel.spin();
         
         //useLightEngine(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
@@ -99,6 +100,8 @@ public class CustomGameController extends Controller {
             round++;
             GameplayScreen.msgSystem().add("New Round! Round:"+round, "Warning");
             spinningWheel.spin();
+            AbstractEntity enemy = AbstractCharacter.getInstance(14, 0,Map.getCenter());
+            enemy.exist();
         }
         spinningWheel.update(delta);
         
@@ -116,7 +119,7 @@ public class CustomGameController extends Controller {
     }
     
     public void equipWeapon(int id){
-        currentWeapon = new Weapon(id);
+        currentWeapon = new Weapon(id, getPlayer());
         currentWeapon.reload();
     }
 

@@ -46,4 +46,15 @@ public class Player extends AbstractCharacter{
     public void jump() {
         super.jump(5);
     }
+    
+    @Override
+    public float[] getAiming(){
+        float deltaX =Gdx.input.getX()-Gdx.graphics.getWidth()/2;
+        float deltaY =Gdx.input.getY()-Gdx.graphics.getHeight()/2; 
+       float length = (float) Math.sqrt( Math.pow(deltaX,2)+ Math.pow(deltaY,2));
+        return new float[]{
+            deltaX/length,
+            deltaY*2/length
+        };
+    }
 }
