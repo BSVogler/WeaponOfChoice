@@ -9,3 +9,10 @@ repeat: none
   orig: 350, 350
   offset: 0, 0
   index: -1
+1
+  rotate: false
+  xy: 2, 354
+  size: 350, 350
+  orig: 350, 350
+  offset: 0, 0
+  index: -1
