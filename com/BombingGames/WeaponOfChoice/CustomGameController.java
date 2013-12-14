@@ -5,6 +5,7 @@ import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractCharacter;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractEntity;
 import com.BombingGames.WurfelEngine.Core.GameplayScreen;
 import com.BombingGames.WurfelEngine.Core.Map.Chunk;
+import com.BombingGames.WurfelEngine.Core.Map.Coordinate;
 import com.BombingGames.WurfelEngine.Core.Map.Map;
 import com.BombingGames.WurfelEngine.Core.WECamera;
 import com.badlogic.gdx.Gdx;
@@ -102,9 +103,17 @@ public class CustomGameController extends Controller {
             spinningWheel.spin();
             
             //spawn an enemy
-            Enemy enemy = (Enemy) AbstractCharacter.getInstance(14, 0,Map.getCenter());
-            enemy.setTarget(getPlayer());
-            enemy.exist();
+            for (int i = 0; i < round; i++) {
+                Coordinate randomPlace = new Coordinate(
+                    (int) (Map.getBlocksX()*Math.random()),
+                    (int) (Map.getBlocksY()*Math.random()),
+                    Map.getGameHeight(),
+                    true);
+                Enemy enemy = (Enemy) AbstractCharacter.getInstance(14, 0,randomPlace.getPoint());
+                enemy.setTarget(getPlayer());
+                enemy.exist();
+            }
+
         }
         spinningWheel.update(delta);
         
