@@ -42,7 +42,8 @@ public class Controller {
         if (menuItems[0].isClicked()) { 
                 MainMenuScreen.setLoadMap(false);
                 fx.play();
-                WEMain.initGame(new CustomGameController(), new CustomGameView());
+                CustomGameController ctrl = new CustomGameController();
+                WEMain.initGame(ctrl, new CustomGameView(ctrl));
             } else if (menuItems[1].isClicked()){
                     fx.play();
                     Gdx.app.exit();

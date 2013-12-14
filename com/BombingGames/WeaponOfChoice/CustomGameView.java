@@ -16,30 +16,29 @@ import com.badlogic.gdx.InputProcessor;
  * @author Benedikt
  */
 public class CustomGameView extends View{
- 
+    private final CustomGameController controller;
      /**
      *
+     * @param controller
      */
-    public CustomGameView() {
+    public CustomGameView(CustomGameController controller) {
          super();
          Gdx.input.setInputProcessor(new InputListener());
+         this.controller = controller;
      }
 
 
      @Override
      public void render(){
          super.render();
-     } 
-     
-         private class InputListener implements InputProcessor {
+         controller.getSpinningWheel().render(this);
+     }
+ 
+     private class InputListener implements InputProcessor {
 
         @Override
         public boolean keyDown(int keycode) {
             if (!GameplayScreen.msgSystem().isListeningForInput()) {
-                //toggle minimap
-                 if (keycode == Input.Keys.M){
-                     getController().getMinimap().toggleVisibility();
-                 }
                  //toggle fullscreen
                  if (keycode == Input.Keys.F){
                      WEMain.setFullscreen(!WEMain.isFullscreen());
