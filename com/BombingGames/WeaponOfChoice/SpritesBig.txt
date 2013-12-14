@@ -1,0 +1,11 @@
+SpritesBig.png
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+katana
+  rotate: false
+  xy: 2, 2
+  size: 350, 350
+  orig: 350, 350
+  offset: 0, 0
+  index: -1
