@@ -97,7 +97,7 @@ public class Weapon {
             case 3:
                 name="shotgun";
                 delay = 600;
-                relodingTime =1500;
+                relodingTime =1300;
                 shots = 2;
                 distance = 5;
                 bps = 20;
