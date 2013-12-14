@@ -11,8 +11,15 @@ repeat: none
   index: -1
 1
   rotate: false
-  xy: 2, 354
+  xy: 354, 2
   size: 350, 350
   orig: 350, 350
+  offset: 0, 0
+  index: -1
+canvas
+  rotate: false
+  xy: 2, 354
+  size: 420, 420
+  orig: 420, 420
   offset: 0, 0
   index: -1

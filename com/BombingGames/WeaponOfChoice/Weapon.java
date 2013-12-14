@@ -14,8 +14,13 @@ public class Weapon {
     private final int id;
     private static TextureAtlas spritesheetBig;
 
-    public static void initClass(){
-        spritesheetBig = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/SpritesBig.txt");
+    public static void init(){
+        if (spritesheetBig == null) {
+            spritesheetBig = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/SpritesBig.txt");
+            for (TextureAtlas.AtlasRegion region : spritesheetBig.getRegions()) {
+                    region.flip(false, true);
+            }
+        }
     }
     
     public Weapon(int id) {
@@ -39,6 +44,9 @@ public class Weapon {
     public static TextureAtlas getSpritesheetBig() {
         return spritesheetBig;
     }
-    
+
+    public int getId() {
+        return id;
+    }
     
 }
