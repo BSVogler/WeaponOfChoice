@@ -128,7 +128,7 @@ public class Chunk {
                 int pillarx = (int) (Math.random()*blocksX-1);
                 int pillary = (int) (Math.random()*blocksY-1);
                 //pillar
-                for (int z=0; z < blocksZ; z++) data[pillarx][pillary][z] = new Cell(1);
+                for (int z=0; z < blocksZ-2; z++) data[pillarx][pillary][z] = new Cell(1);
                 break;
             }
                 

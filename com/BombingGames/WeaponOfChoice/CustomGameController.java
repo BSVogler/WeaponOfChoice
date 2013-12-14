@@ -107,7 +107,7 @@ public class CustomGameController extends Controller {
                 Coordinate randomPlace = new Coordinate(
                     (int) (Map.getBlocksX()*Math.random()),
                     (int) (Map.getBlocksY()*Math.random()),
-                    Map.getGameHeight(),
+                    (float) Map.getGameHeight(),
                     true);
                 Enemy enemy = (Enemy) AbstractCharacter.getInstance(14, 0,randomPlace.getPoint());
                 enemy.setTarget(getPlayer());
@@ -118,7 +118,6 @@ public class CustomGameController extends Controller {
         spinningWheel.update(delta);
         
         currentWeapon.update(input.isButtonPressed(0), delta);
-        
 
         super.update(delta);
     }

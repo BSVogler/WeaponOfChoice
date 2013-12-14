@@ -7,6 +7,7 @@ import com.BombingGames.WurfelEngine.Core.Map.AbstractPosition;
 import com.BombingGames.WurfelEngine.Core.Map.Coordinate;
 import com.BombingGames.WurfelEngine.Core.Map.Map;
 import com.BombingGames.WurfelEngine.Core.Map.Point;
+import com.badlogic.gdx.Gdx;
 
 /**
  *An entity is a game object wich is self aware that means it knows it's position.

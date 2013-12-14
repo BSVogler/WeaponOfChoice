@@ -105,7 +105,7 @@ public abstract class AbstractCharacter extends AbstractEntity {
      */
     @Override
     public void update(float delta) {
-        if (getPos().onLoadedMap()) {
+        if (getPos().getCoord().onLoadedMap()) {
             //scale that the velocity vector is always an unit vector (only x and y)
             double vectorLenght = Math.sqrt(dir[0]*dir[0] + dir[1]*dir[1]);
             if (vectorLenght > 0){
