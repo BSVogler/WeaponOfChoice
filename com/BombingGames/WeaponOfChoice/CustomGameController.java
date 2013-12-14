@@ -16,6 +16,7 @@ import com.badlogic.gdx.Input;
  */
 public class CustomGameController extends Controller {
     private SpinningWheel spinningWheel;
+    private int round = 1;
         
     @Override
     public void init(){
@@ -40,14 +41,12 @@ public class CustomGameController extends Controller {
                 Gdx.graphics.getHeight()//height
             )
         );
-        
-        setSpinningWheel(new SpinningWheel());
-                
-//        setMinimap(
-//            new Minimap(this, getCameras().get(0), Gdx.graphics.getWidth() - 400,10)
-//        );
-        
         Weapon.initClass();
+        
+        spinningWheel = new SpinningWheel();
+        spinningWheel.add(new Weapon(0));
+        spinningWheel.add(new Weapon(1));
+        spinningWheel.setVisible(true);
         
         //useLightEngine(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
     }
@@ -93,12 +92,5 @@ public class CustomGameController extends Controller {
      */
     public SpinningWheel getSpinningWheel() {
         return spinningWheel;
-    }
-
-    /**
-     * @param spinningWheel the spinningWheel to set
-     */
-    public void setSpinningWheel(SpinningWheel spinningWheel) {
-        this.spinningWheel = spinningWheel;
     }
 }
