@@ -52,6 +52,7 @@ public class CustomGameController extends Controller {
         spinningWheel.add(new Weapon(0));
         spinningWheel.add(new Weapon(1));
         spinningWheel.add(new Weapon(2));
+        spinningWheel.add(new Weapon(3));
         spinningWheel.spin();
         
         //useLightEngine(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
