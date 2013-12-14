@@ -1,5 +1,7 @@
 package com.BombingGames.WeaponOfChoice;
 
+import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractCharacter;
+import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractEntity;
 import com.BombingGames.WurfelEngine.Core.View;
 import com.BombingGames.WurfelEngine.WEMain;
 import com.badlogic.gdx.backends.openal.Wav.Sound;
@@ -12,10 +14,13 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
  * @author Benedikt Vogler
  */
 public class Weapon {
-    private String name;
-    private final int id;
     private static TextureAtlas spritesheetBig;
     private static final int scaling = 2;
+    
+    private final int id;
+    private String name;
+
+    private AbstractCharacter character;//the char holding the weapon
     
     //sound
     private Sound fire;
@@ -26,6 +31,7 @@ public class Weapon {
     private int shots;
     private int relodingTime;
     private int distance;
+    private int bps;//bullets per shot
     
     private int shotsLoaded;
     private int reloading;
@@ -43,8 +49,9 @@ public class Weapon {
         }
     }
     
-    public Weapon(int id) {
+    public Weapon(int id, AbstractCharacter character) {
         this.id = id;
+        this.character = character;
         
         switch (id){
             case 0:
@@ -177,7 +184,8 @@ public class Weapon {
         fire.play();
                 
         shooting = delay;
-        shotsLoaded--;      
+        shotsLoaded--;
+        AbstractEntity.getInstance(12, 0, null);
     }
     
     public void reload(){
