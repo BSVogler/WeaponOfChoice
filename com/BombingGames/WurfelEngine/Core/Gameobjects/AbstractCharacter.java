@@ -32,6 +32,7 @@ public abstract class AbstractCharacter extends AbstractEntity {
 
 
    private boolean inliquid;
+   private int health = 100;
        
    private final CharacterShadow shadow;
    
@@ -229,6 +230,9 @@ public abstract class AbstractCharacter extends AbstractEntity {
                     fallingSoundPlaying = false;
                 }
             }
+            
+            if (health<=0)
+                destroy();
         }
     }
     
@@ -356,6 +360,7 @@ public abstract class AbstractCharacter extends AbstractEntity {
 
     @Override
     public void destroy() {
+        AbstractEntity.getInstance(16, 0, getPos().cpy()).existNext();
         super.destroy();
         //shadow.destroy();
     } 
@@ -374,5 +379,9 @@ public abstract class AbstractCharacter extends AbstractEntity {
         jumpingSound.dispose();
         waterSound.dispose();
         runningSound.dispose();
+    }
+
+    public void damage(int value) {
+        health -= value;
     }
 }

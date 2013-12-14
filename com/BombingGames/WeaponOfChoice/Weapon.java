@@ -200,10 +200,14 @@ public class Weapon {
         
         for (int i = 0; i < bps; i++) {
             Bullet bullet = (Bullet) AbstractEntity.getInstance(12, 0, character.getPos().cpy());
+            float[] aiming = character.getAiming();
+            aiming[0] *= Math.random() * (0.2f) + 0.9f;
+            aiming[1] *= Math.random() * (0.2f) + 0.9f;
             bullet.setDirection(
-                character.getAiming()
+                aiming
             );
-            bullet.setSpeed(1f);
+            bullet.setSpeed(1.2f);
+            bullet.setParent(character);
             bullet.exist(); 
         }
 
