@@ -17,7 +17,7 @@ public class Player extends AbstractCharacter{
      * @see com.BombingGames.Game.Gameobjects.Block#getInstance(int) 
      */
     public Player(int id, Point point) {
-        super(id, 1, point);
+        super(id, 1, point, true);
         Gdx.app.debug("Player", "Creating player");
         setFallingSound(
             (com.badlogic.gdx.backends.openal.Ogg.Sound)

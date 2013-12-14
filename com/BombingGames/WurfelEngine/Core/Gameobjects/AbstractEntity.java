@@ -1,6 +1,7 @@
 package com.BombingGames.WurfelEngine.Core.Gameobjects;
 
 import com.BombingGames.WeaponOfChoice.Bullet;
+import com.BombingGames.WeaponOfChoice.Enemy;
 import com.BombingGames.WurfelEngine.Core.Controller;
 import com.BombingGames.WurfelEngine.Core.Map.AbstractPosition;
 import com.BombingGames.WurfelEngine.Core.Map.Coordinate;
@@ -74,6 +75,9 @@ public abstract class AbstractEntity extends AbstractGameObject implements IsSel
             case 12:
                 entity = new Bullet(id);
             break;
+            case 14:
+                entity = new Enemy(id, point);
+            break;    
             case 40:
                     entity = new Player(id, point);
                     break;

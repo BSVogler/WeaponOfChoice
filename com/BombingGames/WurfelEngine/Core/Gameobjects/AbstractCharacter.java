@@ -42,12 +42,16 @@ public abstract class AbstractCharacter extends AbstractEntity {
     * @param id
     * @param spritesPerDir The number of animation sprites per walking direction
     * @param point  
+     * @param castshadow  
     */
-   protected AbstractCharacter(final int id, final int spritesPerDir, Point point) {
+   protected AbstractCharacter(final int id, final int spritesPerDir, Point point, boolean castshadow) {
         super(id);
         SPRITESPERDIR = spritesPerDir;
-        shadow = (CharacterShadow) AbstractEntity.getInstance(42,0,point.cpy());
-        shadow.exist();
+        if (castshadow) {
+            shadow = (CharacterShadow) AbstractEntity.getInstance(42,0,point.cpy());
+            shadow.exist();
+        }else shadow = null;
+        
         waterSound =  WEMain.getInstance().manager.get("com/BombingGames/WurfelEngine/Game/Sounds/splash.ogg");
     }
    
