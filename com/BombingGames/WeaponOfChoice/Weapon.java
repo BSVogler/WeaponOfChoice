@@ -11,10 +11,16 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
  * @author Benedikt Vogler
  */
 public class Weapon {
-    private String Name;
+    private String name;
     private final int id;
     private static TextureAtlas spritesheetBig;
-    private static int scaling = 4;
+    private static final int scaling = 4;
+    
+    //stats
+    private int delay;
+    private int shots;
+    private int relodingTime;
+    private int distance;
 
     public static void init(){
         if (spritesheetBig == null) {
@@ -30,6 +36,59 @@ public class Weapon {
     
     public Weapon(int id) {
         this.id = id;
+        
+        switch (id){
+            case 0:
+                name="katana";
+                delay = 600;
+                relodingTime =0;
+                shots = 1;
+                distance = 1;
+            break;
+            case 1:
+                name="pistol";
+                delay = 600;
+                relodingTime =0;
+                shots = 7;
+                distance = 10;
+            break;
+            case 2:
+                name="fist";
+                delay = 400;
+                relodingTime =0;
+                shots = 1;
+                distance = 1;
+            break;
+            case 3:
+                name="poop";
+                delay = 900;
+                relodingTime =0;
+                shots = 1;
+                distance = 7;
+            break;
+            case 4:
+                name="rocket launcher";
+                delay = 0;
+                relodingTime =1500;
+                shots = 1;
+                distance = 6;
+                
+            break;
+            case 5:
+                name="shotgun";
+                delay = 200;
+                relodingTime =0;
+                shots = 2;
+                distance = 5;
+            break;
+            case 6:
+                name="machine gun";
+                delay = 30;
+                relodingTime =900;
+                shots = 30;
+                distance = 10;
+            break;    
+        }
     }
     
     /**
