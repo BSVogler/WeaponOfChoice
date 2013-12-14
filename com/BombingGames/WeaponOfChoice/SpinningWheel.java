@@ -11,6 +11,7 @@ public class SpinningWheel extends ArrayList<Weapon> {
     private static final long serialVersionUID = 1L;
     private boolean visible;
     private int current = 0;
+    private int spintime;
    
     /**
      * Returns a new selection
@@ -35,5 +36,13 @@ public class SpinningWheel extends ArrayList<Weapon> {
                 y = y +50;
             }
         }
+    }
+
+    public boolean isVisible() {
+        return visible;
+    }
+
+    public void setVisible(boolean visible) {
+        this.visible = visible;
     }
 }
