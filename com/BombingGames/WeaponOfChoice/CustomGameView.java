@@ -38,7 +38,8 @@ public class CustomGameView extends View{
          controller.getSpinningWheel().render(this);
          getBatch().end();
          Weapon weapon = controller.getCurrentWeapon();
-         drawString("Shots: "+weapon.getShotsLoaded()+"/"+weapon.getShots(), Gdx.graphics.getWidth()-100, Gdx.graphics.getHeight()-100, Color.WHITE.cpy());
+         if (weapon != null)
+            drawString("Shots: "+weapon.getShotsLoaded()+"/"+weapon.getShots(), Gdx.graphics.getWidth()-100, Gdx.graphics.getHeight()-100, Color.WHITE.cpy());
      }
  
      private class InputListener implements InputProcessor {

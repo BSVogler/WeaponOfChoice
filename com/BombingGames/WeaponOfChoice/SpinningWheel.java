@@ -38,7 +38,6 @@ public class SpinningWheel extends ArrayList<Weapon> {
         while(newSelection == current);
         current = newSelection;
         timer = spintime;
-        controller.equipWeapon(current);
     }
     
     public void update(float delta){
@@ -48,6 +47,7 @@ public class SpinningWheel extends ArrayList<Weapon> {
         if (timer <= 0) {//reset
             visible = false;
             timer = spintime;
+            controller.equipWeapon(current);
         }
         
     }
