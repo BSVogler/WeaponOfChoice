@@ -70,7 +70,7 @@ public class WEMain extends Game {
         
         Texture.setEnforcePotImages(false);//allow non-power-of-two textures
         LwjglApplication application = new LwjglApplication(this, config);
-        Gdx.app.setLogLevel(Application.LOG_DEBUG);
+        Gdx.app.setLogLevel(Application.LOG_ERROR);
          
         //LIBGDX: no equivalent found in libGDX yet
         //setUpdateOnlyWhenVisible(true);        
