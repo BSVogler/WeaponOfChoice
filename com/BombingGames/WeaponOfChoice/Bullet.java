@@ -4,6 +4,7 @@ import com.BombingGames.WurfelEngine.Core.Controller;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractCharacter;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractEntity;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.Block;
+import com.BombingGames.WurfelEngine.Core.Gameobjects.Player;
 import com.BombingGames.WurfelEngine.WEMain;
 import com.badlogic.gdx.audio.Sound;
 import java.util.ArrayList;
@@ -124,12 +125,19 @@ public class Bullet extends AbstractEntity {
                     //spawn effect
                     if (x*x + (y/2)*(y/2)+ z*z >= explosive*explosive-4 &&
                         x*x + (y/2)*(y/2)+ z*z <= explosive*explosive){
-                        AbstractEntity.getInstance(
+                        AbstractEntity effect = AbstractEntity.getInstance(
                             41,
                             0,
                             getPos().getCoord().cpy().addVector(new float[]{x, y, z}).getPoint()
-                        ).existNext();
+                        );
+                        effect.existNext();
+                        ArrayList<AbstractEntity> list = Controller.getMap().getAllEntitysOnCoord(effect.getPos().getCoord());
+                        for (AbstractEntity ent : list) {
+                            if ((ent instanceof AbstractCharacter) && ! (ent instanceof Player))
+                                ((AbstractCharacter) ent).damage(100);
+                        }
                     }
+                    
                 }
          if (explosionsound != null) explosionsound.play();
          Controller.requestRecalc();

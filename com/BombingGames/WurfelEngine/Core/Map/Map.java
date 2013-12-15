@@ -6,6 +6,7 @@ import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractGameObject;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.Block;
 import com.badlogic.gdx.Gdx;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *A map stores nine chunks as part of a bigger map. It also contains the entities.
@@ -471,13 +472,32 @@ public class Map {
      */
     public <type> ArrayList<type> getAllEntitysOfType(Class<type> type) {
         ArrayList<type> list = new ArrayList<>();
-        //e inst=(e) e.newInstance();
 
         for (AbstractEntity entity : entitylist) {//check every entity
             if (type.isInstance(entity)) {//if the entity has the wanted type
                 list.add((type) entity);//add it to list
             }
         }
+        return list;
+    }
+    
+     /**
+     * Get every entity on a coord.
+     * @param coord
+     * @return a list with the entitys
+     */
+    public ArrayList<AbstractEntity> getAllEntitysOnCoord(Coordinate coord) {
+        ArrayList<AbstractEntity> list = new ArrayList<>();
+
+        for (AbstractEntity ent : entitylist) {
+            if (Arrays.equals(
+                    ent.getPos().getCoord().getRel(),
+                    coord.getRel())
+                ){
+                list.add(ent);//add it to list
+            } 
+        }
+
         return list;
     }
     
