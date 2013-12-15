@@ -411,8 +411,18 @@ public abstract class AbstractGameObject {
         return sprites;
     }
     
-    public void dispose(){
+    /**
+     * Not used. Buthsould be somewhere.
+     */
+    public static void staticdispose(){
         spritesheet.dispose();
-        pixmap.dispose();
+        if (pixmap != null)pixmap.dispose();
+    }
+    
+    /**
+     * 
+     */
+     public void dispose(){
+        //nothing to dispose?
     }
 }

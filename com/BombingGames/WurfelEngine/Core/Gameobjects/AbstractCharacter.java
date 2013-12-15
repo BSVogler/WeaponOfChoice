@@ -417,10 +417,10 @@ public abstract class AbstractCharacter extends AbstractEntity {
     
    @Override
     public void dispose(){
-        fallingSound.dispose();
-        jumpingSound.dispose();
-        waterSound.dispose();
-        runningSound.dispose();
+        if (fallingSound != null) fallingSound.dispose();
+        if (jumpingSound != null) jumpingSound.dispose();
+        if (waterSound != null) waterSound.dispose();
+        if (runningSound != null) runningSound.dispose();
     }
 
     public void damage(int value) {
