@@ -27,7 +27,7 @@ public class Controller {
     private static boolean recalcRequested;
     
         
-    private final ArrayList<WECamera> cameras = new ArrayList<WECamera>(6);
+    private final ArrayList<WECamera> cameras = new ArrayList<>(6);
     private Minimap minimap;
     /** The speed of time. 1 = real time;*/
     private float timespeed = 1;
