@@ -20,7 +20,7 @@ import com.badlogic.gdx.audio.Sound;
 public class CustomGameController extends Controller {
     private SpinningWheel spinningWheel;
     private int round = 1;
-    private final int roundLength = 10000;
+    private final int roundLength = 15000;
     private int roundTimer;
     private Weapon currentWeapon;
     
