@@ -48,10 +48,11 @@ public class Enemy extends AbstractCharacter{
             setMovementY((float) (dY/length));
             move(0.4f);
              
+            //attack
             if (Arrays.equals(target.getPos().getCoord().getRel(), getPos().getCoord().getRel())){
-                setMana((int) (getMana()-delta/10f));
-                if (getMana()<0){
-                    setMana(100);//reset
+                setMana((int) (getMana()+delta));
+                if (getMana()>=1000){
+                    setMana(0);//reset
                     target.damage(5);
                 }
             }

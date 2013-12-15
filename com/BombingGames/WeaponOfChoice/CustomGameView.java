@@ -41,12 +41,14 @@ public class CustomGameView extends View{
          Weapon weapon = controller.getCurrentWeapon();
          if (weapon != null)
             drawString("Shots: "+weapon.getShotsLoaded()+"/"+weapon.getShots(), Gdx.graphics.getWidth()-100, Gdx.graphics.getHeight()-100, Color.WHITE.cpy());
+         
         ShapeRenderer sh = getShapeRenderer();
+        //health
         sh.begin(ShapeRenderer.ShapeType.Filled);
         sh.setColor(
             new Color(
-                1-(controller.getPlayer().getHealt()/100f),
-                controller.getPlayer().getHealt()/100f,
+                1-(controller.getPlayer().getHealt()/1000f),
+                controller.getPlayer().getHealt()/1000f,
                 0,
                 1
             )
@@ -54,8 +56,32 @@ public class CustomGameView extends View{
         sh.rect(
             Gdx.graphics.getWidth()/2-100,
             10,
-            controller.getPlayer().getHealt()*2,
+            controller.getPlayer().getHealt()/10*2,
             50
+        );
+        sh.end();
+
+        
+        sh.begin(ShapeRenderer.ShapeType.Line);
+        sh.setColor(Color.BLACK);
+        sh.rect(Gdx.graphics.getWidth()/2-100, 10, 200, 50);
+        sh.end();
+        
+        //mana
+        sh.begin(ShapeRenderer.ShapeType.Filled);
+        sh.setColor(
+            new Color(
+                0,
+                0,
+                1,
+                1
+            )
+        );
+        sh.rect(
+            Gdx.graphics.getWidth()/2-100,
+            64,
+            controller.getPlayer().getMana()/10*2,
+            10
         );
         sh.end();
 

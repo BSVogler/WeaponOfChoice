@@ -117,7 +117,7 @@ public class CustomGameController extends Controller {
         }
         spinningWheel.update(delta);
         
-        if (getPlayer().getHealt() <= 0)
+        if (getPlayer().getHealt() <= 0 && !gameOver)
             gameOver();
         
         if (currentWeapon != null)

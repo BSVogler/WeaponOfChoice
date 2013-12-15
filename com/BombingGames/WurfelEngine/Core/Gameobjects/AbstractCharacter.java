@@ -35,8 +35,8 @@ public abstract class AbstractCharacter extends AbstractEntity {
 
 
    private boolean inliquid;
-   private int health = 100;
-   private int mana = 100;
+   private int health = 1000;
+   private int mana = 1000;
        
    private final CharacterShadow shadow;
    
@@ -407,12 +407,14 @@ public abstract class AbstractCharacter extends AbstractEntity {
     }
 
     public void damage(int value) {
-        if (damageSounds.length > 0 && soundlimit<=0) {
-            damageSounds[(int) (Math.random()*(damageSounds.length-1))].play(0.7f);
-            soundlimit = 100;
-        }
-        health -= value;
-        if (health <0)health=0;
+        if (health >0){
+            if (damageSounds.length > 0 && soundlimit<=0) {
+                damageSounds[(int) (Math.random()*(damageSounds.length-1))].play(0.7f);
+                soundlimit = 100;
+            }
+            health -= value;
+        } else
+            health=0;
     }
 
     public int getHealt() {
