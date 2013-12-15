@@ -60,6 +60,7 @@ public class Enemy extends AbstractCharacter{
                     if (getMana()>=1000){
                         setMana(0);//reset
                         target.damage(50);
+                        
                     }
                 }
             }
@@ -93,7 +94,7 @@ public class Enemy extends AbstractCharacter{
 
     @Override
     public float[] getAiming() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        throw new UnsupportedOperationException("Enemy can not aim at the moment.");
     }
 
     @Override
