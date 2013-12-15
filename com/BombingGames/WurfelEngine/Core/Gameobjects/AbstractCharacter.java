@@ -109,6 +109,12 @@ public abstract class AbstractCharacter extends AbstractEntity {
      */
     @Override
     public void update(float delta) {
+        //clamp health & mana
+        if (mana > 1000) mana = 1000;
+        if (health > 1000) health = 1000;
+        if (mana < 0) mana = 0;
+        if (health < 0) health = 0;
+        
         if (getPos().getCoord().onLoadedMap()) {
             //scale that the velocity vector is always an unit vector (only x and y)
             double vectorLenght = Math.sqrt(dir[0]*dir[0] + dir[1]*dir[1]);
