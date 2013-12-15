@@ -492,9 +492,33 @@ public class Map {
         for (AbstractEntity ent : entitylist) {
             if (Arrays.equals(
                     ent.getPos().getCoord().getRel(),
-                    coord.getRel())
+                    coord.getRel()
+                )
                 ){
                 list.add(ent);//add it to list
+            } 
+        }
+
+        return list;
+    }
+    
+      /**
+     * Get every entity on a coord of the wanted type
+     * @param <type>
+     * @param coord
+     * @param type
+     * @return a list with the entitys
+     */
+    public <type> ArrayList<type> getAllEntitysOnCoord(Coordinate coord, Class<type> type) {
+        ArrayList<type> list = new ArrayList<>();
+
+        for (AbstractEntity ent : entitylist) {
+            if (Arrays.equals(
+                    ent.getPos().getCoord().getRel(),
+                    coord.getRel()
+                ) && type.isInstance(ent)
+                ){
+                list.add((type) ent);//add it to list
             } 
         }
 
