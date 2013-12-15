@@ -125,16 +125,21 @@ public class Chunk {
                             data[x][y][z-1] = new Cell(8);
                         }else data[x][y][0] = new Cell(2);
                     }
-                int pillarx = (int) (Math.random()*blocksX-1);
-                int pillary = (int) (Math.random()*blocksY-1);
-                //pillar
-                for (int z=0; z < blocksZ-2; z++) data[pillarx][pillary][z] = new Cell(1);
+                for (int i = 0; i < 3; i++) {
+                    int pillarx = (int) (Math.random()*blocksX-1);
+                    int pillary = (int) (Math.random()*blocksY-1);
+                    
+                    //pillar                    
+                    for (int z=0; z < blocksZ-2; z++) data[pillarx][pillary][z] = new Cell(8,1);
+                                    //single block
+                    pillarx = (int) (Math.random()*blocksX-1);
+                    pillary = (int) (Math.random()*blocksY-1);
+                    //pillar
+                    data[pillarx][pillary][blocksZ/2] = new Cell(4);
+                }
+
                 
-                //single block
-                pillarx = (int) (Math.random()*blocksX-1);
-                pillary = (int) (Math.random()*blocksY-1);
-                //pillar
-                data[pillarx][pillary][blocksZ/2] = new Cell(4);
+
                 break;
             }
                 
