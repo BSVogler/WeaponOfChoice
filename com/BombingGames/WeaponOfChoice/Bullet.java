@@ -38,42 +38,33 @@ public class Bullet extends AbstractEntity {
             new float[]{
                 dir[0]*delta*speed,
                 dir[1]*delta*speed,
-                0
+                -delta/(float)maxDistance
             }
         );
         
-        //only exist 150 update calls then destroy self
-        distance += (Math.abs(dir[0])+Math.abs(dir[1]))*delta*speed;
-        if (distance > maxDistance)
-            destroy();
+//        //only exist 150 update calls then destroy self
+//        distance += (Math.abs(dir[0])+Math.abs(dir[1]))*delta*speed;
+//        if (distance > maxDistance)
+//            destroy();
         
-        if (getPos().onLoadedMap() && getPos().getBlockSafe().getId() != 0){
-            AbstractEntity flash = AbstractEntity.getInstance(15, 0, getPos().cpy());
-            flash.existNext();
-            destroy();
-        }
+//        if (getPos().onLoadedMap() && getPos().getBlockSafe().getId() != 0){
+//            AbstractEntity flash = AbstractEntity.getInstance(15, 0, getPos().cpy());
+//            flash.existNext();
+//            destroy();
+//        }
         
-        if (getPos().onLoadedMap() && getPos().getBlockSafe().getId() != 0){
+        //block hit
+        if (getPos().onLoadedMap() && getPos().getBlockSafe().isObstacle()){
             AbstractEntity.getInstance(15, 0, getPos().cpy()).existNext();
             destroy();
         }
         
         //check character hit
-         //get every character
-        ArrayList<AbstractCharacter> entitylist = Controller.getMap().getAllEntitysOfType(AbstractCharacter.class);
+         //get every character on this coordinate
+        ArrayList<AbstractCharacter> entitylist = Controller.getMap().getAllEntitysOnCoord(getPos().getCoord(), AbstractCharacter.class);
         entitylist.remove(parent);
-        
-        int[] coords = getPos().getCoord().getRel();
-        
-        //check every character if they are ina the same block
-        int i = 0;
-        while (i < entitylist.size() && !Arrays.equals( entitylist.get(i).getPos().getCoord().getRel(), coords)){
-            i++;
-        }
-        
-        //if enemy is hit
-        if (i < entitylist.size() && Arrays.equals(entitylist.get(i).getPos().getCoord().getRel(), coords)) {
-            entitylist.get(i).damage(damage);
+        if (!entitylist.isEmpty()) {
+            entitylist.get(0).damage(damage);
             AbstractEntity.getInstance(16, 0, getPos().cpy()).existNext();//spawn blood
             destroy();
         }
