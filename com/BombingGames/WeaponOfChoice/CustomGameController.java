@@ -24,15 +24,18 @@ public class CustomGameController extends Controller {
     private int roundTimer;
     private Weapon currentWeapon;
     private boolean gameOver;
+    private boolean cooldown = false;
     
         
     @Override
     public void init(){
         Gdx.app.log("CustomGameController", "Initializing");
-         Chunk.setGenerator(2);
-         super.init();
+        Chunk.setGenerator(2);
+        super.init();
+        
+        gameOver=false;
 
-         AbstractCharacter player = (AbstractCharacter) AbstractEntity.getInstance(
+        AbstractCharacter player = (AbstractCharacter) AbstractEntity.getInstance(
                 40,
                 0,
                 Map.getCenter(Map.getGameHeight())
@@ -76,54 +79,72 @@ public class CustomGameController extends Controller {
     
     @Override
     public void update(float delta){
-        //get input and do actions
-        Input input = Gdx.input;
-        
-        if (!GameplayScreen.msgSystem().isListeningForInput()) {
+        if (!gameOver){
+            float origidelta = delta;
+            delta *= getTimespeed();
 
-            //walk
-            if ("WASD".equals(getPlayer().getControls()))
-                getPlayer().walk(
-                    input.isKeyPressed(Input.Keys.W),
-                    input.isKeyPressed(Input.Keys.S),
-                    input.isKeyPressed(Input.Keys.A),
-                    input.isKeyPressed(Input.Keys.D),
-                    .25f+(input.isKeyPressed(Input.Keys.SHIFT_LEFT)? 0.75f: 0)
-                );
-            if (input.isKeyPressed(Input.Keys.SPACE)) getPlayer().jump();
-        }
-        
-        
-        roundTimer -= delta;
-        if (roundTimer <= 0){
-            //reset
-            roundTimer = roundLength;
-            round++;
-            GameplayScreen.msgSystem().add("New Round! Round:"+round, "Warning");
-            spinningWheel.spin();
-            
-            //spawn an enemy
-            for (int i = 0; i < round; i++) {
-                Coordinate randomPlace = new Coordinate(
-                    (int) (Map.getBlocksX()*Math.random()),
-                    (int) (Map.getBlocksY()*Math.random()),
-                    (float) Map.getGameHeight(),
-                    true);
-                Enemy enemy = (Enemy) AbstractCharacter.getInstance(14, 0,randomPlace.getPoint());
-                enemy.setTarget(getPlayer());
-                enemy.exist();
+            //get input and do actions
+            Input input = Gdx.input;
+
+            if (!GameplayScreen.msgSystem().isListeningForInput()) {
+
+                boolean running = false;
+                if (input.isKeyPressed(Input.Keys.SHIFT_LEFT) && getPlayer().getMana()>0 &&!cooldown){
+                    getPlayer().setMana((int) (getPlayer().getMana()-delta));
+                    running = true;
+                    if (getPlayer().getMana()<=0) cooldown=true;
+                }else {
+                    getPlayer().setMana((int) (getPlayer().getMana()+delta/2f));
+                }
+
+                if (getPlayer().getMana()>100) cooldown=false;
+
+
+                //walk
+                if ("WASD".equals(getPlayer().getControls()))
+                    getPlayer().walk(
+                        input.isKeyPressed(Input.Keys.W),
+                        input.isKeyPressed(Input.Keys.S),
+                        input.isKeyPressed(Input.Keys.A),
+                        input.isKeyPressed(Input.Keys.D),
+                        .25f+(running? 0.5f: 0)
+                    );
+                if (input.isKeyPressed(Input.Keys.SPACE)) getPlayer().jump();
             }
 
-        }
-        spinningWheel.update(delta);
-        
-        if (getPlayer().getHealt() <= 0 && !gameOver)
-            gameOver();
-        
-        if (currentWeapon != null)
-            currentWeapon.update(input.isButtonPressed(0), delta);
 
-        super.update(delta);
+
+            roundTimer -= delta;
+            if (roundTimer <= 0){
+                //reset
+                roundTimer = roundLength;
+                round++;
+                GameplayScreen.msgSystem().add("New Round! Round:"+round, "Warning");
+                spinningWheel.spin();
+
+                //spawn an enemy
+                for (int i = 0; i < round; i++) {
+                    Coordinate randomPlace = new Coordinate(
+                        (int) (Map.getBlocksX()*Math.random()),
+                        (int) (Map.getBlocksY()*Math.random()),
+                        (float) Map.getGameHeight(),
+                        true);
+                    Enemy enemy = (Enemy) AbstractCharacter.getInstance(14, 0,randomPlace.getPoint());
+                    enemy.setTarget(getPlayer());
+                    enemy.exist();
+                }
+
+            }
+            spinningWheel.update(origidelta);
+
+            if (getPlayer().getHealt() <= 0 && !gameOver)
+                gameOver();
+
+            if (currentWeapon != null)
+                currentWeapon.update(input.isButtonPressed(0), delta);
+
+            super.update(origidelta);
+        }
     }
 
     /**
