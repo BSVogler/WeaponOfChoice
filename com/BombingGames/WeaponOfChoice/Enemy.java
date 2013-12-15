@@ -37,42 +37,44 @@ public class Enemy extends AbstractCharacter{
 
     @Override
     public void update(float delta) {
-        //follow the target
-        if (target != null) {
-            
-            float dX = target.getPos().getAbsX()-getPos().getAbsX();
-            float dY = target.getPos().getAbsY()-getPos().getAbsY();
-            double length = Math.sqrt(dY*dY+dX*dX);
-            //update the movement vector
-            setMovementX((float) (dX/length));
-            setMovementY((float) (dY/length));
-            move(0.4f);
-             
-            //attack
-            if (Arrays.equals(target.getPos().getCoord().getRel(), getPos().getCoord().getRel())){
-                setMana((int) (getMana()+delta));
-                if (getMana()>=1000){
-                    setMana(0);//reset
-                    target.damage(50);
+        if (getPos().getCoord().onLoadedMap()) {
+            //follow the target
+            if (target != null) {
+
+                float dX = target.getPos().getAbsX()-getPos().getAbsX();
+                float dY = target.getPos().getAbsY()-getPos().getAbsY();
+                double length = Math.sqrt(dY*dY+dX*dX);
+                //update the movement vector
+                setMovementX((float) (dX/length));
+                setMovementY((float) (dY/length));
+                move(0.4f);
+
+                //attack
+                if (Arrays.equals(target.getPos().getCoord().getRel(), getPos().getCoord().getRel())){
+                    setMana((int) (getMana()+delta));
+                    if (getMana()>=1000){
+                        setMana(0);//reset
+                        target.damage(50);
+                    }
                 }
             }
-        }
-        //update as usual
-        super.update(delta);
-        
-        //if standing on same position as in last update
-        if (Arrays.equals(getPos().getRel(), lastPos))
-            runningagainstwallCounter += delta;
-        else {
-            runningagainstwallCounter=0;
-            lastPos = getPos().getRel();
-        }
-        
-        //jump after some time
-        if (runningagainstwallCounter > 500) {
-            jump();
-            setMana(0);
-            runningagainstwallCounter=0;
+            //update as usual
+            super.update(delta);
+
+            //if standing on same position as in last update
+            if (Arrays.equals(getPos().getRel(), lastPos))
+                runningagainstwallCounter += delta;
+            else {
+                runningagainstwallCounter=0;
+                lastPos = getPos().getRel();
+            }
+
+            //jump after some time
+            if (runningagainstwallCounter > 500) {
+                jump();
+                setMana(0);
+                runningagainstwallCounter=0;
+            }
         }
     }
 

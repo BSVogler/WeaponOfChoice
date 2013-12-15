@@ -2,6 +2,8 @@ package com.BombingGames.WeaponOfChoice;
 
 import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractCharacter;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractEntity;
+import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractGameObject;
+import com.BombingGames.WurfelEngine.Core.Map.Point;
 import com.BombingGames.WurfelEngine.Core.View;
 import com.BombingGames.WurfelEngine.WEMain;
 import com.badlogic.gdx.backends.openal.Wav.Sound;
@@ -247,11 +249,14 @@ public class Weapon {
         //shot bullets
         for (int i = 0; i < bps; i++) {
             Bullet bullet;
+            Point pos = character.getPos().cpy();
+            pos.setHeight(pos.getHeight()+AbstractGameObject.GAME_DIMENSION);
+            
             if (image <0){
-                bullet = (Bullet) AbstractEntity.getInstance(12, 0, character.getPos().cpy());
+                bullet = (Bullet) AbstractEntity.getInstance(12, 0, pos);
                 bullet.setHidden(true);
             } else{
-                bullet = (Bullet) AbstractEntity.getInstance(12, image, character.getPos().cpy());
+                bullet = (Bullet) AbstractEntity.getInstance(12, image, pos);
             }
             
             float[] aiming = character.getAiming();
