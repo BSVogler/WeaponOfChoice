@@ -8,7 +8,6 @@ import com.BombingGames.WurfelEngine.Core.Gameobjects.Player;
 import com.BombingGames.WurfelEngine.WEMain;
 import com.badlogic.gdx.audio.Sound;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  *
@@ -34,25 +33,21 @@ public class Bullet extends AbstractEntity {
    
     @Override
     public void update(float delta) {
-        getPos().addVector(
-            new float[]{
-                dir[0]*delta*speed,
-                dir[1]*delta*speed,
-                -delta/(float)maxDistance
-            }
-        );
+        dir[2]=-delta/(float)maxDistance;
         
-//        //only exist 150 update calls then destroy self
-//        distance += (Math.abs(dir[0])+Math.abs(dir[1]))*delta*speed;
-//        if (distance > maxDistance)
-//            destroy();
+        float[] mov = new float[]{
+            dir[0]*delta*speed,
+            dir[1]*delta*speed,
+            dir[2]
+        };
+            
+        getPos().addVector(mov);
         
-//        if (getPos().onLoadedMap() && getPos().getBlockSafe().getId() != 0){
-//            AbstractEntity flash = AbstractEntity.getInstance(15, 0, getPos().cpy());
-//            flash.existNext();
-//            destroy();
-//        }
-        
+        //only exist specific distance then destroy self
+        distance += Math.sqrt(Math.abs(mov[0])+Math.abs(mov[1])+Math.abs(mov[2]))*delta*speed;
+        if (isHidden() && distance > 400)
+            destroy();
+                
         //block hit
         if (getPos().onLoadedMap() && getPos().getBlockSafe().isObstacle()){
             AbstractEntity.getInstance(15, 0, getPos().cpy()).existNext();

@@ -54,7 +54,8 @@ public class Player extends AbstractCharacter{
        float length = (float) Math.sqrt( Math.pow(deltaX,2)+ Math.pow(deltaY,2));
         return new float[]{
             deltaX/length,
-            deltaY*2/length
+            deltaY*2/length,
+            0
         };
     }
 }
