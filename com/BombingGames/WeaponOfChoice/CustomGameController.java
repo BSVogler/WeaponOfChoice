@@ -27,6 +27,8 @@ public class CustomGameController extends Controller {
     private boolean gameOver;
     private boolean cooldown = false;
     private Music music;
+    private long startingTime;
+    private long survivedSeconds;
     
         
     @Override
@@ -79,6 +81,8 @@ public class CustomGameController extends Controller {
         spinningWheel.add(new Weapon(7, null));
         spinningWheel.spin();
         
+        startingTime = System.currentTimeMillis();
+        
         //useLightEngine(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
     }
 
@@ -125,10 +129,11 @@ public class CustomGameController extends Controller {
                 //reset
                 roundTimer = roundLength;
                 round++;
-                GameplayScreen.msgSystem().add("New Round! Round:"+round, "Warning");
+                GameplayScreen.msgSystem().add("New Round! Round: "+round, "Warning");
                 spinningWheel.spin();
 
                 //spawn an enemy
+                GameplayScreen.msgSystem().add("Spawning "+(round-1) +" enemys.", "Warning");
                 for (int i = 0; i < round; i++) {
                     Coordinate randomPlace = new Coordinate(
                         (int) (Map.getBlocksX()*Math.random()),
@@ -174,6 +179,9 @@ public class CustomGameController extends Controller {
     public void gameOver(){
         gameOver = true;
         ((Sound) WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/dead.ogg")).play();
+        survivedSeconds =(System.currentTimeMillis()-startingTime)/1000;
+        Gdx.app.error("Game over:", "Time:"+survivedSeconds);
+        
         getPlayer().destroy();
     }
 
@@ -188,6 +196,8 @@ public class CustomGameController extends Controller {
     public int getRound() {
         return round;
     }
-    
-    
+
+    public long getSurvivedSeconds() {
+        return survivedSeconds;
+    }
 }
