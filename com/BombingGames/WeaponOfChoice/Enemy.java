@@ -13,7 +13,7 @@ import java.util.Arrays;
 public class Enemy extends AbstractCharacter{
     private AbstractCharacter target;
     private int runningagainstwallCounter = 0;
-    private Point lastPos;
+    private float[] lastPos;
     
     /**
      * Zombie constructor. Use AbstractEntitiy.getInstance to create an zombie.
@@ -53,7 +53,7 @@ public class Enemy extends AbstractCharacter{
                 setMana((int) (getMana()+delta));
                 if (getMana()>=1000){
                     setMana(0);//reset
-                    target.damage(5);
+                    target.damage(50);
                 }
             }
         }
@@ -61,16 +61,17 @@ public class Enemy extends AbstractCharacter{
         super.update(delta);
         
         //if standing on same position as in last update
-        if (getPos().equals(lastPos))
+        if (Arrays.equals(getPos().getRel(), lastPos))
             runningagainstwallCounter += delta;
         else {
             runningagainstwallCounter=0;
-            lastPos = getPos().cpy();
+            lastPos = getPos().getRel();
         }
         
-        //jump after one second
-        if (runningagainstwallCounter > 50) {
+        //jump after some time
+        if (runningagainstwallCounter > 500) {
             jump();
+            setMana(0);
             runningagainstwallCounter=0;
         }
     }
@@ -85,6 +86,6 @@ public class Enemy extends AbstractCharacter{
 
     @Override
     public float[] getAiming() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
