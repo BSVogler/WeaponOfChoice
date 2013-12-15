@@ -241,7 +241,14 @@ public class Weapon {
         shotsLoaded--;
         
         for (int i = 0; i < bps; i++) {
-            Bullet bullet = (Bullet) AbstractEntity.getInstance(12, 0, character.getPos().cpy());
+            Bullet bullet;
+            if (image <0){
+                bullet = (Bullet) AbstractEntity.getInstance(12, 0, character.getPos().cpy());
+                bullet.setHidden(true);
+            } else{
+                bullet = (Bullet) AbstractEntity.getInstance(12, image, character.getPos().cpy());
+            }
+            
             float[] aiming = character.getAiming();
             aiming[0] *= Math.random() * (spread*2) + 1-spread;
             aiming[1] *= Math.random() * (spread*2) + 1-spread;
