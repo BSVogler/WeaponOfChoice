@@ -128,7 +128,7 @@ public class Weapon {
                 shots = 25;
                 distance = 10;
                 bps = 1;
-                spread = 0.15f;
+                spread = 0.08f;
                 damage = 400;
                 image = 0;
                 
@@ -162,6 +162,7 @@ public class Weapon {
                 damage = 100;
                 image = 2;
                 explode = 2;
+                spread = 0.1f;
                 
                 fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/fire.wav");
                 reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
@@ -174,7 +175,7 @@ public class Weapon {
                 shots = 50;
                 distance = 3;
                 bps = 5;
-                spread = 0.6f;
+                spread = 0.4f;
                 damage = 200;
                 image = 1;
                 
@@ -260,8 +261,8 @@ public class Weapon {
             }
             
             float[] aiming = character.getAiming();
-            aiming[0] *= Math.random() * (spread*2) + 1-spread;
-            aiming[1] *= Math.random() * (spread*2) + 1-spread;
+            aiming[0] += Math.random() * (spread*2) -spread;
+            aiming[1] += Math.random() * (spread*2) -spread;
             bullet.setDirection(
                 aiming
             );
