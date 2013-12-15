@@ -81,28 +81,15 @@ public class CustomGameController extends Controller {
         if (!GameplayScreen.msgSystem().isListeningForInput()) {
 
             //walk
-            if (getPlayer() != null){
-                if ("WASD".equals(getPlayer().getControls()))
-                    getPlayer().walk(
-                        input.isKeyPressed(Input.Keys.W),
-                        input.isKeyPressed(Input.Keys.S),
-                        input.isKeyPressed(Input.Keys.A),
-                        input.isKeyPressed(Input.Keys.D),
-                        .25f+(input.isKeyPressed(Input.Keys.SHIFT_LEFT)? 0.75f: 0)
-                    );
-                if (input.isKeyPressed(Input.Keys.SPACE)) getPlayer().jump();
-            } else {
-                //update camera position
-                WECamera camera = getCameras().get(0);
-                camera.setOutputPosY( camera.getOutputPosY()
-                    - (input.isKeyPressed(Input.Keys.W)? 3: 0)
-                    + (input.isKeyPressed(Input.Keys.S)? 3: 0)
+            if ("WASD".equals(getPlayer().getControls()))
+                getPlayer().walk(
+                    input.isKeyPressed(Input.Keys.W),
+                    input.isKeyPressed(Input.Keys.S),
+                    input.isKeyPressed(Input.Keys.A),
+                    input.isKeyPressed(Input.Keys.D),
+                    .25f+(input.isKeyPressed(Input.Keys.SHIFT_LEFT)? 0.75f: 0)
                 );
-                camera.setOutputPosX( camera.getOutputPosX()
-                    + (input.isKeyPressed(Input.Keys.D)? 3: 0)
-                    - (input.isKeyPressed(Input.Keys.A)? 3: 0)
-                );
-            }
+            if (input.isKeyPressed(Input.Keys.SPACE)) getPlayer().jump();
         }
         
         
@@ -129,8 +116,10 @@ public class CustomGameController extends Controller {
         }
         spinningWheel.update(delta);
         
+        if 
+        
         if (currentWeapon != null)
-        currentWeapon.update(input.isButtonPressed(0), delta);
+            currentWeapon.update(input.isButtonPressed(0), delta);
 
         super.update(delta);
     }
@@ -149,5 +138,10 @@ public class CustomGameController extends Controller {
 
     public Weapon getCurrentWeapon() {
         return currentWeapon;
+    }
+    
+    public void gameOver(){
+        
+        getPlayer().destroy();
     }
 }
