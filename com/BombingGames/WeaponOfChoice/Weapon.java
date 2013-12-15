@@ -36,7 +36,8 @@ public class Weapon {
     private int bps;//bullets per shot
     private float spread;
     private int damage;
-    private int image;
+    private int bulletSprite;
+    private int impactSprite;
     
     private int shotsLoaded;
     private int reloading;
@@ -69,7 +70,8 @@ public class Weapon {
                 bps = 10;
                 spread = 0.5f;
                 damage = 1000;
-                image = -1;
+                bulletSprite = -1;
+                impactSprite=15;
                 
                 fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/melee.wav");
                 reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/wiz.wav"); 
@@ -84,7 +86,8 @@ public class Weapon {
                 bps = 1;
                 spread = 0.1f;
                 damage = 800;
-                image = 0;
+                bulletSprite = 0;
+                impactSprite=19;
                 
                 
                 fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
@@ -99,8 +102,9 @@ public class Weapon {
                 distance = 0;
                 bps = 10;
                 spread = 0.4f;
-                image = -1;
+                bulletSprite = -1;
                 damage = 500;
+                impactSprite=15;
                 
                 fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/punch.wav");
                 //reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/melee.wav"); 
@@ -115,7 +119,8 @@ public class Weapon {
                 bps = 20;
                 spread = 0.2f;
                 damage = 400;
-                image = 0;
+                bulletSprite = 0;
+                impactSprite=19;
                 
                 fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shotgun.wav");
                 reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
@@ -130,7 +135,8 @@ public class Weapon {
                 bps = 1;
                 spread = 0.08f;
                 damage = 400;
-                image = 0;
+                bulletSprite = 0;
+                impactSprite=19;
                 
                 fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/bust.wav");
                 reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
@@ -141,12 +147,13 @@ public class Weapon {
                 delay = 900;
                 relodingTime =500;
                 shots = 1;
-                distance = 7;
+                distance = 4;
                 bps = 1;
                 spread = 0.2f;
                 damage = 200;
-                image = 3;
+                bulletSprite = 3;
                 explode = 1;
+                impactSprite=19;
                 
                 fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/poop.wav");
                 //reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
@@ -157,12 +164,13 @@ public class Weapon {
                 delay = 0;
                 relodingTime =1500;
                 shots = 1;
-                distance = 6;
+                distance = 5;
                 bps = 1;
                 damage = 100;
-                image = 2;
+                bulletSprite = 2;
                 explode = 2;
                 spread = 0.1f;
+                impactSprite=19;
                 
                 fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/fire.wav");
                 reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
@@ -177,7 +185,8 @@ public class Weapon {
                 bps = 5;
                 spread = 0.4f;
                 damage = 200;
-                image = 1;
+                bulletSprite = 1;
+                impactSprite=18;
                 
                 fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/fire.wav");
                 reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
@@ -253,11 +262,11 @@ public class Weapon {
             Point pos = character.getPos().cpy();
             pos.setHeight(pos.getHeight()+AbstractGameObject.GAME_DIMENSION);
             
-            if (image <0){
+            if (bulletSprite <0){
                 bullet = (Bullet) AbstractEntity.getInstance(12, 0, pos);
                 bullet.setHidden(true);
             } else{
-                bullet = (Bullet) AbstractEntity.getInstance(12, image, pos);
+                bullet = (Bullet) AbstractEntity.getInstance(12, bulletSprite, pos);
             }
             
             float[] aiming = character.getAiming();
@@ -271,6 +280,7 @@ public class Weapon {
             bullet.setParent(character);
             bullet.setDamage(damage);
             bullet.setExplosive(explode);
+            bullet.setImpactSprite(impactSprite);
             bullet.exist(); 
         }
 

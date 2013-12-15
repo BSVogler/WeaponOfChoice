@@ -22,6 +22,7 @@ public class Bullet extends AbstractEntity {
     private AbstractCharacter parent;//no self shooting
     private int maxDistance = 1000;//default maxDistance
     private int explosive = 0;
+    private int impactSprite;
     
    public Bullet(int id){
        super(id);
@@ -50,7 +51,7 @@ public class Bullet extends AbstractEntity {
                 
         //block hit
         if (getPos().onLoadedMap() && getPos().getBlockSafe().isObstacle()){
-            AbstractEntity.getInstance(15, 0, getPos().cpy()).existNext();
+            AbstractEntity.getInstance(impactSprite, 0, getPos().cpy()).existNext();
             destroy();
         }
         
@@ -134,5 +135,9 @@ public class Bullet extends AbstractEntity {
     public void destroy() {
         if (explosive>0) explode();
         super.destroy();
+    }
+
+    void setImpactSprite(int hitSprite) {
+        impactSprite = hitSprite;
     }
 }

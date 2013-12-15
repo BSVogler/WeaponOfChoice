@@ -240,6 +240,9 @@
             <filename>sprites prelit/e12-1.png</filename>
             <filename>sprites prelit/e12-2.png</filename>
             <filename>sprites prelit/e12-3.png</filename>
+            <filename>sprites prelit/b71-1.png</filename>
+            <filename>sprites prelit/e18-0.png</filename>
+            <filename>sprites prelit/e19-0.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
