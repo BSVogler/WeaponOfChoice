@@ -23,6 +23,7 @@ public class CustomGameController extends Controller {
     private final int roundLength = 15000;
     private int roundTimer;
     private Weapon currentWeapon;
+    private boolean gameOver;
     
         
     @Override
@@ -116,7 +117,8 @@ public class CustomGameController extends Controller {
         }
         spinningWheel.update(delta);
         
-        if 
+        if (getPlayer().getHealt() <= 0)
+            gameOver();
         
         if (currentWeapon != null)
             currentWeapon.update(input.isButtonPressed(0), delta);
@@ -141,7 +143,11 @@ public class CustomGameController extends Controller {
     }
     
     public void gameOver(){
-        
+        gameOver = true;
         getPlayer().destroy();
+    }
+
+    public boolean isGameOver() {
+        return gameOver;
     }
 }

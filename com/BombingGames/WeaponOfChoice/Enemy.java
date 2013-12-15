@@ -14,7 +14,6 @@ public class Enemy extends AbstractCharacter{
     private AbstractCharacter target;
     private int runningagainstwallCounter = 0;
     private Point lastPos;
-    private int damageReload;
     
     /**
      * Zombie constructor. Use AbstractEntitiy.getInstance to create an zombie.
@@ -50,9 +49,9 @@ public class Enemy extends AbstractCharacter{
             move(0.4f);
              
             if (Arrays.equals(target.getPos().getCoord().getRel(), getPos().getCoord().getRel())){
-                damageReload -= delta;
-                if (damageReload<0){
-                    damageReload=1000;//reset
+                setMana((int) (getMana()-delta/10f));
+                if (getMana()<0){
+                    setMana(100);//reset
                     target.damage(5);
                 }
             }

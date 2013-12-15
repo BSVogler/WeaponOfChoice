@@ -36,6 +36,7 @@ public abstract class AbstractCharacter extends AbstractEntity {
 
    private boolean inliquid;
    private int health = 100;
+   private int mana = 100;
        
    private final CharacterShadow shadow;
    
@@ -416,5 +417,13 @@ public abstract class AbstractCharacter extends AbstractEntity {
 
     public int getHealt() {
        return health;
+    }
+
+    public int getMana() {
+        return mana;
+    }
+
+    public void setMana(int mana) {
+        this.mana = mana;
     }
 }
