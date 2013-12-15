@@ -3,6 +3,9 @@ package com.BombingGames.WeaponOfChoice;
 import com.BombingGames.WurfelEngine.Core.Controller;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractCharacter;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractEntity;
+import com.BombingGames.WurfelEngine.Core.Gameobjects.Block;
+import com.BombingGames.WurfelEngine.WEMain;
+import com.badlogic.gdx.audio.Sound;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -11,16 +14,22 @@ import java.util.Arrays;
  * @author Benedikt Vogler
  */
 public class Bullet extends AbstractEntity {
-    private float[] dir = new float[3];
+    private static Sound explosionsound;
+    private float[] dir = new float[3];//movement
     private float speed;
     private int damage;
-    private int distance =0;
-    private AbstractCharacter parent;
-    private int maxDistance = 1000;
+    private int distance =0;//distance traveled
+    private AbstractCharacter parent;//no self shooting
+    private int maxDistance = 1000;//default maxDistance
+    private int explosive = 0;
     
    public Bullet(int id){
        super(id);
    } 
+   
+    public static void init(){
+        if (explosionsound == null) explosionsound = WEMain.getInstance().manager.get("com/BombingGames/WurfelEngine/Game/Sounds/explosion2.ogg");
+    }
    
     @Override
     public void update(float delta) {
@@ -87,5 +96,49 @@ public class Bullet extends AbstractEntity {
 
     public void setDamage(int damage) {
         this.damage = damage;
+    }
+    
+    public void setExplosive(int ex){
+        explosive = ex;
+    }
+    
+      /**
+     * Explodes the barrel.
+     */
+    private void explode(){
+        for (int x=-explosive; x<explosive; x++)
+            for (int y=-explosive*2; y<explosive*2; y++)
+                for (int z=-explosive; z<explosive; z++){
+                    //place air
+                     if (x*x + (y/2)*(y/2)+ z*z < explosive*explosive){
+                        Controller.getMap().setDataSafe(
+                            getPos().getCoord().cpy().addVector(new float[]{x, y, z}).getCoord() , Block.getInstance(0)
+                        );
+                     }
+                }
+        
+         for (int x=-explosive; x<explosive; x++)
+            for (int y=-explosive*2; y<explosive*2; y++)
+                for (int z=-explosive; z<explosive; z++){
+                    
+                    //spawn effect
+                    if (x*x + (y/2)*(y/2)+ z*z >= explosive*explosive-4 &&
+                        x*x + (y/2)*(y/2)+ z*z <= explosive*explosive){
+                        AbstractEntity.getInstance(
+                            41,
+                            0,
+                            getPos().getCoord().cpy().addVector(new float[]{x, y, z}).getPoint()
+                        ).existNext();
+                    }
+                }
+         if (explosionsound != null) explosionsound.play();
+         Controller.requestRecalc();
+    }
+
+    
+    @Override
+    public void destroy() {
+        if (explosive>0) explode();
+        super.destroy();
     }
 }

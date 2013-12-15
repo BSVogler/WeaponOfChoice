@@ -55,6 +55,7 @@ public class CustomGameController extends Controller {
             )
         );
         Weapon.init();
+        Bullet.init();
         
         roundTimer = roundLength;
         spinningWheel = new SpinningWheel(this);

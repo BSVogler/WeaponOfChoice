@@ -3,6 +3,7 @@ package com.BombingGames.WurfelEngine.Core.Gameobjects;
 import com.BombingGames.WurfelEngine.Core.Controller;
 import com.BombingGames.WurfelEngine.Core.Map.AbstractPosition;
 import com.BombingGames.WurfelEngine.Core.Map.Coordinate;
+import com.BombingGames.WurfelEngine.WEMain;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Sound;
 
@@ -26,7 +27,7 @@ public class ExplosiveBarrel extends Block implements IsSelfAware {
         if (coords == null) throw new NullPointerException("No coordinates given to ExplosiveBarrel during creation."); 
         this.coords = coords;
         setObstacle(true);
-        if (explosionsound == null) explosionsound = Gdx.audio.newSound(Gdx.files.internal("com/BombingGames/WurfelEngine/Game/Sounds/explosion2.ogg"));
+        if (explosionsound == null) explosionsound = WEMain.getInstance().manager.get("com/BombingGames/WurfelEngine/Game/Sounds/explosion2.ogg");
     }
     
     /**

@@ -51,6 +51,7 @@ public class Weapon {
             }
         }
     }
+    private int explode;
     
     public Weapon(int id, AbstractCharacter character) {
         this.id = id;
@@ -99,7 +100,7 @@ public class Weapon {
                 image = -1;
                 
                 fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/punch.wav");
-                reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/melee.wav"); 
+                //reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/melee.wav"); 
             break;
                 
             case 3:
@@ -142,9 +143,10 @@ public class Weapon {
                 spread = 0.2f;
                 damage = 20;
                 image = 3;
+                explode = 1;
                 
                 fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/poop.wav");
-                reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
+                //reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;
                 
             case 6:
@@ -156,6 +158,7 @@ public class Weapon {
                 bps = 1;
                 damage = 100;
                 image = 2;
+                explode = 3;
                 
                 fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
                 reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
@@ -240,6 +243,7 @@ public class Weapon {
         shooting = delay;
         shotsLoaded--;
         
+        //shot bullets
         for (int i = 0; i < bps; i++) {
             Bullet bullet;
             if (image <0){
@@ -259,6 +263,7 @@ public class Weapon {
             bullet.setMaxDistance(distance*100+100);
             bullet.setParent(character);
             bullet.setDamage(damage);
+            bullet.setExplosive(explode);
             bullet.exist(); 
         }
 
@@ -266,7 +271,7 @@ public class Weapon {
     
     public void reload(){
         reloading =relodingTime;
-        reload.play();
+        if (reload != null) reload.play();
     }
 
     public int getShotsLoaded() {
