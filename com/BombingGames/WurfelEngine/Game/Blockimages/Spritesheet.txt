@@ -4,7 +4,7 @@ filter: Linear,Linear
 repeat: none
 e14-2
   rotate: false
-  xy: 591, 558
+  xy: 605, 558
   size: 124, 94
   orig: 160, 160
   offset: 19, 13
@@ -74,7 +74,7 @@ e40-5
   index: -1
 e14-3
   rotate: false
-  xy: 716, 558
+  xy: 730, 558
   size: 90, 96
   orig: 160, 160
   offset: 31, 4
@@ -137,7 +137,7 @@ e40-6
   index: -1
 e14-4
   rotate: false
-  xy: 807, 558
+  xy: 821, 558
   size: 124, 94
   orig: 160, 160
   offset: 17, 13
@@ -208,8 +208,8 @@ b4-0-2
 e12-1
   rotate: false
   xy: 250, 558
-  size: 36, 36
-  orig: 36, 36
+  size: 50, 50
+  orig: 50, 50
   offset: 0, 0
   index: -1
 e40-7
@@ -263,7 +263,7 @@ b5-0-0
   index: -1
 e12-2
   rotate: false
-  xy: 287, 558
+  xy: 301, 558
   size: 10, 9
   orig: 10, 9
   offset: 0, 0
@@ -326,7 +326,7 @@ b5-0-1
   index: -1
 e14-0
   rotate: false
-  xy: 331, 558
+  xy: 345, 558
   size: 114, 68
   orig: 160, 160
   offset: 23, 17
@@ -347,7 +347,7 @@ b8-0-2
   index: -1
 e12-3
   rotate: false
-  xy: 298, 558
+  xy: 312, 558
   size: 32, 34
   orig: 50, 50
   offset: 8, 7
@@ -410,7 +410,7 @@ e40-3
   index: -1
 e14-1
   rotate: false
-  xy: 446, 558
+  xy: 460, 558
   size: 144, 68
   orig: 160, 160
   offset: 15, 21
