@@ -54,7 +54,7 @@ public abstract class AbstractEntity extends AbstractGameObject implements IsSel
         OFFSET[14][2][1] = 10;
         OFFSET[14][3][1] = 10;
         OFFSET[14][4][1] = 10;
-        OFFSET[14][5][1] = 10;
+        OFFSET[14][5][1] = 25;
         OFFSET[14][6][1] = 10;
         OFFSET[14][7][1] = 10;
         OFFSET[14][8][1] = 10;
@@ -62,7 +62,7 @@ public abstract class AbstractEntity extends AbstractGameObject implements IsSel
         OFFSET[14][10][1] = 10;
         OFFSET[14][11][1] = 10;
         OFFSET[14][12][1] = 10;
-        OFFSET[14][13][1] = 10;
+        OFFSET[14][13][1] = 25;
         OFFSET[14][14][1] = 10;
         OFFSET[14][15][1] = 10;
         
