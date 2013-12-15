@@ -26,7 +26,7 @@
             </struct>
         </array>
         <key>allowRotation</key>
-        <true/>
+        <false/>
         <key>premultiplyAlpha</key>
         <false/>
         <key>shapeDebug</key>
@@ -54,7 +54,7 @@
             </struct>
         </struct>
         <key>shapePadding</key>
-        <uint>1</uint>
+        <uint>2</uint>
         <key>jpgQuality</key>
         <uint>80</uint>
         <key>pngOptimizationLevel</key>
@@ -64,7 +64,7 @@
         <key>textureFormat</key>
         <enum type="SettingsBase::TextureFormat">png</enum>
         <key>borderPadding</key>
-        <uint>0</uint>
+        <uint>2</uint>
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
@@ -75,9 +75,9 @@
         <key>fixedTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>-1</int>
+            <int>2048</int>
             <key>height</key>
-            <int>-1</int>
+            <int>2048</int>
         </QSize>
         <key>reduceBorderArtifacts</key>
         <false/>
@@ -243,6 +243,17 @@
             <filename>sprites prelit/b71-1.png</filename>
             <filename>sprites prelit/e18-0.png</filename>
             <filename>sprites prelit/e19-0.png</filename>
+            <filename>sprites prelit/b8-1-0.png</filename>
+            <filename>sprites prelit/b8-1-1.png</filename>
+            <filename>sprites prelit/b8-1-2.png</filename>
+            <filename>sprites prelit/e14-8.png</filename>
+            <filename>sprites prelit/e14-9.png</filename>
+            <filename>sprites prelit/e14-10.png</filename>
+            <filename>sprites prelit/e14-11.png</filename>
+            <filename>sprites prelit/e14-12.png</filename>
+            <filename>sprites prelit/e14-13.png</filename>
+            <filename>sprites prelit/e14-14.png</filename>
+            <filename>sprites prelit/e14-15.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

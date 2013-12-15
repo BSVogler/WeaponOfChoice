@@ -196,6 +196,17 @@ public abstract class AbstractCharacter extends AbstractEntity {
                     }
                 }
             }
+            
+            if (SPRITESPERDIR==2){
+                //animation
+                walkingAnimationCounter += delta*speed;
+                 if (walkingAnimationCounter > 200) walkingAnimationCounter=0;    
+
+                if (walkingAnimationCounter >100) setValue(getValue()+8);
+                else setValue(getValue());   
+
+            }
+            
             if (SPRITESPERDIR==3){
                 //animation
                 walkingAnimationCounter += delta*speed*4;

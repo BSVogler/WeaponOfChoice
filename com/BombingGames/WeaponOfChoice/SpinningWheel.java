@@ -20,8 +20,8 @@ public class SpinningWheel extends ArrayList<Weapon> {
     private final int spintime = 5000;
     private int timer;
     private int currentRandom;
-    private int wheelSpeed;
-    private int wheelTimer;
+    private float wheelSpeed;
+    private float wheelTimer;
 
     public SpinningWheel(CustomGameController ctlr) {
         controller = ctlr;
@@ -41,7 +41,6 @@ public class SpinningWheel extends ArrayList<Weapon> {
         controller.setTimespeed(0.3f);
         wheelSpeed=1;
         wheelTimer=1;
-
     }
     
     public void update(float delta){
@@ -57,10 +56,10 @@ public class SpinningWheel extends ArrayList<Weapon> {
                 controller.getMusic().setVolume(1f);
             }
 
-            wheelSpeed += 1+ delta/1000f;//time to pass before new random item get's bigger
+            wheelSpeed *= 1+ delta/400f;//time to pass before new random item get's bigger
             
-            if (wheelSpeed >500)
-                wheelSpeed=5000;//stop it
+            if (wheelSpeed >1000)
+                wheelSpeed=50000;//stop it
             
             wheelTimer -= delta;
             if (wheelTimer <= 0){
@@ -72,13 +71,23 @@ public class SpinningWheel extends ArrayList<Weapon> {
         
     public void render(View view){
         if (visible){
-            
-            Sprite sprite = new Sprite(Weapon.getSpritesheetBig().findRegion("canvas"));
+            Sprite sprite;
+            sprite = new Sprite(Weapon.getSpritesheetBig().findRegion("canvas"));
             sprite.setX(Gdx.graphics.getWidth()/2-30*Weapon.getScaling());
             sprite.setY(Gdx.graphics.getHeight()/2-30*Weapon.getScaling());
             sprite.scale(Weapon.getScaling());
             sprite.draw(view.getBatch());
             
+            if (controller.getRound()==1){
+                sprite = new Sprite(Weapon.getSpritesheetBig().findRegion("warmup"));
+            } else {
+                sprite = new Sprite(Weapon.getSpritesheetBig().findRegion("newround"));
+            }
+                sprite.setX(Gdx.graphics.getWidth()/2 - sprite.getWidth()/2);
+                sprite.setY(Gdx.graphics.getHeight()/2-200);
+                sprite.scale(Weapon.getScaling());
+                sprite.draw(view.getBatch());
+                
             get(currentRandom).renderBig(view,
                 Gdx.graphics.getWidth()/2-25*Weapon.getScaling(),
                 Gdx.graphics.getHeight()/2-25*Weapon.getScaling()

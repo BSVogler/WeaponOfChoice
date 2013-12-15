@@ -184,6 +184,10 @@ public class CustomGameController extends Controller {
     public Music getMusic() {
         return music;
     }
+
+    public int getRound() {
+        return round;
+    }
     
     
 }
