@@ -55,6 +55,7 @@ public class LoadingController {
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/impactFlesh.wav", Sound.class);
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/fire.wav", Sound.class);
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/poop.wav", Sound.class);
+        manager.load("com/BombingGames/WeaponOfChoice/Sounds/thump.wav", Sound.class);
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/music.ogg", Music.class);
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/dead.ogg", Sound.class);
         //manager.load("com/BombingGames/WurfelEngine/Core/arial.fnt", BitmapFont.class);

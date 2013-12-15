@@ -172,7 +172,7 @@ public class Weapon {
                 spread = 0.1f;
                 impactSprite=19;
                 
-                fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/fire.wav");
+                fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/thump.wav");
                 reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;
                 
