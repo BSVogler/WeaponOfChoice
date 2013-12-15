@@ -147,10 +147,10 @@ public class Weapon {
                 delay = 900;
                 relodingTime =500;
                 shots = 1;
-                distance = 4;
+                distance = 3;
                 bps = 1;
                 spread = 0.2f;
-                damage = 200;
+                damage = 400;
                 bulletSprite = 3;
                 explode = 1;
                 impactSprite=19;
