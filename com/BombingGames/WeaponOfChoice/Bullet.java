@@ -122,10 +122,10 @@ public class Bullet extends AbstractEntity {
                             getPos().getCoord().cpy().addVector(new float[]{x, y, z}).getPoint()
                         );
                         effect.existNext();
-                        ArrayList<AbstractEntity> list = Controller.getMap().getAllEntitysOnCoord(effect.getPos().getCoord());
-                        for (AbstractEntity ent : list) {
-                            if ((ent instanceof AbstractCharacter) && ! (ent instanceof Player))
-                                ((AbstractCharacter) ent).damage(100);
+                        ArrayList<AbstractCharacter> list = Controller.getMap().getAllEntitysOnCoord(effect.getPos().getCoord(), AbstractCharacter.class);
+                        for (AbstractCharacter ent : list) {
+                            if (!(ent instanceof Player))
+                                ent.damage(1000);
                         }
                     }
                     
