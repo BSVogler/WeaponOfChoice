@@ -69,16 +69,16 @@ public class SpinningWheel extends ArrayList<Weapon> {
     public void render(View view){
         if (visible){
             
-            get(currentRandom).renderBig(view,
-                Gdx.graphics.getWidth()/2-25*Weapon.getScaling(),
-                Gdx.graphics.getHeight()/2-25*Weapon.getScaling()
-            );
-
             Sprite sprite = new Sprite(Weapon.getSpritesheetBig().findRegion("canvas"));
             sprite.setX(Gdx.graphics.getWidth()/2-30*Weapon.getScaling());
             sprite.setY(Gdx.graphics.getHeight()/2-30*Weapon.getScaling());
             sprite.scale(Weapon.getScaling());
             sprite.draw(view.getBatch());
+            
+            get(currentRandom).renderBig(view,
+                Gdx.graphics.getWidth()/2-25*Weapon.getScaling(),
+                Gdx.graphics.getHeight()/2-25*Weapon.getScaling()
+            );
         }
         if (current>-1)
             get(current).renderBig(view,
