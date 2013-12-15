@@ -62,7 +62,7 @@ public class Chunk {
     private void generate(int pos, int coordX, int coordY){
         //chunkdata will contain the blocks and objects
         //alternative to chunkdata.length ChunkBlocks
-        GameplayScreen.msgSystem().add("Creating new chunk: "+coordX+", "+ coordY);
+        //GameplayScreen.msgSystem().add("Creating new chunk: "+coordX+", "+ coordY);
         switch (generator){
             case 0:{//random pillars
                 for (int x=0; x < blocksX; x++){
@@ -250,7 +250,7 @@ public class Chunk {
             FileHandle path = Gdx.files.internal("map/chunk"+coordX+","+coordY+"."+CHUNKFILESUFFIX);
             
             Gdx.app.log("Map","Trying to load Chunk: "+ coordX + ", "+ coordY + " from \"" + path.path() + "\"");
-            GameplayScreen.msgSystem().add("Load: "+coordX+","+coordY);
+            //GameplayScreen.msgSystem().add("Load: "+coordX+","+coordY);
             
             if (path.exists()) {
                 //FileReader input = new FileReader("map/chunk"+coordX+","+coordY+".otmc");
