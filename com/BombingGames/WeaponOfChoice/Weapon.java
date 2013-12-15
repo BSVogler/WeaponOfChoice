@@ -98,6 +98,7 @@ public class Weapon {
                 bps = 10;
                 spread = 0.4f;
                 image = -1;
+                damage = 50;
                 
                 fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/punch.wav");
                 //reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/melee.wav"); 
@@ -158,9 +159,9 @@ public class Weapon {
                 bps = 1;
                 damage = 100;
                 image = 2;
-                explode = 3;
+                explode = 2;
                 
-                fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
+                fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/fire.wav");
                 reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;
                 
