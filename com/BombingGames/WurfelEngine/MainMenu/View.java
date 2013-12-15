@@ -73,16 +73,22 @@ public class View {
         }
         batch.end();
         
+        String nl = System.getProperty("line.separator");
         batch.begin();
         font.draw(batch, "FPS:"+ Gdx.graphics.getFramesPerSecond(), 20, 20);
-        font.draw(batch, Gdx.input.getX()+ ","+Gdx.input.getY(), Gdx.input.getX(), Gdx.input.getY());
+        //font.draw(batch, Gdx.input.getX()+ ","+Gdx.input.getY(), Gdx.input.getX(), Gdx.input.getY());
+        font.drawMultiLine(batch, "Controlls:"+nl
+            +"WASD"+nl
+            +"Shift: run"+nl
+            +"Click: shoot", 50, 100);
         batch.end();
         
-        font.scale(-0.5f);
+        
+        font.scale(-0.7f);
         batch.begin();
-        font.drawMultiLine(batch, WEMain.getCredits(), 50, 100);
+        font.drawMultiLine(batch, "Engine Credits:"+nl+WEMain.getCredits(), 50, 400);
         batch.end();
-        font.scale(0.5f);
+        font.scale(0.7f);
     }
 
 }
