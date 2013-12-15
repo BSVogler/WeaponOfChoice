@@ -14,6 +14,11 @@ public class Enemy extends AbstractCharacter{
     private AbstractCharacter target;
     private int runningagainstwallCounter = 0;
     private float[] lastPos;
+    private static int killcounter = 0;
+    
+    public void init(){
+       killcounter=0; 
+    }
     
     /**
      * Zombie constructor. Use AbstractEntitiy.getInstance to create an zombie.
@@ -89,5 +94,15 @@ public class Enemy extends AbstractCharacter{
     @Override
     public float[] getAiming() {
         throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void destroy() {
+        killcounter++;
+        super.destroy();
+    }
+
+    public static int getKillcounter() {
+        return killcounter;
     }
 }

@@ -91,7 +91,12 @@ public class CustomGameView extends View{
         sh.rect(Gdx.graphics.getWidth()/2-100, 10, 200, 50);
         sh.end();
         
-             
+        if (controller.isGameOver())
+            drawString(
+                "Kills"+Enemy.getKillcounter(),
+                Gdx.graphics.getWidth()/2,
+                Gdx.graphics.getHeight()/2
+            );  
      }
  
      private class InputListener implements InputProcessor {
