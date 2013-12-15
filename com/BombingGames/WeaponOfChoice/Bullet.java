@@ -49,9 +49,9 @@ public class Bullet extends AbstractEntity {
         if (isHidden() && distance > 400)
             destroy();
                 
-        //block hit
+        //block hit & spawn effect
         if (getPos().onLoadedMap() && getPos().getBlockSafe().isObstacle()){
-            AbstractEntity.getInstance(impactSprite, 0, getPos().cpy()).existNext();
+            AbstractEntity.getInstance(impactSprite, 0, getPos().cpy().toBottom()).existNext();
             destroy();
         }
         
@@ -109,7 +109,7 @@ public class Bullet extends AbstractEntity {
             for (int y=-explosive*2; y<explosive*2; y++)
                 for (int z=-explosive; z<explosive; z++){
                     
-                    //spawn effect
+                    //spawn explosion effect
                     if (x*x + (y/2)*(y/2)+ z*z >= explosive*explosive-4 &&
                         x*x + (y/2)*(y/2)+ z*z <= explosive*explosive){
                         AbstractEntity effect = AbstractEntity.getInstance(
@@ -137,7 +137,7 @@ public class Bullet extends AbstractEntity {
         super.destroy();
     }
 
-    void setImpactSprite(int hitSprite) {
+    public void setImpactSprite(int hitSprite) {
         impactSprite = hitSprite;
     }
 }
