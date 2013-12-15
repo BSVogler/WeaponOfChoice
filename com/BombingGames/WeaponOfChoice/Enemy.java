@@ -1,6 +1,7 @@
 package com.BombingGames.WeaponOfChoice;
 
 import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractCharacter;
+import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractEntity;
 import com.BombingGames.WurfelEngine.Core.Map.Point;
 import com.BombingGames.WurfelEngine.WEMain;
 import com.badlogic.gdx.audio.Sound;
@@ -59,6 +60,7 @@ public class Enemy extends AbstractCharacter{
                     setMana((int) (getMana()+delta));
                     if (getMana()>=1000){
                         setMana(0);//reset
+                        AbstractEntity.getInstance(16, 0, getPos().cpy()).existNext();//spawn blood
                         target.damage(50);
                         
                     }
