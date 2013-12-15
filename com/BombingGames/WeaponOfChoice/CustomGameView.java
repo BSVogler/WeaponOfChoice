@@ -94,14 +94,19 @@ public class CustomGameView extends View{
         if (controller.isGameOver()){
             drawString(
                "Game Over",
-                Gdx.graphics.getWidth()/2,
+                Gdx.graphics.getWidth()/2-30,
                 Gdx.graphics.getHeight()/2-170
             );  
         
             drawString(
-                "Kills"+Enemy.getKillcounter(),
+                "Kills:"+Enemy.getKillcounter(),
                 Gdx.graphics.getWidth()/2,
                 Gdx.graphics.getHeight()/2
+            );
+            drawString(
+                "You survived:XXX",
+                Gdx.graphics.getWidth()/2,
+                Gdx.graphics.getHeight()/2+20
             ); 
         }
      }
