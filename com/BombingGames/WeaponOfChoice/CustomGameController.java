@@ -11,6 +11,7 @@ import com.BombingGames.WurfelEngine.Core.WECamera;
 import com.BombingGames.WurfelEngine.WEMain;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 
 /**
@@ -25,6 +26,7 @@ public class CustomGameController extends Controller {
     private Weapon currentWeapon;
     private boolean gameOver;
     private boolean cooldown = false;
+    private Music music;
     
         
     @Override
@@ -34,7 +36,11 @@ public class CustomGameController extends Controller {
         super.init();
         
         gameOver=false;
+        music = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/music.ogg", Music.class);
+        music.setLooping(true);
+        music.play();
 
+        
         AbstractCharacter player = (AbstractCharacter) AbstractEntity.getInstance(
                 40,
                 0,
@@ -144,6 +150,8 @@ public class CustomGameController extends Controller {
                 currentWeapon.update(input.isButtonPressed(0), delta);
 
             super.update(origidelta);
+        }else {
+            music.stop();
         }
     }
 
@@ -165,10 +173,17 @@ public class CustomGameController extends Controller {
     
     public void gameOver(){
         gameOver = true;
+        ((Sound) WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/dead.ogg")).play();
         getPlayer().destroy();
     }
 
     public boolean isGameOver() {
         return gameOver;
     }
+
+    public Music getMusic() {
+        return music;
+    }
+    
+    
 }

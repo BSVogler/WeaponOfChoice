@@ -34,9 +34,11 @@ public class SpinningWheel extends ArrayList<Weapon> {
     public void spin(){
         Sound dudeldi = (Sound) WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/dudeldi.ogg");
         dudeldi.play();
+        controller.getMusic().setVolume(0.2f);
+        
         visible = true;
         timer = spintime;
-        controller.setTimespeed(0.2f);
+        controller.setTimespeed(0.3f);
         wheelSpeed=1;
         wheelTimer=1;
 
@@ -52,11 +54,13 @@ public class SpinningWheel extends ArrayList<Weapon> {
                 current = currentRandom;
                 controller.equipWeapon(current);
                 controller.setTimespeed(1f);
+                controller.getMusic().setVolume(1f);
             }
 
             wheelSpeed += 1+ delta/1000f;//time to pass before new random item get's bigger
             
-            if (wheelSpeed >500)wheelSpeed=5000;//stop it
+            if (wheelSpeed >500)
+                wheelSpeed=5000;//stop it
             
             wheelTimer -= delta;
             if (wheelTimer <= 0){

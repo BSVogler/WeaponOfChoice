@@ -3,6 +3,7 @@ package com.BombingGames.WurfelEngine.Core.Loading;
 import com.BombingGames.WurfelEngine.WEMain;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.math.Interpolation;
@@ -29,7 +30,7 @@ public class LoadingController {
         // Add everything to be loaded, for instance:
         //WurfelEngine.getInstance().manager.load("com/BombingGames/Game/Blockimages/Spritesheet.png", Pixmap.class);       
         manager.load("com/BombingGames/WurfelEngine/Game/Blockimages/Spritesheet.txt", TextureAtlas.class);
-        manager.load("com/BombingGames/WeaponOfChoice/SpritesBig.txt", TextureAtlas.class);
+
        // manager.load("com/BombingGames/WurfelEngine/Game/Blockimages/Spritesheet.png", Pixmap.class);
         manager.load("com/BombingGames/WurfelEngine/Game/Sounds/wind.ogg", Sound.class);
         manager.load("com/BombingGames/WurfelEngine/Game/Sounds/victorcenusa_running.ogg", Sound.class);
@@ -37,7 +38,8 @@ public class LoadingController {
         manager.load("com/BombingGames/WurfelEngine/Game/Sounds/landing.wav", Sound.class);
         manager.load("com/BombingGames/WurfelEngine/Game/Sounds/splash.ogg", Sound.class);
         manager.load("com/BombingGames/WurfelEngine/Game/Sounds/explosion2.ogg", Sound.class);
-        
+         
+        manager.load("com/BombingGames/WeaponOfChoice/SpritesBig.txt", TextureAtlas.class);
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/melee.wav", Sound.class);
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/punch.wav", Sound.class);
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/reload.wav", Sound.class);
@@ -53,6 +55,8 @@ public class LoadingController {
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/impactFlesh.wav", Sound.class);
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/fire.wav", Sound.class);
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/poop.wav", Sound.class);
+        manager.load("com/BombingGames/WeaponOfChoice/Sounds/music.ogg", Music.class);
+        manager.load("com/BombingGames/WeaponOfChoice/Sounds/dead.ogg", Sound.class);
         //manager.load("com/BombingGames/WurfelEngine/Core/arial.fnt", BitmapFont.class);
     }
     
