@@ -69,11 +69,11 @@ public class Bullet extends AbstractEntity {
         }
     }
 
-    void setDirection(float[] dir) {
+    public void setDirection(float[] dir) {
         this.dir = dir;
     }
     
-    void setSpeed(float speed){
+    public void setSpeed(float speed){
         this.speed = speed;
     }
 
@@ -85,7 +85,7 @@ public class Bullet extends AbstractEntity {
         this.maxDistance = maxDistance;
     }
 
-    void setDamage(int damage) {
+    public void setDamage(int damage) {
         this.damage = damage;
     }
 }
