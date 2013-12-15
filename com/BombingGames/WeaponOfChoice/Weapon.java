@@ -256,9 +256,14 @@ public class Weapon {
         shooting = delay;
         shotsLoaded--;
         
+        if (bulletSprite <0)
+            AbstractEntity.getInstance(20, 0, character.getPos()).existNext();
+        else AbstractEntity.getInstance(21, 0, character.getPos()).existNext();
+        
         //shot bullets
         for (int i = 0; i < bps; i++) {
             Bullet bullet;
+            
             Point pos = character.getPos().cpy();
             pos.setHeight(pos.getHeight()+AbstractGameObject.GAME_DIMENSION);
             

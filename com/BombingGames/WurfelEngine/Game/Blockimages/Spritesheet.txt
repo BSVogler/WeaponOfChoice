@@ -46,7 +46,7 @@ b20-0-1
   index: -1
 e40-4
   rotate: false
-  xy: 1054, 442
+  xy: 1258, 442
   size: 54, 174
   orig: 160, 240
   offset: 53, 32
@@ -130,7 +130,7 @@ e12-1
   index: -1
 error
   rotate: false
-  xy: 1766, 442
+  xy: 2, 620
   size: 160, 145
   orig: 160, 145
   offset: 0, 0
@@ -151,7 +151,7 @@ b6-0-0
   index: -1
 e40-1
   rotate: false
-  xy: 886, 442
+  xy: 1090, 442
   size: 40, 170
   orig: 160, 240
   offset: 55, 32
@@ -200,14 +200,14 @@ b7-0-0
   index: -1
 e41-0
   rotate: false
-  xy: 1280, 442
+  xy: 1484, 442
   size: 160, 160
   orig: 160, 160
   offset: 0, 0
   index: -1
 e40-5
   rotate: false
-  xy: 1110, 442
+  xy: 1314, 442
   size: 42, 172
   orig: 160, 240
   offset: 63, 35
@@ -282,6 +282,13 @@ b20-0-2
   orig: 80, 120
   offset: 0, 0
   index: -1
+e20-0
+  rotate: false
+  xy: 832, 442
+  size: 100, 99
+  orig: 100, 99
+  offset: 0, 0
+  index: -1
 e12-2
   rotate: false
   xy: 439, 320
@@ -326,7 +333,7 @@ b6-0-1
   index: -1
 e40-2
   rotate: false
-  xy: 928, 442
+  xy: 1132, 442
   size: 54, 174
   orig: 160, 240
   offset: 52, 32
@@ -375,7 +382,7 @@ b7-0-1
   index: -1
 e41-1
   rotate: false
-  xy: 1442, 442
+  xy: 1646, 442
   size: 160, 160
   orig: 160, 160
   offset: 0, 0
@@ -389,7 +396,7 @@ e14-0
   index: -1
 e40-6
   rotate: false
-  xy: 1154, 442
+  xy: 1358, 442
   size: 54, 176
   orig: 160, 240
   offset: 52, 31
@@ -417,7 +424,7 @@ b7-0-2
   index: -1
 e42-0
   rotate: false
-  xy: 1604, 442
+  xy: 1808, 442
   size: 160, 80
   orig: 160, 80
   offset: 0, 0
@@ -494,10 +501,17 @@ b20-0-0
   index: -1
 e40-3
   rotate: false
-  xy: 984, 442
+  xy: 1188, 442
   size: 68, 172
   orig: 160, 240
   offset: 46, 36
+  index: -1
+e21-0
+  rotate: false
+  xy: 934, 442
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
   index: -1
 e14-8
   rotate: false
@@ -515,7 +529,7 @@ e14-1
   index: -1
 e40-7
   rotate: false
-  xy: 1210, 442
+  xy: 1414, 442
   size: 68, 174
   orig: 160, 240
   offset: 46, 33
@@ -527,19 +541,19 @@ e12-0
   orig: 7, 6
   offset: 0, 0
   index: -1
-e40-0
-  rotate: false
-  xy: 832, 442
-  size: 52, 176
-  orig: 160, 240
-  offset: 54, 28
-  index: -1
 e15-0
   rotate: false
   xy: 478, 442
   size: 25, 21
   orig: 25, 21
   offset: 0, 0
+  index: -1
+e40-0
+  rotate: false
+  xy: 1036, 442
+  size: 52, 176
+  orig: 160, 240
+  offset: 54, 28
   index: -1
 e14-5
   rotate: false

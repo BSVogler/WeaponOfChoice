@@ -7,7 +7,6 @@ import com.BombingGames.WurfelEngine.Core.Map.AbstractPosition;
 import com.BombingGames.WurfelEngine.Core.Map.Coordinate;
 import com.BombingGames.WurfelEngine.Core.Map.Map;
 import com.BombingGames.WurfelEngine.Core.Map.Point;
-import com.badlogic.gdx.Gdx;
 
 /**
  *An entity is a game object wich is self aware that means it knows it's position.
@@ -29,6 +28,44 @@ public abstract class AbstractEntity extends AbstractGameObject implements IsSel
    
     static {
         NAMELIST[40] = "player";
+        OFFSET[20][0][0] = -60;
+        OFFSET[20][0][1] = -80;
+        OFFSET[21][0][0] = -60;
+        OFFSET[21][0][1] = -80;
+        
+        OFFSET[14][0][0] = -60;
+        OFFSET[14][1][0] = -60;
+        OFFSET[14][2][0] = -60;
+        OFFSET[14][3][0] = -60;
+        OFFSET[14][4][0] = -60;
+        OFFSET[14][5][0] = -60;
+        OFFSET[14][6][0] = -60;
+        OFFSET[14][7][0] = -60;
+        OFFSET[14][8][0] = -60;
+        OFFSET[14][9][0] = -60;
+        OFFSET[14][10][0] = -60;
+        OFFSET[14][11][0] = -60;
+        OFFSET[14][12][0] = -60;
+        OFFSET[14][13][0] = -60;
+        OFFSET[14][14][0] = -60;
+        OFFSET[14][15][0] = -60;
+        OFFSET[14][0][1] = 10;
+        OFFSET[14][1][1] = 10;
+        OFFSET[14][2][1] = 10;
+        OFFSET[14][3][1] = 10;
+        OFFSET[14][4][1] = 10;
+        OFFSET[14][5][1] = 10;
+        OFFSET[14][6][1] = 10;
+        OFFSET[14][7][1] = 10;
+        OFFSET[14][8][1] = 10;
+        OFFSET[14][9][1] = 10;
+        OFFSET[14][10][1] = 10;
+        OFFSET[14][11][1] = 10;
+        OFFSET[14][12][1] = 10;
+        OFFSET[14][13][1] = 10;
+        OFFSET[14][14][1] = 10;
+        OFFSET[14][15][1] = 10;
+        
         OFFSET[40][0][0] = 54-80;
         OFFSET[40][0][1] = 37-40;
         OFFSET[40][1][0] = 55-80;
@@ -79,7 +116,7 @@ public abstract class AbstractEntity extends AbstractGameObject implements IsSel
             case 14:
                 entity = new Enemy(id, point);
             break;
-            case 15:case 16: case 19:
+            case 15:case 16: case 19:case 20:case 21:
                 entity = new AnimatedEntity(id, value, new int[]{300}, true, false);
             break;     
             case 40:
