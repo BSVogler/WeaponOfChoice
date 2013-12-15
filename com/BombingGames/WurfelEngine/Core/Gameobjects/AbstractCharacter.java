@@ -413,7 +413,7 @@ public abstract class AbstractCharacter extends AbstractEntity {
         health -= value;
     }
 
-    public int getLife() {
+    public int getHealt() {
        return health;
     }
 }

@@ -45,8 +45,8 @@ public class CustomGameView extends View{
         sh.begin(ShapeRenderer.ShapeType.Filled);
         sh.setColor(
             new Color(
-                1-(controller.getPlayer().getLife()/100f),
-                controller.getPlayer().getLife()/100f,
+                1-(controller.getPlayer().getHealt()/100f),
+                controller.getPlayer().getHealt()/100f,
                 0,
                 1
             )
@@ -54,7 +54,7 @@ public class CustomGameView extends View{
         sh.rect(
             Gdx.graphics.getWidth()/2-100,
             10,
-            controller.getPlayer().getLife()*2,
+            controller.getPlayer().getHealt()*2,
             50
         );
         sh.end();
