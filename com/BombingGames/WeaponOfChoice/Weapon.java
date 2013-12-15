@@ -66,7 +66,7 @@ public class Weapon {
                 distance = 0;
                 bps = 10;
                 spread = 0.5f;
-                damage = 100;
+                damage = 1000;
                 image = -1;
                 
                 fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/melee.wav");
@@ -81,7 +81,7 @@ public class Weapon {
                 distance = 10;
                 bps = 1;
                 spread = 0.1f;
-                damage = 80;
+                damage = 800;
                 image = 0;
                 
                 
@@ -98,7 +98,7 @@ public class Weapon {
                 bps = 10;
                 spread = 0.4f;
                 image = -1;
-                damage = 50;
+                damage = 500;
                 
                 fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/punch.wav");
                 //reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/melee.wav"); 
@@ -112,7 +112,7 @@ public class Weapon {
                 distance = 5;
                 bps = 20;
                 spread = 0.2f;
-                damage = 40;
+                damage = 400;
                 image = 0;
                 
                 fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shotgun.wav");
@@ -127,7 +127,7 @@ public class Weapon {
                 distance = 10;
                 bps = 1;
                 spread = 0.15f;
-                damage = 40;
+                damage = 400;
                 image = 0;
                 
                 fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/bust.wav");
@@ -142,7 +142,7 @@ public class Weapon {
                 distance = 7;
                 bps = 1;
                 spread = 0.2f;
-                damage = 20;
+                damage = 200;
                 image = 3;
                 explode = 1;
                 
@@ -173,7 +173,7 @@ public class Weapon {
                 distance = 3;
                 bps = 5;
                 spread = 0.6f;
-                damage = 20;
+                damage = 200;
                 image = 1;
                 
                 fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/fire.wav");
