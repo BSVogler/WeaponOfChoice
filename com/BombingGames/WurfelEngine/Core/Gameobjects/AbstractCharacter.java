@@ -403,8 +403,8 @@ public abstract class AbstractCharacter extends AbstractEntity {
     @Override
     public void destroy() {
         AbstractEntity.getInstance(17, 0, getPos().cpy()).existNext();//spawn blood
+        if (shadow != null) shadow.destroy();
         super.destroy();
-        //shadow.destroy();
     } 
 
     /**
