@@ -143,7 +143,7 @@ public class Weapon {
                 damage = 20;
                 image = 3;
                 
-                fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
+                fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/poop.wav");
                 reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;
                 
@@ -164,15 +164,15 @@ public class Weapon {
             case 7:
                 name="fire launcher";
                 delay = 40;
-                relodingTime =700;
-                shots = 40;
+                relodingTime =800;
+                shots = 50;
                 distance = 3;
-                bps = 2;
+                bps = 5;
                 spread = 0.6f;
                 damage = 20;
                 image = 1;
                 
-                fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
+                fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/fire.wav");
                 reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;     
                 
