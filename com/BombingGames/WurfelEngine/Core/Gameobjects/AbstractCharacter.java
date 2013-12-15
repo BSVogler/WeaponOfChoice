@@ -411,6 +411,7 @@ public abstract class AbstractCharacter extends AbstractEntity {
             soundlimit = 100;
         }
         health -= value;
+        if (health <0)health=0;
     }
 
     public int getHealt() {
