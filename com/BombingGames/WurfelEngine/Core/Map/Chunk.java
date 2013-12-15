@@ -134,8 +134,13 @@ public class Chunk {
                                     //single block
                     pillarx = (int) (Math.random()*blocksX-1);
                     pillary = (int) (Math.random()*blocksY-1);
-                    //pillar
-                    data[pillarx][pillary][blocksZ/2] = new Cell(4);
+                    //block
+                    data[pillarx][pillary][blocksZ/2] = new Cell(5);
+                    
+                    pillarx = (int) (Math.random()*blocksX-1);
+                    pillary = (int) (Math.random()*blocksY-1);
+                    //block
+                    data[pillarx][pillary][blocksZ/2-1] = new Cell(9,0, new Coordinate(pillarx + pos % 3 * blocksX, pillary + pos / 3 * blocksY, 2, true));
                 }
 
                 
