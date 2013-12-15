@@ -104,7 +104,7 @@ public class CustomGameView extends View{
                 Gdx.graphics.getHeight()/2
             );
             drawString(
-                "You survived:XXX",
+                "You survived "+controller.getSurvivedSeconds()+" seconds.",
                 Gdx.graphics.getWidth()/2,
                 Gdx.graphics.getHeight()/2+20
             ); 

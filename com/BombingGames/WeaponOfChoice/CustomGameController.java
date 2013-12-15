@@ -28,7 +28,7 @@ public class CustomGameController extends Controller {
     private boolean cooldown = false;
     private Music music;
     private long startingTime;
-    private long survivedSeconds;
+    private int survivedSeconds;
     
         
     @Override
@@ -82,6 +82,7 @@ public class CustomGameController extends Controller {
         spinningWheel.spin();
         
         startingTime = System.currentTimeMillis();
+        survivedSeconds = 0;
         
         //useLightEngine(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
     }
@@ -179,7 +180,7 @@ public class CustomGameController extends Controller {
     public void gameOver(){
         gameOver = true;
         ((Sound) WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/dead.ogg")).play();
-        survivedSeconds =(System.currentTimeMillis()-startingTime)/1000;
+        survivedSeconds =(int) ((System.currentTimeMillis()-startingTime)/1000);
         Gdx.app.error("Game over:", "Time:"+survivedSeconds);
         
         getPlayer().destroy();
@@ -197,7 +198,7 @@ public class CustomGameController extends Controller {
         return round;
     }
 
-    public long getSurvivedSeconds() {
+    public int getSurvivedSeconds() {
         return survivedSeconds;
     }
 }
