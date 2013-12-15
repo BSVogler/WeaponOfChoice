@@ -79,8 +79,9 @@ public class View {
         //font.draw(batch, Gdx.input.getX()+ ","+Gdx.input.getY(), Gdx.input.getX(), Gdx.input.getY());
         font.drawMultiLine(batch, "Controlls:"+nl
             +"WASD"+nl
-            +"Shift: run"+nl
-            +"Click: shoot", 50, 100);
+            +"Run: Hold Shift"+nl
+            +"Shoot: Click"+nl
+            +"Jump: Space"+nl, 50, 100);
         batch.end();
         
         

@@ -128,7 +128,7 @@ public class Weapon {
 
             case 4:
                 name="machine gun";
-                delay = 50;
+                delay = 70;
                 relodingTime =1300;
                 shots = 25;
                 distance = 10;
@@ -179,7 +179,7 @@ public class Weapon {
             case 7:
                 name="fire launcher";
                 delay = 40;
-                relodingTime =800;
+                relodingTime =1700;
                 shots = 50;
                 distance = 3;
                 bps = 5;
