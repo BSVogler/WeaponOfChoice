@@ -10,6 +10,8 @@ import com.badlogic.gdx.audio.Sound;
  * @author Benedikt
  */
 public abstract class AbstractCharacter extends AbstractEntity {
+   private static int soundlimit;//time to pass before new sound can be played
+        
    private final int COLISSIONRADIUS = GAME_DIAGSIZE/4;
    private final int SPRITESPERDIR;
       
@@ -231,6 +233,7 @@ public abstract class AbstractCharacter extends AbstractEntity {
                     fallingSoundPlaying = false;
                 }
             }
+            if (soundlimit>0)soundlimit-=delta;
             
             if (health<=0)
                 destroy();
@@ -403,14 +406,14 @@ public abstract class AbstractCharacter extends AbstractEntity {
     }
 
     public void damage(int value) {
-        if (damageSounds.length > 0)
+        if (damageSounds.length > 0 && soundlimit<=0) {
             damageSounds[(int) (Math.random()*(damageSounds.length-1))].play(0.7f);
+            soundlimit = 40;
+        }
         health -= value;
     }
 
     public int getLife() {
        return health;
     }
-    
-    
 }
