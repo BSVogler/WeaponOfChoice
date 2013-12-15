@@ -121,16 +121,10 @@ public class CustomGameView extends View{
                      WEMain.setFullscreen(!WEMain.isFullscreen());
                  }
 
-                 //toggle eathquake
-                 if (keycode == Input.Keys.E){ //((ExplosiveBarrel)(getMapData(Chunk.getBlocksX()+5, Chunk.getBlocksY()+5, 3))).explode();
-                     getMap().earthquake(5000);
-                 }
-
-                 //pause
-                 //time is set 0 but the game keeps running
-                   if (keycode == Input.Keys.P) {
-                     getController().setTimespeed(0);
-                  } 
+                //reload
+                 if (keycode == Input.Keys.R) {
+                     controller.getCurrentWeapon().reload();
+                  }  
 
                  //reset zoom
                  if (keycode == Input.Keys.Z) {
@@ -138,15 +132,7 @@ public class CustomGameView extends View{
                      GameplayScreen.msgSystem().add("Zoom reset");
                   }  
 
-                 //show/hide light engine
-                 if (keycode == Input.Keys.L) {
-                     if (getLightengine() != null) getLightengine().RenderData(!getLightengine().isRenderingData());
-                  } 
-
-                  if (keycode == Input.Keys.T) {
-                     getController().setTimespeed();
-                  } 
-
+   
                  if (keycode == Input.Keys.ESCAPE)// Gdx.app.exit();
                      WEMain.getInstance().setScreen(new MainMenuScreen());
             }
