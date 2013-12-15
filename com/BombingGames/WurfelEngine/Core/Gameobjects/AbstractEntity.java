@@ -238,6 +238,7 @@ public abstract class AbstractEntity extends AbstractGameObject implements IsSel
      */
     public void destroy(){
         destroy=true;
+        dispose();
     }
 
     /**
