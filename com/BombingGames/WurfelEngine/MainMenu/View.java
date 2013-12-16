@@ -82,6 +82,7 @@ public class View {
             +"Run: Hold Shift"+nl
             +"Shoot: Click"+nl
             +"Jump: Space"+nl, 50, 100);
+        font.draw(batch, "Game by Benedikt Voger (Cbeed)", Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()-50);
         batch.end();
         
         

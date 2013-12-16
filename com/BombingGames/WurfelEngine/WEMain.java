@@ -47,7 +47,7 @@ public class WEMain extends Game {
         config.setFromDisplayMode(LwjglApplicationConfiguration.getDesktopDisplayMode());
         config.fullscreen = false;
         config.vSyncEnabled = false;//if set to true the FPS is locked to 60
-        config.foregroundFPS = 0;
+        config.foregroundFPS = 60;
         config.useGL20 = false;
          
         //arguments

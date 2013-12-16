@@ -5,13 +5,13 @@ repeat: none
 Exit
   rotate: false
   xy: 2, 2
-  size: 140, 42
-  orig: 140, 42
+  size: 150, 45
+  orig: 150, 45
   offset: 0, 0
   index: -1
 Play
   rotate: false
-  xy: 144, 2
+  xy: 154, 2
   size: 308, 140
   orig: 308, 140
   offset: 0, 0

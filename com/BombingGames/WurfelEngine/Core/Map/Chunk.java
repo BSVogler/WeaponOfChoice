@@ -140,7 +140,7 @@ public class Chunk {
                     pillarx = (int) (Math.random()*blocksX-1);
                     pillary = (int) (Math.random()*blocksY-1);
                     //block
-                    data[pillarx][pillary][blocksZ/2-1] = new Cell(9,0, new Coordinate(pillarx + pos % 3 * blocksX, pillary + pos / 3 * blocksY, 2, true));
+                    data[pillarx][pillary][blocksZ/2-1] = new Cell(9,0, new Coordinate(pillarx + pos % 3 * blocksX, pillary + pos / 3 * blocksY, blocksZ/2-1, true));
                 }
 
                 
