@@ -254,6 +254,8 @@
             <filename>sprites prelit/e14-13.png</filename>
             <filename>sprites prelit/e14-14.png</filename>
             <filename>sprites prelit/e14-15.png</filename>
+            <filename>sprites prelit/e20-0.png</filename>
+            <filename>sprites prelit/e21-0.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
