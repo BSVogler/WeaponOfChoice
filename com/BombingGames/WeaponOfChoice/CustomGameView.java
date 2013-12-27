@@ -1,7 +1,5 @@
 package com.BombingGames.WeaponOfChoice;
 
-import static com.BombingGames.WurfelEngine.Core.Controller.getLightengine;
-import static com.BombingGames.WurfelEngine.Core.Controller.getMap;
 import com.BombingGames.WurfelEngine.Core.GameplayScreen;
 import com.BombingGames.WurfelEngine.Core.View;
 import com.BombingGames.WurfelEngine.MainMenu.MainMenuScreen;
