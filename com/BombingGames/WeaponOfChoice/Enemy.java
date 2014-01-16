@@ -32,7 +32,7 @@ public class Enemy extends AbstractCharacter{
         setObstacle(true);
         setDimensionZ(1);
         setDamageSounds(new Sound[]{
-            (Sound) WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/impactFlesh.wav")
+            (Sound) WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/impactFlesh.wav")
         });
     }
 
@@ -60,7 +60,7 @@ public class Enemy extends AbstractCharacter{
                     setMana((int) (getMana()+delta));
                     if (getMana()>=1000){
                         setMana(0);//reset
-                        AbstractEntity.getInstance(16, 0, getPos().cpy()).existNext();//spawn blood
+                        AbstractEntity.getInstance(16, 0, getPos().cpy()).exist();//spawn blood
                         target.damage(50);
                         
                     }

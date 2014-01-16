@@ -23,7 +23,7 @@ public class CustomGameController extends Controller {
     private int round = 1;
     private final int roundLength = 15000;
     private int roundTimer;
-    private Weapon currentWeapon;
+    private CustomWeapon currentWeapon;
     private boolean gameOver;
     private boolean cooldown = false;
     private Music music;
@@ -38,7 +38,7 @@ public class CustomGameController extends Controller {
         super.init();
         
         gameOver=false;
-        music = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/music.ogg", Music.class);
+        music = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/music.ogg");
         music.setLooping(true);
         music.play();
 
@@ -51,10 +51,10 @@ public class CustomGameController extends Controller {
         player.setControls("WASD");
         setPlayer(player);
         player.setDamageSounds(new Sound[]{
-            (Sound) WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/scream1.wav"),
-            (Sound) WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/scream2.wav"),
-            (Sound) WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/scream3.wav"),
-            (Sound) WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/scream4.wav")
+            (Sound) WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/scream1.wav"),
+            (Sound) WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/scream2.wav"),
+            (Sound) WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/scream3.wav"),
+            (Sound) WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/scream4.wav")
         });
         
         addCamera(
@@ -66,19 +66,19 @@ public class CustomGameController extends Controller {
                 Gdx.graphics.getHeight()//height
             )
         );
-        Weapon.init();
-        Bullet.init();
+        CustomWeapon.init();
+        CustomBullet.init();
         
         roundTimer = roundLength;
         spinningWheel = new SpinningWheel(this);
-        spinningWheel.add(new Weapon(0, null));
-        spinningWheel.add(new Weapon(1, null));
-        spinningWheel.add(new Weapon(2, null));
-        spinningWheel.add(new Weapon(3, null));
-        spinningWheel.add(new Weapon(4, null));
-        spinningWheel.add(new Weapon(5, null));
-        spinningWheel.add(new Weapon(6, null));
-        spinningWheel.add(new Weapon(7, null));
+        spinningWheel.add(new CustomWeapon(0, null));
+        spinningWheel.add(new CustomWeapon(1, null));
+        spinningWheel.add(new CustomWeapon(2, null));
+        spinningWheel.add(new CustomWeapon(3, null));
+        spinningWheel.add(new CustomWeapon(4, null));
+        spinningWheel.add(new CustomWeapon(5, null));
+        spinningWheel.add(new CustomWeapon(6, null));
+        spinningWheel.add(new CustomWeapon(7, null));
         spinningWheel.spin();
         
         startingTime = System.currentTimeMillis();
@@ -169,17 +169,17 @@ public class CustomGameController extends Controller {
     }
     
     public void equipWeapon(int id){
-        currentWeapon = new Weapon(id, getPlayer());
+        currentWeapon = new CustomWeapon(id, getPlayer());
         currentWeapon.reload();
     }
 
-    public Weapon getCurrentWeapon() {
+    public CustomWeapon getCurrentWeapon() {
         return currentWeapon;
     }
     
     public void gameOver(){
         gameOver = true;
-        ((Sound) WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/dead.ogg")).play();
+        ((Sound) WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/dead.ogg")).play();
         survivedSeconds =(int) ((System.currentTimeMillis()-startingTime)/1000);
         Gdx.app.error("Game over:", "Time:"+survivedSeconds);
         

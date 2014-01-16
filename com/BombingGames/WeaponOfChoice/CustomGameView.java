@@ -2,7 +2,6 @@ package com.BombingGames.WeaponOfChoice;
 
 import com.BombingGames.WurfelEngine.Core.GameplayScreen;
 import com.BombingGames.WurfelEngine.Core.View;
-import com.BombingGames.WurfelEngine.MainMenu.MainMenuScreen;
 import com.BombingGames.WurfelEngine.WEMain;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -36,7 +35,7 @@ public class CustomGameView extends View{
          getBatch().begin();
          controller.getSpinningWheel().render(this);
          getBatch().end();
-         Weapon weapon = controller.getCurrentWeapon();
+         CustomWeapon weapon = controller.getCurrentWeapon();
          if (weapon != null)
             drawString("Shots: "+weapon.getShotsLoaded()+"/"+weapon.getShots(), Gdx.graphics.getWidth()-100, Gdx.graphics.getHeight()-100, Color.WHITE.cpy());
          
@@ -132,7 +131,7 @@ public class CustomGameView extends View{
 
    
                  if (keycode == Input.Keys.ESCAPE)// Gdx.app.exit();
-                     WEMain.getInstance().setScreen(new MainMenuScreen());
+                     WEMain.showMainMenu();
             }
             
              //toggle input for msgSystem

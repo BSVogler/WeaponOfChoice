@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Benedikt Vogler
  */
-public class SpinningWheel extends ArrayList<Weapon> {
+public class SpinningWheel extends ArrayList<CustomWeapon> {
     private static final long serialVersionUID = 1L;
     
     private final CustomGameController controller;
@@ -32,7 +32,7 @@ public class SpinningWheel extends ArrayList<Weapon> {
      * Returns a new selection
      */
     public void spin(){
-        Sound dudeldi = (Sound) WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/dudeldi.ogg");
+        Sound dudeldi = (Sound) WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/dudeldi.ogg");
         dudeldi.play();
         controller.getMusic().setVolume(0.2f);
         
@@ -72,25 +72,25 @@ public class SpinningWheel extends ArrayList<Weapon> {
     public void render(View view){
         if (visible){
             Sprite sprite;
-            sprite = new Sprite(Weapon.getSpritesheetBig().findRegion("canvas"));
+            sprite = new Sprite(CustomWeapon.getSpritesheetBig().findRegion("canvas"));
             sprite.setX(Gdx.graphics.getWidth()/2 - sprite.getWidth()/2);
-            sprite.setY(Gdx.graphics.getHeight()/2-30*Weapon.getScaling());
-            sprite.scale(Weapon.getScaling());
+            sprite.setY(Gdx.graphics.getHeight()/2-30*CustomWeapon.getScaling());
+            sprite.scale(CustomWeapon.getScaling());
             sprite.draw(view.getBatch());
             
             if (controller.getRound()==1){
-                sprite = new Sprite(Weapon.getSpritesheetBig().findRegion("warmup"));
+                sprite = new Sprite(CustomWeapon.getSpritesheetBig().findRegion("warmup"));
             } else {
-                sprite = new Sprite(Weapon.getSpritesheetBig().findRegion("newround"));
+                sprite = new Sprite(CustomWeapon.getSpritesheetBig().findRegion("newround"));
             }
                 sprite.setX(Gdx.graphics.getWidth()/2 - sprite.getWidth()/2);
                 sprite.setY(Gdx.graphics.getHeight()/2-200);
-                sprite.scale(Weapon.getScaling());
+                sprite.scale(CustomWeapon.getScaling());
                 sprite.draw(view.getBatch());
                 
             get(currentRandom).renderBig(view,
-                Gdx.graphics.getWidth()/2-10*Weapon.getScaling(),
-                Gdx.graphics.getHeight()/2-25*Weapon.getScaling()
+                Gdx.graphics.getWidth()/2-10*CustomWeapon.getScaling(),
+                Gdx.graphics.getHeight()/2-25*CustomWeapon.getScaling()
             );
         }
         if (current>-1)
