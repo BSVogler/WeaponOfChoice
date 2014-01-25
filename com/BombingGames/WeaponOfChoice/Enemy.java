@@ -27,7 +27,7 @@ public class Enemy extends AbstractCharacter{
      * @param pos
      */
     public Enemy(int id, Point pos) {
-        super(id, 2, pos, true);
+        super(id, 2, pos);
         setTransparent(true);
         setObstacle(true);
         setDimensionZ(1);
@@ -51,9 +51,9 @@ public class Enemy extends AbstractCharacter{
                 float dY = target.getPos().getAbsY()-getPos().getAbsY();
                 double length = Math.sqrt(dY*dY+dX*dX);
                 //update the movement vector
-                setMovementX((float) (dX/length));
-                setMovementY((float) (dY/length));
-                move(0.4f);
+                //setMovementX((float) (dX/length));
+                //setMovementY((float) (dY/length));
+                //move(0.4f);
 
                 //attack
                 if (Arrays.equals(target.getPos().getCoord().getRel(), getPos().getCoord().getRel())){

@@ -1,12 +1,12 @@
 package com.BombingGames.WeaponOfChoice.MainMenu;
 
-import com.BombingGames.WurfelEngine.Core.BasicMainMenu;
+import com.BombingGames.WurfelEngine.Core.AbstractMainMenu;
  
 /**
  * The game state of the Main Menu.
  * @author Benedikt
  */
-public class MainMenuScreen extends BasicMainMenu {
+public class MainMenuScreen extends AbstractMainMenu {
     private static boolean loadMap = false;
  
     private static View View;

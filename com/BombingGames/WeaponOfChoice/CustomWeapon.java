@@ -1,15 +1,10 @@
 package com.BombingGames.WeaponOfChoice;
 
 import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractCharacter;
-import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractEntity;
-import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractGameObject;
-import com.BombingGames.WurfelEngine.Core.Map.Point;
-import com.BombingGames.WurfelEngine.Core.View;
 import com.BombingGames.WurfelEngine.WEMain;
 import com.BombingGames.WurfelEngine.shooting.Weapon;
 import com.badlogic.gdx.backends.openal.Wav.Sound;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
 /**
@@ -57,7 +52,10 @@ public class CustomWeapon extends Weapon {
     }
     private int explode;
     
+    
     public CustomWeapon(int id, AbstractCharacter character) {
+        super(id, character);
+        
         this.id = id;
         this.character = character;
         
@@ -75,7 +73,7 @@ public class CustomWeapon extends Weapon {
                 impactSprite=15;
                 
                 fire = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/melee.wav");
-                reload = WEMaingetAsset("com/BombingGames/WeaponOfChoice/Sounds/wiz.wav"); 
+                reload = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/wiz.wav"); 
             break;
                 
             case 1:
@@ -90,9 +88,8 @@ public class CustomWeapon extends Weapon {
                 bulletSprite = 0;
                 impactSprite=19;
                 
-                
                 fire = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
-                reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
+                reload = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;
                 
             case 2:
@@ -107,7 +104,7 @@ public class CustomWeapon extends Weapon {
                 damage = 500;
                 impactSprite=15;
                 
-                fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/punch.wav");
+                fire = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/punch.wav");
                 //reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/melee.wav"); 
             break;
                 
@@ -123,8 +120,8 @@ public class CustomWeapon extends Weapon {
                 bulletSprite = 0;
                 impactSprite=19;
                 
-                fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/shotgun.wav");
-                reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
+                fire = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/shotgun.wav");
+                reload = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;    
 
             case 4:
@@ -139,8 +136,8 @@ public class CustomWeapon extends Weapon {
                 bulletSprite = 0;
                 impactSprite=19;
                 
-                fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/bust.wav");
-                reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
+                fire = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/bust.wav");
+                reload = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;
                                  
             case 5:
@@ -156,7 +153,7 @@ public class CustomWeapon extends Weapon {
                 explode = 1;
                 impactSprite=19;
                 
-                fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/poop.wav");
+                fire = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/poop.wav");
                 //reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;
                 
@@ -173,8 +170,8 @@ public class CustomWeapon extends Weapon {
                 spread = 0.1f;
                 impactSprite=19;
                 
-                fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/thump.wav");
-                reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
+                fire = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/thump.wav");
+                reload = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;
                 
             case 7:
@@ -189,8 +186,8 @@ public class CustomWeapon extends Weapon {
                 bulletSprite = 1;
                 impactSprite=18;
                 
-                fire = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/fire.wav");
-                reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
+                fire = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/fire.wav");
+                reload = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;     
                 
 
@@ -199,128 +196,11 @@ public class CustomWeapon extends Weapon {
         shotsLoaded = shots; //fully loaded
     }
     
-    /**
-     * Renders a big version of the image
-     * @param view
-     * @param x
-     * @param y 
-     */
-    public void renderBig(View view, int x, int y){
-        Sprite sprite = new Sprite(spritesheetBig.findRegion(""+id));
-        sprite.setX(x);
-        sprite.setY(y);
-        sprite.scale(scaling);
-        sprite.draw(view.getBatch());
-    
-    }
-
     public static TextureAtlas getSpritesheetBig() {
         return spritesheetBig;
     }
 
-    public int getId() {
-        return id;
-    }
-
     public static int getScaling() {
         return scaling;
-    }
-    
-    /**
-     * Manages the weapon
-     * @param trigger Is the trigger down?
-     * @param delta
-     */
-    public void update(boolean trigger, float delta){
-        if (shooting > 0){
-            shooting-=delta;
-        } else {
-            if (reloading >= 0) {
-                reloading-=delta;
-                if (reloading<=0)//finished reloading
-                    shotsLoaded = shots;
-            } else {
-                //if not shootring or loading
-                if (shotsLoaded <= 0)//autoreload
-                    reload();
-
-                if (trigger && shotsLoaded>0)
-                    shoot();  
-            }
-        }
-    }
-    
-    
-    private void shoot(){
-        fire.play();
-                
-        shooting = delay;
-        shotsLoaded--;
-        
-        if (bulletSprite <0)
-            AbstractEntity.getInstance(20, 0, character.getPos()).existNext();
-        else AbstractEntity.getInstance(21, 0, character.getPos()).existNext();
-        
-        //shot bullets
-        for (int i = 0; i < bps; i++) {
-            Bullet bullet;
-            
-            Point pos = character.getPos().cpy();
-            pos.setHeight(pos.getHeight()+AbstractGameObject.GAME_DIMENSION);
-            
-            if (bulletSprite <0){
-                bullet = (Bullet) AbstractEntity.getInstance(12, 0, pos);
-                bullet.setHidden(true);
-            } else{
-                bullet = (Bullet) AbstractEntity.getInstance(12, bulletSprite, pos);
-            }
-            
-            float[] aiming = character.getAiming();
-            aiming[0] += Math.random() * (spread*2) -spread;
-            aiming[1] += Math.random() * (spread*2) -spread;
-            bullet.setDirection(
-                aiming
-            );
-            bullet.setSpeed(1.2f);
-            bullet.setMaxDistance(distance*100+100);
-            bullet.setParent(character);
-            bullet.setDamage(damage);
-            bullet.setExplosive(explode);
-            bullet.setImpactSprite(impactSprite);
-            bullet.exist(); 
-        }
-
-    }
-    
-    public void reload(){
-        reloading =relodingTime;
-        if (reload != null) reload.play();
-    }
-
-    public int getShotsLoaded() {
-        return shotsLoaded;
-    }
-
-    public int getShots() {
-        return shots;
-    }
-
-    public int getReloading() {
-        return reloading;
-    }
-
-    public int getShooting() {
-        return shooting;
-    }
-
-    void trigger() {
-         if (shooting <= 0 && reloading <= 0){
-            //if not shootring or loading
-            if (shotsLoaded <= 0)//autoreload
-                reload();
-
-            if (shotsLoaded>0)
-                shoot();  
-        }
     }
 }
