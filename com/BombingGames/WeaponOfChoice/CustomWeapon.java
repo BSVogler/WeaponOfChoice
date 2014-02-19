@@ -1,7 +1,7 @@
 package com.BombingGames.WeaponOfChoice;
 
 import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractCharacter;
-import com.BombingGames.WurfelEngine.WEMain;
+import com.BombingGames.WurfelEngine.WE;
 import com.BombingGames.WurfelEngine.shooting.Weapon;
 import com.badlogic.gdx.backends.openal.Wav.Sound;
 import com.badlogic.gdx.graphics.Texture;
@@ -12,7 +12,6 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
  * @author Benedikt Vogler
  */
 public class CustomWeapon extends Weapon {
-    private static TextureAtlas spritesheetBig;
     private static final int scaling = 2;
     
     private final int id;
@@ -40,12 +39,12 @@ public class CustomWeapon extends Weapon {
     private int shooting;
 
     public static void init(){
-        if (spritesheetBig == null) {
-            spritesheetBig = WEMain.getAsset("com/BombingGames/WeaponOfChoice/SpritesBig.txt");
-            for (TextureAtlas.AtlasRegion region : spritesheetBig.getRegions()) {
+        if (getSpritesheetBig() == null) {
+            setSpritesheetBig((TextureAtlas) WE.getAsset("com/BombingGames/WeaponOfChoice/SpritesBig.txt"));
+            for (TextureAtlas.AtlasRegion region : getSpritesheetBig().getRegions()) {
                     region.flip(false, true);
             }
-            for (Texture tex : spritesheetBig.getTextures()) {
+            for (Texture tex : getSpritesheetBig().getTextures()) {
                 tex.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
             }
         }
@@ -72,8 +71,8 @@ public class CustomWeapon extends Weapon {
                 bulletSprite = -1;
                 impactSprite=15;
                 
-                fire = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/melee.wav");
-                reload = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/wiz.wav"); 
+                fire = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/melee.wav");
+                reload = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/wiz.wav"); 
             break;
                 
             case 1:
@@ -88,8 +87,8 @@ public class CustomWeapon extends Weapon {
                 bulletSprite = 0;
                 impactSprite=19;
                 
-                fire = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
-                reload = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
+                fire = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
+                reload = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;
                 
             case 2:
@@ -104,7 +103,7 @@ public class CustomWeapon extends Weapon {
                 damage = 500;
                 impactSprite=15;
                 
-                fire = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/punch.wav");
+                fire = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/punch.wav");
                 //reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/melee.wav"); 
             break;
                 
@@ -120,8 +119,8 @@ public class CustomWeapon extends Weapon {
                 bulletSprite = 0;
                 impactSprite=19;
                 
-                fire = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/shotgun.wav");
-                reload = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
+                fire = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/shotgun.wav");
+                reload = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;    
 
             case 4:
@@ -136,8 +135,8 @@ public class CustomWeapon extends Weapon {
                 bulletSprite = 0;
                 impactSprite=19;
                 
-                fire = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/bust.wav");
-                reload = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
+                fire = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/bust.wav");
+                reload = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;
                                  
             case 5:
@@ -153,7 +152,7 @@ public class CustomWeapon extends Weapon {
                 explode = 1;
                 impactSprite=19;
                 
-                fire = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/poop.wav");
+                fire = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/poop.wav");
                 //reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;
                 
@@ -170,8 +169,8 @@ public class CustomWeapon extends Weapon {
                 spread = 0.1f;
                 impactSprite=19;
                 
-                fire = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/thump.wav");
-                reload = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
+                fire = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/thump.wav");
+                reload = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;
                 
             case 7:
@@ -186,8 +185,8 @@ public class CustomWeapon extends Weapon {
                 bulletSprite = 1;
                 impactSprite=18;
                 
-                fire = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/fire.wav");
-                reload = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
+                fire = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/fire.wav");
+                reload = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
             break;     
                 
 
@@ -196,10 +195,6 @@ public class CustomWeapon extends Weapon {
         shotsLoaded = shots; //fully loaded
     }
     
-    public static TextureAtlas getSpritesheetBig() {
-        return spritesheetBig;
-    }
-
     public static int getScaling() {
         return scaling;
     }

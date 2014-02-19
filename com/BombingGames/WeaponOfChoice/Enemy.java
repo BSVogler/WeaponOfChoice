@@ -3,7 +3,7 @@ package com.BombingGames.WeaponOfChoice;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractCharacter;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractEntity;
 import com.BombingGames.WurfelEngine.Core.Map.Point;
-import com.BombingGames.WurfelEngine.WEMain;
+import com.BombingGames.WurfelEngine.WE;
 import com.badlogic.gdx.audio.Sound;
 import java.util.Arrays;
 
@@ -32,7 +32,7 @@ public class Enemy extends AbstractCharacter{
         setObstacle(true);
         setDimensionZ(1);
         setDamageSounds(new Sound[]{
-            (Sound) WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/impactFlesh.wav")
+            (Sound) WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/impactFlesh.wav")
         });
     }
 

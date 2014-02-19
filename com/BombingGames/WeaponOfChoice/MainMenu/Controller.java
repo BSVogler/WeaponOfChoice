@@ -2,10 +2,13 @@ package com.BombingGames.WeaponOfChoice.MainMenu;
 
 import com.BombingGames.WeaponOfChoice.CustomGameController;
 import com.BombingGames.WeaponOfChoice.CustomGameView;
-import com.BombingGames.WurfelEngine.WEMain;
+import com.BombingGames.WurfelEngine.Configuration;
+import com.BombingGames.WurfelEngine.WE;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
+import com.badlogic.gdx.assets.AssetManager;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 
@@ -32,6 +35,29 @@ public class Controller {
         
         fx = Gdx.audio.newSound(Gdx.files.internal("com/BombingGames/WurfelEngine/MainMenu/click2.wav"));
         Gdx.input.setInputProcessor(new InputListener());
+        
+        //add asstes to queque
+        AssetManager manager = WE.getAssetManager();
+        manager.load("com/BombingGames/WeaponOfChoice/SpritesBig.txt", TextureAtlas.class);
+        manager.load("com/BombingGames/WeaponOfChoice/Sounds/melee.wav", Sound.class);
+        manager.load("com/BombingGames/WeaponOfChoice/Sounds/punch.wav", Sound.class);
+        manager.load("com/BombingGames/WeaponOfChoice/Sounds/reload.wav", Sound.class);
+        manager.load("com/BombingGames/WeaponOfChoice/Sounds/shot.wav", Sound.class);
+        manager.load("com/BombingGames/WeaponOfChoice/Sounds/shotgun.wav", Sound.class);
+        manager.load("com/BombingGames/WeaponOfChoice/Sounds/wiz.wav", Sound.class);
+        manager.load("com/BombingGames/WeaponOfChoice/Sounds/dudeldi.ogg", Sound.class);
+        manager.load("com/BombingGames/WeaponOfChoice/Sounds/bust.wav", Sound.class);
+        manager.load("com/BombingGames/WeaponOfChoice/Sounds/scream1.wav", Sound.class);
+        manager.load("com/BombingGames/WeaponOfChoice/Sounds/scream2.wav", Sound.class);
+        manager.load("com/BombingGames/WeaponOfChoice/Sounds/scream3.wav", Sound.class);
+        manager.load("com/BombingGames/WeaponOfChoice/Sounds/scream4.wav", Sound.class);
+        manager.load("com/BombingGames/WeaponOfChoice/Sounds/impactFlesh.wav", Sound.class);
+        manager.load("com/BombingGames/WeaponOfChoice/Sounds/fire.wav", Sound.class);
+        manager.load("com/BombingGames/WeaponOfChoice/Sounds/poop.wav", Sound.class);
+        manager.load("com/BombingGames/WeaponOfChoice/Sounds/thump.wav", Sound.class);
+        manager.load("com/BombingGames/WeaponOfChoice/Sounds/music.ogg", Music.class);
+        manager.load("com/BombingGames/WeaponOfChoice/Sounds/dead.ogg", Sound.class);
+        
     }
     
     /**
@@ -40,13 +66,13 @@ public class Controller {
      */
     public void update(int delta){
         if (menuItems[0].isClicked()) { 
-                MainMenuScreen.setLoadMap(false);
+            MainMenuScreen.setLoadMap(false);
+            fx.play();
+            CustomGameController ctrl = new CustomGameController();
+            WE.initGame(ctrl, new CustomGameView(ctrl), new Configuration());
+        } else if (menuItems[1].isClicked()){
                 fx.play();
-                CustomGameController ctrl = new CustomGameController();
-                WEMain.initGame(ctrl, new CustomGameView(ctrl));
-            } else if (menuItems[1].isClicked()){
-                    fx.play();
-                    Gdx.app.exit();
+                Gdx.app.exit();
         }
     }
 

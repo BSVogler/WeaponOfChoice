@@ -1,6 +1,6 @@
 package com.BombingGames.WeaponOfChoice.MainMenu;
 
-import com.BombingGames.WurfelEngine.WEMain;
+import com.BombingGames.WurfelEngine.WE;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL10;
@@ -88,7 +88,7 @@ public class View {
         
         font.scale(-0.7f);
         batch.begin();
-        font.drawMultiLine(batch, "Engine Credits:"+nl+WEMain.getCredits(), 50, 400);
+        font.drawMultiLine(batch, "Engine Credits:"+nl+WE.getCredits(), 50, 400);
         batch.end();
         font.scale(0.7f);
     }

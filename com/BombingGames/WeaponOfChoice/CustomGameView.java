@@ -2,7 +2,7 @@ package com.BombingGames.WeaponOfChoice;
 
 import com.BombingGames.WurfelEngine.Core.GameplayScreen;
 import com.BombingGames.WurfelEngine.Core.View;
-import com.BombingGames.WurfelEngine.WEMain;
+import com.BombingGames.WurfelEngine.WE;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
@@ -115,7 +115,7 @@ public class CustomGameView extends View{
             if (!GameplayScreen.msgSystem().isListeningForInput()) {
                  //toggle fullscreen
                  if (keycode == Input.Keys.F){
-                     WEMain.setFullscreen(!WEMain.isFullscreen());
+                     WE.setFullscreen(!WE.isFullscreen());
                  }
 
                 //reload
@@ -131,7 +131,7 @@ public class CustomGameView extends View{
 
    
                  if (keycode == Input.Keys.ESCAPE)// Gdx.app.exit();
-                     WEMain.showMainMenu();
+                     WE.showMainMenu();
             }
             
              //toggle input for msgSystem

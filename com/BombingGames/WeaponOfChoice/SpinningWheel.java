@@ -1,7 +1,7 @@
 package com.BombingGames.WeaponOfChoice;
 
 import com.BombingGames.WurfelEngine.Core.View;
-import com.BombingGames.WurfelEngine.WEMain;
+import com.BombingGames.WurfelEngine.WE;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.openal.Ogg.Sound;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -32,7 +32,7 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
      * Returns a new selection
      */
     public void spin(){
-        Sound dudeldi = (Sound) WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/dudeldi.ogg");
+        Sound dudeldi = (Sound) WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/dudeldi.ogg");
         dudeldi.play();
         controller.getMusic().setVolume(0.2f);
         

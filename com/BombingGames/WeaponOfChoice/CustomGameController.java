@@ -4,11 +4,10 @@ import com.BombingGames.WurfelEngine.Core.Controller;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractCharacter;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractEntity;
 import com.BombingGames.WurfelEngine.Core.GameplayScreen;
-import com.BombingGames.WurfelEngine.Core.Map.Chunk;
 import com.BombingGames.WurfelEngine.Core.Map.Coordinate;
 import com.BombingGames.WurfelEngine.Core.Map.Map;
 import com.BombingGames.WurfelEngine.Core.WECamera;
-import com.BombingGames.WurfelEngine.WEMain;
+import com.BombingGames.WurfelEngine.WE;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Music;
@@ -34,11 +33,10 @@ public class CustomGameController extends Controller {
     @Override
     public void init(){
         Gdx.app.log("CustomGameController", "Initializing");
-        Chunk.setGenerator(2);
         super.init();
         
         gameOver=false;
-        music = WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/music.ogg");
+        music = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/music.ogg");
         music.setLooping(true);
         music.play();
 
@@ -51,10 +49,10 @@ public class CustomGameController extends Controller {
         player.setControls("WASD");
         setPlayer(player);
         player.setDamageSounds(new Sound[]{
-            (Sound) WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/scream1.wav"),
-            (Sound) WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/scream2.wav"),
-            (Sound) WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/scream3.wav"),
-            (Sound) WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/scream4.wav")
+            (Sound) WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/scream1.wav"),
+            (Sound) WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/scream2.wav"),
+            (Sound) WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/scream3.wav"),
+            (Sound) WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/scream4.wav")
         });
         
         addCamera(
@@ -179,7 +177,7 @@ public class CustomGameController extends Controller {
     
     public void gameOver(){
         gameOver = true;
-        ((Sound) WEMain.getAsset("com/BombingGames/WeaponOfChoice/Sounds/dead.ogg")).play();
+        ((Sound) WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/dead.ogg")).play();
         survivedSeconds =(int) ((System.currentTimeMillis()-startingTime)/1000);
         Gdx.app.error("Game over:", "Time:"+survivedSeconds);
         
