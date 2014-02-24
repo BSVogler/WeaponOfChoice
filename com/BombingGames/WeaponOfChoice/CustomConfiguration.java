@@ -41,6 +41,7 @@ public class CustomConfiguration extends Configuration {
                     entity = new SimpleEntity(id);
                     Gdx.app.error("CustomEntityFactory", "Entity "+id+" not defined.");
             }
+            entity.setPos(point);
             return entity;
         }
     }
