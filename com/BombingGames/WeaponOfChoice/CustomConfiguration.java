@@ -2,11 +2,7 @@ package com.BombingGames.WeaponOfChoice;
 
 import com.BombingGames.WurfelEngine.Configuration;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractEntity;
-import com.BombingGames.WurfelEngine.Core.Gameobjects.AnimatedBlock;
-import com.BombingGames.WurfelEngine.Core.Gameobjects.Block;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.EntityFactory;
-import com.BombingGames.WurfelEngine.Core.Gameobjects.EntitySpawner;
-import com.BombingGames.WurfelEngine.Core.Gameobjects.ExplosiveBarrel;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.SimpleEntity;
 import com.BombingGames.WurfelEngine.Core.Map.Point;
 import com.badlogic.gdx.Gdx;
@@ -44,7 +40,9 @@ public class CustomConfiguration extends Configuration {
             return entity;
         }
     }
-    
-    
-    
+
+    @Override
+    public String getSpritesheetPath() {
+        return "com/BombingGames/WeaponOfChoice/sprites/Spritesheet";
+    }
 }

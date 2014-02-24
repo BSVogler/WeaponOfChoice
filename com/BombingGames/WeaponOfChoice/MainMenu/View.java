@@ -27,7 +27,7 @@ public class View {
      */
     public View(){
         //load textures
-        lettering = new Sprite(new Texture(Gdx.files.internal("com/BombingGames/WurfelEngine/MainMenu/Images/Lettering.png")));
+        lettering = new Sprite(new Texture(Gdx.files.internal("com/BombingGames/WeaponOfChoice/MainMenu/Images/Lettering.png")));
         lettering.setX((Gdx.graphics.getWidth() - lettering.getWidth())/2);
         lettering.setY(50);
         lettering.flip(false, true);

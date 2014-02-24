@@ -42,7 +42,7 @@ public class CustomGameController extends Controller {
 
         
         AbstractCharacter player = (AbstractCharacter) AbstractEntity.getInstance(
-                40,
+                30,
                 0,
                 Map.getCenter(Map.getGameHeight())
         );
@@ -139,7 +139,7 @@ public class CustomGameController extends Controller {
                         (int) (Map.getBlocksY()*Math.random()),
                         (float) Map.getGameHeight(),
                         true);
-                    Enemy enemy = (Enemy) AbstractCharacter.getInstance(14, 0,randomPlace.getPoint());
+                    Enemy enemy = (Enemy) AbstractCharacter.getInstance(40, 0,randomPlace.getPoint());
                     enemy.setTarget(getPlayer());
                     enemy.exist();
                 }

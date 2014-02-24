@@ -27,14 +27,14 @@ public class Controller {
      * Creates a new Controller
      */
     public Controller() {
-        TextureAtlas texture = new TextureAtlas(Gdx.files.internal("com/BombingGames/WurfelEngine/MainMenu/Images/MainMenu.txt"), true);
+        TextureAtlas texture = new TextureAtlas(Gdx.files.internal("com/BombingGames/WeaponOfChoice/MainMenu/Images/MainMenu.txt"), true);
                 
         //menuItems[0] = new MenuItem(0, texture.getRegions().get(3));
         menuItems[0] = new MenuItem(1, texture.getRegions().get(1));
         //menuItems[2] = new MenuItem(2, texture.getRegions().get(0));
         menuItems[1] = new MenuItem(3, texture.getRegions().get(0));
         
-        fx = Gdx.audio.newSound(Gdx.files.internal("com/BombingGames/WurfelEngine/MainMenu/click2.wav"));
+        fx = Gdx.audio.newSound(Gdx.files.internal("com/BombingGames/WeaponOfChoice/MainMenu/click2.wav"));
         Gdx.input.setInputProcessor(new InputListener());
         
         //add asstes to queque
@@ -58,7 +58,6 @@ public class Controller {
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/thump.wav", Sound.class);
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/music.ogg", Music.class);
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/dead.ogg", Sound.class);
-        
     }
     
     /**
