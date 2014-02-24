@@ -83,10 +83,10 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
             } else {
                 sprite = new Sprite(CustomWeapon.getSpritesheetBig().findRegion("newround"));
             }
-                sprite.setX(Gdx.graphics.getWidth()/2 - sprite.getWidth()/2);
-                sprite.setY(Gdx.graphics.getHeight()/2-200);
-                sprite.scale(CustomWeapon.getScaling());
-                sprite.draw(view.getBatch());
+            sprite.setX(Gdx.graphics.getWidth()/2 - sprite.getWidth()/2);
+            sprite.setY(Gdx.graphics.getHeight()/2-200);
+            sprite.scale(CustomWeapon.getScaling());
+            sprite.draw(view.getBatch());
                 
             get(currentRandom).renderBig(view,
                 Gdx.graphics.getWidth()/2-10*CustomWeapon.getScaling(),
