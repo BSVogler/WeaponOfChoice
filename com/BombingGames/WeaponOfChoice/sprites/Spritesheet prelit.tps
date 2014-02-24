@@ -177,6 +177,8 @@
         <key>fileList</key>
         <array>
             <filename>sprites prelit/b0-0-0.png</filename>
+            <filename>sprites prelit/b0-0-1.png</filename>
+            <filename>sprites prelit/b0-0-2.png</filename>
             <filename>sprites prelit/b0-1-0.png</filename>
             <filename>sprites prelit/b0-2-0.png</filename>
             <filename>sprites prelit/b1-0-0.png</filename>
@@ -203,6 +205,9 @@
             <filename>sprites prelit/b8-0-0.png</filename>
             <filename>sprites prelit/b8-0-1.png</filename>
             <filename>sprites prelit/b8-0-2.png</filename>
+            <filename>sprites prelit/b8-1-0.png</filename>
+            <filename>sprites prelit/b8-1-1.png</filename>
+            <filename>sprites prelit/b8-1-2.png</filename>
             <filename>sprites prelit/b9-0-0.png</filename>
             <filename>sprites prelit/b9-0-1.png</filename>
             <filename>sprites prelit/b9-0-2.png</filename>
@@ -211,51 +216,54 @@
             <filename>sprites prelit/b20-0-2.png</filename>
             <filename>sprites prelit/b34-0.png</filename>
             <filename>sprites prelit/b35-0.png</filename>
+            <filename>sprites prelit/b44-0-0.png</filename>
+            <filename>sprites prelit/b44-0-1.png</filename>
+            <filename>sprites prelit/b44-0-2.png</filename>
+            <filename>sprites prelit/b44-1-0.png</filename>
+            <filename>sprites prelit/b44-1-1.png</filename>
+            <filename>sprites prelit/b44-1-2.png</filename>
             <filename>sprites prelit/b70-0.png</filename>
             <filename>sprites prelit/b71-0.png</filename>
-            <filename>sprites prelit/e40-0.png</filename>
-            <filename>sprites prelit/e40-1.png</filename>
-            <filename>sprites prelit/e40-2.png</filename>
-            <filename>sprites prelit/e40-3.png</filename>
-            <filename>sprites prelit/e40-4.png</filename>
-            <filename>sprites prelit/e40-5.png</filename>
-            <filename>sprites prelit/e40-6.png</filename>
-            <filename>sprites prelit/e40-7.png</filename>
-            <filename>sprites prelit/e41-0.png</filename>
-            <filename>sprites prelit/e41-1.png</filename>
+            <filename>sprites prelit/b71-1.png</filename>
             <filename>sprites prelit/e12-0.png</filename>
-            <filename>sprites prelit/error.png</filename>
-            <filename>sprites prelit/e42-0.png</filename>
-            <filename>sprites prelit/e15-0.png</filename>
-            <filename>sprites prelit/e14-0.png</filename>
-            <filename>sprites prelit/e14-2.png</filename>
-            <filename>sprites prelit/e14-4.png</filename>
-            <filename>sprites prelit/e14-6.png</filename>
-            <filename>sprites prelit/e14-3.png</filename>
-            <filename>sprites prelit/e16-0.png</filename>
-            <filename>sprites prelit/e17-0.png</filename>
-            <filename>sprites prelit/e14-7.png</filename>
-            <filename>sprites prelit/e14-1.png</filename>
-            <filename>sprites prelit/e14-5.png</filename>
             <filename>sprites prelit/e12-1.png</filename>
             <filename>sprites prelit/e12-2.png</filename>
             <filename>sprites prelit/e12-3.png</filename>
-            <filename>sprites prelit/b71-1.png</filename>
-            <filename>sprites prelit/e18-0.png</filename>
-            <filename>sprites prelit/e19-0.png</filename>
-            <filename>sprites prelit/b8-1-0.png</filename>
-            <filename>sprites prelit/b8-1-1.png</filename>
-            <filename>sprites prelit/b8-1-2.png</filename>
-            <filename>sprites prelit/e14-8.png</filename>
-            <filename>sprites prelit/e14-9.png</filename>
-            <filename>sprites prelit/e14-10.png</filename>
-            <filename>sprites prelit/e14-11.png</filename>
-            <filename>sprites prelit/e14-12.png</filename>
-            <filename>sprites prelit/e14-13.png</filename>
-            <filename>sprites prelit/e14-14.png</filename>
-            <filename>sprites prelit/e14-15.png</filename>
-            <filename>sprites prelit/e20-0.png</filename>
-            <filename>sprites prelit/e21-0.png</filename>
+            <filename>sprites prelit/e15-0.png</filename>
+            <filename>sprites prelit/e30-0.png</filename>
+            <filename>sprites prelit/e30-1.png</filename>
+            <filename>sprites prelit/e30-2.png</filename>
+            <filename>sprites prelit/e30-3.png</filename>
+            <filename>sprites prelit/e30-4.png</filename>
+            <filename>sprites prelit/e30-5.png</filename>
+            <filename>sprites prelit/e30-6.png</filename>
+            <filename>sprites prelit/e30-7.png</filename>
+            <filename>sprites prelit/e31-0.png</filename>
+            <filename>sprites prelit/e31-1.png</filename>
+            <filename>sprites prelit/e32-0.png</filename>
+            <filename>sprites prelit/e44-0.png</filename>
+            <filename>sprites prelit/e44-1.png</filename>
+            <filename>sprites prelit/e44-2.png</filename>
+            <filename>sprites prelit/e44-3.png</filename>
+            <filename>sprites prelit/e44-4.png</filename>
+            <filename>sprites prelit/e44-5.png</filename>
+            <filename>sprites prelit/e44-6.png</filename>
+            <filename>sprites prelit/e44-7.png</filename>
+            <filename>sprites prelit/e44-8.png</filename>
+            <filename>sprites prelit/e44-9.png</filename>
+            <filename>sprites prelit/e44-10.png</filename>
+            <filename>sprites prelit/e44-11.png</filename>
+            <filename>sprites prelit/e44-12.png</filename>
+            <filename>sprites prelit/e44-13.png</filename>
+            <filename>sprites prelit/e44-14.png</filename>
+            <filename>sprites prelit/e44-15.png</filename>
+            <filename>sprites prelit/e46-0.png</filename>
+            <filename>sprites prelit/e47-0.png</filename>
+            <filename>sprites prelit/e48-0.png</filename>
+            <filename>sprites prelit/e49-0.png</filename>
+            <filename>sprites prelit/e60-0.png</filename>
+            <filename>sprites prelit/e61-0.png</filename>
+            <filename>sprites prelit/error.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>
