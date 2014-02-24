@@ -65,7 +65,6 @@ public class CustomGameController extends Controller {
             )
         );
         CustomWeapon.init();
-        CustomBullet.init();
         
         roundTimer = roundLength;
         spinningWheel = new SpinningWheel(this);
@@ -139,7 +138,7 @@ public class CustomGameController extends Controller {
                         (int) (Map.getBlocksY()*Math.random()),
                         (float) Map.getGameHeight(),
                         true);
-                    Enemy enemy = (Enemy) AbstractCharacter.getInstance(40, 0,randomPlace.getPoint());
+                    Enemy enemy = (Enemy) AbstractCharacter.getInstance(44, 0,randomPlace.getPoint());
                     enemy.setTarget(getPlayer());
                     enemy.exist();
                 }

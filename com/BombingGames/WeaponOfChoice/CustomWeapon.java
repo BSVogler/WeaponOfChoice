@@ -69,7 +69,7 @@ public class CustomWeapon extends Weapon {
                 spread = 0.5f;
                 damage = 1000;
                 bulletSprite = -1;
-                impactSprite=15;
+                impactSprite=45;
                 
                 fire = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/melee.wav");
                 reload = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/wiz.wav"); 
@@ -85,7 +85,7 @@ public class CustomWeapon extends Weapon {
                 spread = 0.1f;
                 damage = 800;
                 bulletSprite = 0;
-                impactSprite=19;
+                impactSprite=49;
                 
                 fire = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/shot.wav");
                 reload = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
@@ -101,7 +101,7 @@ public class CustomWeapon extends Weapon {
                 spread = 0.4f;
                 bulletSprite = -1;
                 damage = 500;
-                impactSprite=15;
+                impactSprite=45;
                 
                 fire = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/punch.wav");
                 //reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/melee.wav"); 
@@ -133,7 +133,7 @@ public class CustomWeapon extends Weapon {
                 spread = 0.08f;
                 damage = 400;
                 bulletSprite = 0;
-                impactSprite=19;
+                impactSprite=49;
                 
                 fire = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/bust.wav");
                 reload = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
@@ -150,7 +150,7 @@ public class CustomWeapon extends Weapon {
                 damage = 400;
                 bulletSprite = 3;
                 explode = 1;
-                impactSprite=19;
+                impactSprite=49;
                 
                 fire = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/poop.wav");
                 //reload = WEMain.getInstance().manager.get("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
@@ -167,7 +167,7 @@ public class CustomWeapon extends Weapon {
                 bulletSprite = 2;
                 explode = 2;
                 spread = 0.1f;
-                impactSprite=19;
+                impactSprite=49;
                 
                 fire = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/thump.wav");
                 reload = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 
@@ -183,7 +183,7 @@ public class CustomWeapon extends Weapon {
                 spread = 0.4f;
                 damage = 200;
                 bulletSprite = 1;
-                impactSprite=18;
+                impactSprite=49;
                 
                 fire = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/fire.wav");
                 reload = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/reload.wav"); 

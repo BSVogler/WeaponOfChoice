@@ -2,6 +2,7 @@ package com.BombingGames.WeaponOfChoice;
 
 import com.BombingGames.WurfelEngine.Configuration;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractEntity;
+import com.BombingGames.WurfelEngine.Core.Gameobjects.AnimatedEntity;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.EntityFactory;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.SimpleEntity;
 import com.BombingGames.WurfelEngine.Core.Map.Point;
@@ -30,9 +31,12 @@ public class CustomConfiguration extends Configuration {
             AbstractEntity entity;
             switch (id){
                 //...
-                case 40:
+                case 44:
                     entity = new Enemy(id, point);
-                    break;
+                break;
+                case 45:case 46: case 49:case 50:case 51:
+                    entity = new AnimatedEntity(id, value, new int[]{300}, true, false);
+                    break;     
                 default:
                     entity = new SimpleEntity(id);
                     Gdx.app.error("CustomBlockFactory", "Entity not defined.");

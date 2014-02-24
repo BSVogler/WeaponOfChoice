@@ -60,7 +60,7 @@ public class Enemy extends AbstractCharacter{
                     setMana((int) (getMana()+delta));
                     if (getMana()>=1000){
                         setMana(0);//reset
-                        AbstractEntity.getInstance(16, 0, getPos().cpy()).exist();//spawn blood
+                        AbstractEntity.getInstance(46, 0, getPos().cpy()).exist();//spawn blood
                         target.damage(50);
                         
                     }
