@@ -130,7 +130,7 @@ public class CustomGameController extends Controller {
                 GameplayScreen.msgSystem().add("New Round! Round: "+round, "Warning");
                 spinningWheel.spin();
 
-                //spawn an enemy
+                //spawn enemies
                 GameplayScreen.msgSystem().add("Spawning "+(round-1) +" enemys.", "Warning");
                 for (int i = 0; i < round; i++) {
                     Coordinate randomPlace = new Coordinate(

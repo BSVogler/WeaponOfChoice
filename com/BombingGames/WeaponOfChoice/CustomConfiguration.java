@@ -39,7 +39,7 @@ public class CustomConfiguration extends Configuration {
                     break;     
                 default:
                     entity = new SimpleEntity(id);
-                    Gdx.app.error("CustomBlockFactory", "Entity not defined.");
+                    Gdx.app.error("CustomEntityFactory", "Entity "+id+" not defined.");
             }
             return entity;
         }
