@@ -158,7 +158,8 @@ public class CustomGameView extends View{
                 controller.getCurrentWeapon().trigger();
                 return true;
             }
-            else return false;
+            else
+                return false;
         }
 
         @Override
