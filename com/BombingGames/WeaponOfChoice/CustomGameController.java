@@ -41,7 +41,7 @@ public class CustomGameController extends Controller {
         music.play();
 
         
-        AbstractCharacter player = new Player(Map.getCenter(Map.getGameHeight()));
+        Player player = new Player(Map.getCenter(Map.getGameHeight()));
         player.setControls("WASD");
         setPlayer(player);
         player.setDamageSounds(new Sound[]{
@@ -51,15 +51,17 @@ public class CustomGameController extends Controller {
             (Sound) WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/scream4.wav")
         });
         
-        addCamera(
-            new WECamera(
+        WECamera camera = new WECamera(
                 getPlayer(),
                 0, //left
                 0, //top
                 Gdx.graphics.getWidth(), //width 
                 Gdx.graphics.getHeight()//height
-            )
-        );
+            );
+        
+        addCamera(camera);
+        player.setCamera(camera);
+        
         CustomWeapon.init();
         
         roundTimer = roundLength;
