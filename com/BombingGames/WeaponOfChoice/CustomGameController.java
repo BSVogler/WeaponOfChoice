@@ -3,6 +3,7 @@ package com.BombingGames.WeaponOfChoice;
 import com.BombingGames.WurfelEngine.Core.Controller;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractCharacter;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractEntity;
+import com.BombingGames.WurfelEngine.Core.Gameobjects.Player;
 import com.BombingGames.WurfelEngine.Core.GameplayScreen;
 import com.BombingGames.WurfelEngine.Core.Map.Coordinate;
 import com.BombingGames.WurfelEngine.Core.Map.Map;
@@ -41,11 +42,7 @@ public class CustomGameController extends Controller {
         music.play();
 
         
-        AbstractCharacter player = (AbstractCharacter) AbstractEntity.getInstance(
-                30,
-                0,
-                Map.getCenter(Map.getGameHeight())
-        );
+        AbstractCharacter player = new Player(Map.getCenter(Map.getGameHeight()));
         player.setControls("WASD");
         setPlayer(player);
         player.setDamageSounds(new Sound[]{
@@ -138,9 +135,8 @@ public class CustomGameController extends Controller {
                         (int) (Map.getBlocksY()*Math.random()),
                         (float) Map.getGameHeight(),
                         true);
-                    Enemy enemy = (Enemy) AbstractCharacter.getInstance(44, 0,randomPlace.getPoint());
+                    Enemy enemy = (Enemy) new Enemy(44, randomPlace.getPoint()).exist();
                     enemy.setTarget(getPlayer());
-                    enemy.exist();
                 }
 
             }

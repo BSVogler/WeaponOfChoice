@@ -1,7 +1,7 @@
 package com.BombingGames.WeaponOfChoice;
 
 import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractCharacter;
-import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractEntity;
+import com.BombingGames.WurfelEngine.Core.Gameobjects.AnimatedEntity;
 import com.BombingGames.WurfelEngine.Core.Map.Point;
 import com.BombingGames.WurfelEngine.WE;
 import com.badlogic.gdx.audio.Sound;
@@ -51,18 +51,17 @@ public class Enemy extends AbstractCharacter{
                 float dY = target.getPos().getAbsY()-getPos().getAbsY();
                 double length = Math.sqrt(dY*dY+dX*dX);
                 //update the movement vector
-                //setMovementX((float) (dX/length));
-                //setMovementY((float) (dY/length));
-                //move(0.4f);
+//                setMovementX((float) (dX/length));
+//                setMovementY((float) (dY/length));
+//                move(0.4f);
 
                 //attack
                 if (Arrays.equals(target.getPos().getCoord().getRel(), getPos().getCoord().getRel())){
                     setMana((int) (getMana()+delta));
                     if (getMana()>=1000){
                         setMana(0);//reset
-                        AbstractEntity.getInstance(46, 0, getPos().cpy()).exist();//spawn blood
+                        new AnimatedEntity(46, 0, getPos().cpy(), new int[]{300}, true, false).exist();//spawn blood
                         target.damage(50);
-                        
                     }
                 }
             }
