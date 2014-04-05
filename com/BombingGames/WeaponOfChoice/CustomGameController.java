@@ -1,12 +1,10 @@
 package com.BombingGames.WeaponOfChoice;
 
 import com.BombingGames.WurfelEngine.Core.Controller;
-import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractCharacter;
-import com.BombingGames.WurfelEngine.Core.Gameobjects.Player;
+import com.BombingGames.WurfelEngine.Core.Gameobjects.WeaponPlayer;
 import com.BombingGames.WurfelEngine.Core.GameplayScreen;
 import com.BombingGames.WurfelEngine.Core.Map.Coordinate;
 import com.BombingGames.WurfelEngine.Core.Map.Map;
-import com.BombingGames.WurfelEngine.Core.WECamera;
 import com.BombingGames.WurfelEngine.WE;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -40,9 +38,7 @@ public class CustomGameController extends Controller {
         music.setLooping(true);
         music.play();
 
-        
-        Player player = new Player(Map.getCenter(Map.getGameHeight()));
-        player.setControls("WASD");
+        WeaponPlayer player = new WeaponPlayer(Map.getCenter(Map.getGameHeight()));
         setPlayer(player);
         player.setDamageSounds(new Sound[]{
             (Sound) WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/scream1.wav"),
@@ -51,16 +47,6 @@ public class CustomGameController extends Controller {
             (Sound) WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/scream4.wav")
         });
         
-        WECamera camera = new WECamera(
-                getPlayer(),
-                0, //left
-                0, //top
-                Gdx.graphics.getWidth(), //width 
-                Gdx.graphics.getHeight()//height
-            );
-        
-        addCamera(camera);
-        player.setCamera(camera);
         
         CustomWeapon.init();
         
@@ -107,14 +93,13 @@ public class CustomGameController extends Controller {
 
 
                 //walk
-                if ("WASD".equals(getPlayer().getControls()))
-                    getPlayer().walk(
-                        input.isKeyPressed(Input.Keys.W),
-                        input.isKeyPressed(Input.Keys.S),
-                        input.isKeyPressed(Input.Keys.A),
-                        input.isKeyPressed(Input.Keys.D),
-                        .25f+(running? 0.5f: 0)
-                    );
+                getPlayer().walk(
+                    input.isKeyPressed(Input.Keys.W),
+                    input.isKeyPressed(Input.Keys.S),
+                    input.isKeyPressed(Input.Keys.A),
+                    input.isKeyPressed(Input.Keys.D),
+                    .25f+(running? 0.5f: 0)
+                );
                 if (input.isKeyPressed(Input.Keys.SPACE)) getPlayer().jump();
             }
 

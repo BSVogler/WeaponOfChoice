@@ -5,6 +5,7 @@ import com.BombingGames.WurfelEngine.Core.Gameobjects.AnimatedEntity;
 import com.BombingGames.WurfelEngine.Core.Map.Point;
 import com.BombingGames.WurfelEngine.WE;
 import com.badlogic.gdx.audio.Sound;
+import com.badlogic.gdx.math.Vector3;
 import java.util.Arrays;
 
 /**
@@ -94,7 +95,7 @@ public class Enemy extends AbstractCharacter{
     }
 
     @Override
-    public float[] getAiming() {
+    public Vector3 getAiming() {
         throw new UnsupportedOperationException("Enemy can not aim at the moment.");
     }
 

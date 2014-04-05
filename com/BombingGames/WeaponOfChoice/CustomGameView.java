@@ -1,7 +1,10 @@
 package com.BombingGames.WeaponOfChoice;
 
+import com.BombingGames.WurfelEngine.Core.Controller;
+import com.BombingGames.WurfelEngine.Core.Gameobjects.WeaponPlayer;
 import com.BombingGames.WurfelEngine.Core.GameplayScreen;
 import com.BombingGames.WurfelEngine.Core.View;
+import com.BombingGames.WurfelEngine.Core.WECamera;
 import com.BombingGames.WurfelEngine.WE;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -23,9 +26,26 @@ public class CustomGameView extends View{
      */
     public CustomGameView(CustomGameController controller) {
          super();
-         Gdx.input.setInputProcessor(new InputListener());
          this.controller = controller;
      }
+
+    @Override
+    public void init(Controller controller) {
+        super.init(controller);
+        Gdx.input.setInputProcessor(new InputListener());
+         WECamera camera = new WECamera(
+                controller.getPlayer(),
+                0, //left
+                0, //top
+                Gdx.graphics.getWidth(), //width 
+                Gdx.graphics.getHeight()//height
+            );
+        
+        addCamera(camera);
+        ((WeaponPlayer) controller.getPlayer()).setCamera(camera);
+    }
+    
+    
 
 
      @Override
@@ -125,7 +145,7 @@ public class CustomGameView extends View{
 
                  //reset zoom
                  if (keycode == Input.Keys.Z) {
-                     getController().getCameras().get(0).setZoom(1);
+                     getCameras().get(0).setZoom(1);
                      GameplayScreen.msgSystem().add("Zoom reset");
                   }  
 
@@ -148,7 +168,7 @@ public class CustomGameView extends View{
 
         @Override
         public boolean keyTyped(char character) {
-            GameplayScreen.msgSystem().getInput(character);
+            GameplayScreen.msgSystem().addInput(character);
             return true;
         }
 
@@ -179,9 +199,9 @@ public class CustomGameView extends View{
 
         @Override
         public boolean scrolled(int amount) {
-            getController().getCameras().get(0).setZoom(getController().getCameras().get(0).getZoom() - amount/100f);
+            getCameras().get(0).setZoom(getCameras().get(0).getZoom() - amount/100f);
             
-            GameplayScreen.msgSystem().add("Zoom: " + getController().getCameras().get(0).getZoom());   
+            GameplayScreen.msgSystem().add("Zoom: " + getCameras().get(0).getZoom());   
             return true;
         }
     }
