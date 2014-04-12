@@ -32,7 +32,7 @@ public class CustomGameView extends View{
     @Override
     public void init(Controller controller) {
         super.init(controller);
-        Gdx.input.setInputProcessor(new InputListener());
+        View.addInputProcessor(new InputListener());
          WECamera camera = new WECamera(
                 controller.getPlayer(),
                 0, //left
