@@ -162,7 +162,7 @@ public class CustomGameController extends Controller {
         survivedSeconds =(int) ((System.currentTimeMillis()-startingTime)/1000);
         Gdx.app.error("Game over:", "Time:"+survivedSeconds);
         
-        getPlayer().destroy();
+        getPlayer().dispose();
     }
 
     public boolean isGameOver() {

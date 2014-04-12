@@ -100,9 +100,9 @@ public class Enemy extends AbstractCharacter{
     }
 
     @Override
-    public void destroy() {
+    public void dispose() {
         killcounter++;
-        super.destroy();
+        super.dispose();
     }
 
     public static int getKillcounter() {
