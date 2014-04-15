@@ -13,6 +13,11 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 public class CustomConfiguration extends Configuration {
 
     @Override
+    public boolean useLightEngine() {
+        return false;
+    }
+
+    @Override
     public int getChunkGenerator() {
         return 2;
     }
