@@ -4,7 +4,7 @@ import com.BombingGames.WurfelEngine.Core.Controller;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.WeaponPlayer;
 import com.BombingGames.WurfelEngine.Core.GameplayScreen;
 import com.BombingGames.WurfelEngine.Core.View;
-import com.BombingGames.WurfelEngine.Core.WECamera;
+import com.BombingGames.WurfelEngine.Core.Camera;
 import com.BombingGames.WurfelEngine.WE;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -33,7 +33,7 @@ public class CustomGameView extends View{
     public void init(Controller controller) {
         super.init(controller);
         View.addInputProcessor(new InputListener());
-         WECamera camera = new WECamera(
+         Camera camera = new Camera(
                 controller.getPlayer(),
                 0, //left
                 0, //top
