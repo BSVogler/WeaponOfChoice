@@ -1,7 +1,7 @@
 package com.BombingGames.WeaponOfChoice;
 
 import com.BombingGames.WurfelEngine.Core.Controller;
-import com.BombingGames.WurfelEngine.Core.Gameobjects.WeaponPlayer;
+import com.BombingGames.WurfelEngine.Core.Gameobjects.PlayerWithWeapon;
 import com.BombingGames.WurfelEngine.Core.GameplayScreen;
 import com.BombingGames.WurfelEngine.Core.View;
 import com.BombingGames.WurfelEngine.Core.Camera;
@@ -42,7 +42,7 @@ public class CustomGameView extends View{
             );
         
         addCamera(camera);
-        ((WeaponPlayer) controller.getPlayer()).setCamera(camera);
+        ((PlayerWithWeapon) controller.getPlayer()).setCamera(camera);
     }
     
     
@@ -132,7 +132,7 @@ public class CustomGameView extends View{
 
         @Override
         public boolean keyDown(int keycode) {
-            if (!GameplayScreen.msgSystem().isListeningForInput()) {
+            if (!GameplayScreen.msgSystem().isActive()) {
                  //toggle fullscreen
                  if (keycode == Input.Keys.F){
                      WE.setFullscreen(!WE.isFullscreen());
@@ -156,7 +156,7 @@ public class CustomGameView extends View{
             
              //toggle input for msgSystem
              if (keycode == Input.Keys.ENTER)
-                 GameplayScreen.msgSystem().listenForInput(!GameplayScreen.msgSystem().isListeningForInput());
+                 GameplayScreen.msgSystem().setActive(!GameplayScreen.msgSystem().isActive());
 
             return true;            
         }
@@ -168,8 +168,7 @@ public class CustomGameView extends View{
 
         @Override
         public boolean keyTyped(char character) {
-            GameplayScreen.msgSystem().addInput(character);
-            return true;
+            return false;
         }
 
         @Override
