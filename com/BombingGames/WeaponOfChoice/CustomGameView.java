@@ -154,10 +154,6 @@ public class CustomGameView extends View{
                      WE.showMainMenu();
             }
             
-             //toggle input for msgSystem
-             if (keycode == Input.Keys.ENTER)
-                 GameplayScreen.msgSystem().setActive(!GameplayScreen.msgSystem().isActive());
-
             return true;            
         }
 
