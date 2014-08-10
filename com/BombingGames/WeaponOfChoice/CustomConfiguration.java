@@ -1,6 +1,7 @@
 package com.BombingGames.WeaponOfChoice;
 
 import com.BombingGames.WurfelEngine.Core.Configuration;
+import com.BombingGames.WurfelEngine.Core.Map.Generator;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
@@ -45,4 +46,11 @@ public class CustomConfiguration extends Configuration {
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/music.ogg", Music.class);
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/dead.ogg", Sound.class);
     }
+
+    @Override
+    public Generator getChunkGenerator() {
+        return new ArenaGenerator();
+    }
+    
+    
 }
