@@ -51,6 +51,12 @@ public class CustomConfiguration extends Configuration {
     public Generator getChunkGenerator() {
         return new ArenaGenerator();
     }
+
+    @Override
+    public boolean debugObjects() {
+        return true;
+    }
+    
     
     
 }
