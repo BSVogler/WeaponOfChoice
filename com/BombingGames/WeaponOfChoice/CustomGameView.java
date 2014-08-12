@@ -1,10 +1,10 @@
 package com.BombingGames.WeaponOfChoice;
 
+import com.BombingGames.WurfelEngine.Core.Camera;
 import com.BombingGames.WurfelEngine.Core.Controller;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.PlayerWithWeapon;
 import com.BombingGames.WurfelEngine.Core.GameplayScreen;
 import com.BombingGames.WurfelEngine.Core.View;
-import com.BombingGames.WurfelEngine.Core.Camera;
 import com.BombingGames.WurfelEngine.WE;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -72,7 +72,7 @@ public class CustomGameView extends View{
         );
         sh.rect(
             Gdx.graphics.getWidth()/2-100,
-            10,
+            Gdx.graphics.getHeight()-10,
             controller.getPlayer().getHealt()/10*2,
             50
         );
@@ -81,7 +81,7 @@ public class CustomGameView extends View{
         
         sh.begin(ShapeRenderer.ShapeType.Line);
         sh.setColor(Color.BLACK);
-        sh.rect(Gdx.graphics.getWidth()/2-100, 10, 200, 50);
+        sh.rect(Gdx.graphics.getWidth()/2-100,Gdx.graphics.getHeight()-10, 200, 50);
         sh.end();
         
         //mana
@@ -96,7 +96,7 @@ public class CustomGameView extends View{
         );
         sh.rect(
             Gdx.graphics.getWidth()/2-100,
-            64,
+            Gdx.graphics.getHeight()-64,
             controller.getPlayer().getMana()/10*2,
             10
         );
@@ -105,7 +105,7 @@ public class CustomGameView extends View{
         
         sh.begin(ShapeRenderer.ShapeType.Line);
         sh.setColor(Color.BLACK);
-        sh.rect(Gdx.graphics.getWidth()/2-100, 10, 200, 50);
+        sh.rect(Gdx.graphics.getWidth()/2-100, Gdx.graphics.getHeight()-10, 200, 50);
         sh.end();
         
         if (controller.isGameOver()){

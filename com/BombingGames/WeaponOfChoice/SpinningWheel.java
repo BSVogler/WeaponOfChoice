@@ -73,6 +73,7 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
         if (visible){
             Sprite sprite;
             sprite = new Sprite(CustomWeapon.getSpritesheetBig().findRegion("canvas"));
+            sprite.flip(false, true);
             sprite.setX(Gdx.graphics.getWidth()/2 - sprite.getWidth()/2);
             sprite.setY(Gdx.graphics.getHeight()/2-30*CustomWeapon.getScaling());
             sprite.scale(CustomWeapon.getScaling());
@@ -86,6 +87,7 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
             sprite.setX(Gdx.graphics.getWidth()/2 - sprite.getWidth()/2);
             sprite.setY(Gdx.graphics.getHeight()/2-200);
             sprite.scale(CustomWeapon.getScaling());
+            sprite.flip(false, true);
             sprite.draw(view.getBatch());
                 
             get(currentRandom).renderBig(view,
