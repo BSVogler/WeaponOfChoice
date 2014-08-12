@@ -4,7 +4,9 @@
         <key>fileFormatVersion</key>
         <int>3</int>
         <key>texturePackerVersion</key>
-        <string>3.2.1</string>
+        <string>3.4.0</string>
+        <key>fileName</key>
+        <string>/Users/Benedikt/programmieren/WeaponOfChoice/src/com/BombingGames/WeaponOfChoice/sprites/Spritesheet prelit.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">
@@ -59,6 +61,8 @@
         <uint>80</uint>
         <key>pngOptimizationLevel</key>
         <uint>0</uint>
+        <key>webpQualityLevel</key>
+        <uint>101</uint>
         <key>textureSubPath</key>
         <string></string>
         <key>textureFormat</key>
@@ -75,16 +79,16 @@
         <key>fixedTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>2048</int>
+            <int>-1</int>
             <key>height</key>
-            <int>2048</int>
+            <int>-1</int>
         </QSize>
         <key>reduceBorderArtifacts</key>
         <false/>
         <key>algorithmSettings</key>
         <struct type="AlgorithmSettings">
             <key>algorithm</key>
-            <enum type="AlgorithmSettings::AlgorithmId">Basic</enum>
+            <enum type="AlgorithmSettings::AlgorithmId">MaxRects</enum>
             <key>freeSizeMode</key>
             <enum type="AlgorithmSettings::AlgorithmFreeSizeMode">Best</enum>
             <key>sizeConstraints</key>
@@ -155,6 +159,8 @@
         <false/>
         <key>trimSpriteNames</key>
         <true/>
+        <key>prependSmartFolderName</key>
+        <false/>
         <key>cleanTransparentPixels</key>
         <true/>
         <key>globalSpriteSettings</key>
@@ -173,89 +179,13 @@
             <enum type="SpriteSettings::TrimMode">Trim</enum>
             <key>heuristicMask</key>
             <false/>
+            <key>pivotPoint</key>
+            <enum type="SpriteSettings::PivotPoint">Center</enum>
         </struct>
         <key>fileList</key>
         <array>
-            <filename>blocks prelit/b0-0-0.png</filename>
-            <filename>blocks prelit/b0-1-0.png</filename>
-            <filename>blocks prelit/b0-2-0.png</filename>
-            <filename>blocks prelit/b1-0-0.png</filename>
-            <filename>blocks prelit/b1-0-1.png</filename>
-            <filename>blocks prelit/b1-0-2.png</filename>
-            <filename>blocks prelit/b2-0-0.png</filename>
-            <filename>blocks prelit/b2-0-1.png</filename>
-            <filename>blocks prelit/b2-0-2.png</filename>
-            <filename>blocks prelit/b3-0-0.png</filename>
-            <filename>blocks prelit/b3-0-1.png</filename>
-            <filename>blocks prelit/b3-0-2.png</filename>
-            <filename>blocks prelit/b4-0-0.png</filename>
-            <filename>blocks prelit/b4-0-1.png</filename>
-            <filename>blocks prelit/b4-0-2.png</filename>
-            <filename>blocks prelit/b5-0-0.png</filename>
-            <filename>blocks prelit/b5-0-1.png</filename>
-            <filename>blocks prelit/b5-0-2.png</filename>
-            <filename>blocks prelit/b6-0-0.png</filename>
-            <filename>blocks prelit/b6-0-1.png</filename>
-            <filename>blocks prelit/b6-0-2.png</filename>
-            <filename>blocks prelit/b7-0-0.png</filename>
-            <filename>blocks prelit/b7-0-1.png</filename>
-            <filename>blocks prelit/b7-0-2.png</filename>
-            <filename>blocks prelit/b8-0-0.png</filename>
-            <filename>blocks prelit/b8-0-1.png</filename>
-            <filename>blocks prelit/b8-0-2.png</filename>
-            <filename>blocks prelit/b8-1-0.png</filename>
-            <filename>blocks prelit/b8-1-1.png</filename>
-            <filename>blocks prelit/b8-1-2.png</filename>
-            <filename>blocks prelit/b9-0-0.png</filename>
-            <filename>blocks prelit/b9-0-1.png</filename>
-            <filename>blocks prelit/b9-0-2.png</filename>
-            <filename>blocks prelit/b20-0-0.png</filename>
-            <filename>blocks prelit/b20-0-1.png</filename>
-            <filename>blocks prelit/b20-0-2.png</filename>
-            <filename>blocks prelit/b34-0.png</filename>
-            <filename>blocks prelit/b35-0.png</filename>
-            <filename>blocks prelit/b70-0.png</filename>
-            <filename>blocks prelit/b71-0.png</filename>
-            <filename>blocks prelit/b71-1.png</filename>
-            <filename>entities/e12-0.png</filename>
-            <filename>entities/e12-1.png</filename>
-            <filename>entities/e12-2.png</filename>
-            <filename>entities/e12-3.png</filename>
-            <filename>entities/e15-0.png</filename>
-            <filename>entities/e16-0.png</filename>
-            <filename>entities/e17-0.png</filename>
-            <filename>entities/e18-0.png</filename>
-            <filename>entities/e19-0.png</filename>
-            <filename>entities/e30-0.png</filename>
-            <filename>entities/e30-1.png</filename>
-            <filename>entities/e30-2.png</filename>
-            <filename>entities/e30-3.png</filename>
-            <filename>entities/e30-4.png</filename>
-            <filename>entities/e30-5.png</filename>
-            <filename>entities/e30-6.png</filename>
-            <filename>entities/e30-7.png</filename>
-            <filename>entities/e31-0.png</filename>
-            <filename>entities/e31-1.png</filename>
-            <filename>entities/e32-0.png</filename>
-            <filename>entities/e44-0.png</filename>
-            <filename>entities/e44-1.png</filename>
-            <filename>entities/e44-2.png</filename>
-            <filename>entities/e44-3.png</filename>
-            <filename>entities/e44-4.png</filename>
-            <filename>entities/e44-5.png</filename>
-            <filename>entities/e44-6.png</filename>
-            <filename>entities/e44-7.png</filename>
-            <filename>entities/e44-8.png</filename>
-            <filename>entities/e44-9.png</filename>
-            <filename>entities/e44-10.png</filename>
-            <filename>entities/e44-11.png</filename>
-            <filename>entities/e44-12.png</filename>
-            <filename>entities/e44-13.png</filename>
-            <filename>entities/e44-14.png</filename>
-            <filename>entities/e44-15.png</filename>
-            <filename>entities/e60-0.png</filename>
-            <filename>entities/e61-0.png</filename>
-            <filename>entities/error.png</filename>
+            <filename>blocks prelit</filename>
+            <filename>entities</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

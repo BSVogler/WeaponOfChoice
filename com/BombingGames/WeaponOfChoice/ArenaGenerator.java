@@ -35,7 +35,9 @@ public class ArenaGenerator implements Generator {
      * @return 
      */
     private float getRandom(int x, int y, int z){
-        int field = x+2*y+3*z;//fastes way to generate id for every coodinate
+        //generate hash
+        int field = x*y*z;//fastes way to generate id for every coodinate
+        //bet
         
         Random generator = new Random((long) seed);
         float output = 0;
