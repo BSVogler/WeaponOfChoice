@@ -1,6 +1,7 @@
 package com.BombingGames.WeaponOfChoice;
 
-import com.BombingGames.WurfelEngine.Core.View;
+import com.BombingGames.WurfelEngine.Core.EngineView;
+import com.BombingGames.WurfelEngine.Core.GameView;
 import com.BombingGames.WurfelEngine.WE;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.openal.Ogg.Sound;
@@ -69,7 +70,7 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
         }
     }
         
-    public void render(View view){
+    public void render(GameView view){
         if (visible){
             Sprite sprite;
             sprite = new Sprite(CustomWeapon.getSpritesheetBig().findRegion("canvas"));
@@ -77,7 +78,7 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
             sprite.setX(Gdx.graphics.getWidth()/2 - sprite.getWidth()/2);
             sprite.setY(Gdx.graphics.getHeight()/2-30*CustomWeapon.getScaling());
             sprite.scale(CustomWeapon.getScaling());
-            sprite.draw(view.getBatch());
+            sprite.draw(EngineView.getBatch());
             
             if (controller.getRound()==1){
                 sprite = new Sprite(CustomWeapon.getSpritesheetBig().findRegion("warmup"));
@@ -88,7 +89,7 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
             sprite.setY(Gdx.graphics.getHeight()/2-200);
             sprite.scale(CustomWeapon.getScaling());
             sprite.flip(false, true);
-            sprite.draw(view.getBatch());
+            sprite.draw(EngineView.getBatch());
                 
             get(currentRandom).renderBig(view,
                 Gdx.graphics.getWidth()/2-10*CustomWeapon.getScaling(),

@@ -2,7 +2,6 @@ package com.BombingGames.WeaponOfChoice;
 
 import com.BombingGames.WurfelEngine.Core.Controller;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.PlayerWithWeapon;
-import com.BombingGames.WurfelEngine.Core.GameplayScreen;
 import com.BombingGames.WurfelEngine.Core.Map.Coordinate;
 import com.BombingGames.WurfelEngine.Core.Map.Map;
 import com.BombingGames.WurfelEngine.WE;
@@ -78,7 +77,7 @@ public class CustomGameController extends Controller {
             //get input and do actions
             Input input = Gdx.input;
 
-            if (!GameplayScreen.msgSystem().isActive()) {
+            if (!WE.getConsole().isActive()) {
 
                 boolean running = false;
                 if (input.isKeyPressed(Input.Keys.SHIFT_LEFT) && getPlayer().getMana()>0 &&!cooldown){
@@ -110,11 +109,11 @@ public class CustomGameController extends Controller {
                 //reset
                 roundTimer = roundLength;
                 round++;
-                GameplayScreen.msgSystem().add("New Round! Round: "+round, "Warning");
+                WE.getConsole().add("New Round! Round: "+round, "Warning");
                 spinningWheel.spin();
 
                 //spawn enemies
-                GameplayScreen.msgSystem().add("Spawning "+(round-1) +" enemys.", "Warning");
+                WE.getConsole().add("Spawning "+(round-1) +" enemys.", "Warning");
                 for (int i = 0; i < round; i++) {
                     Coordinate randomPlace = new Coordinate(
                         (int) (Map.getBlocksX()*Math.random()),
