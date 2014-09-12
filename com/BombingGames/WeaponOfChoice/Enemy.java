@@ -31,7 +31,6 @@ public class Enemy extends AbstractCharacter{
         super(id, 2, pos);
         setTransparent(true);
         setObstacle(true);
-        setDimensionZ(1);
         setDamageSounds(new Sound[]{
             (Sound) WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/impactFlesh.wav")
         });

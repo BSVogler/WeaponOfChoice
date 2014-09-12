@@ -130,8 +130,8 @@ public class CustomGameController extends Controller {
             if (getPlayer().getHealt() <= 0 && !gameOver)
                 gameOver();
 
-            if (currentWeapon != null)
-                currentWeapon.update(input.isButtonPressed(0), delta);
+            if (currentWeapon != null && input.isButtonPressed(0))
+                currentWeapon.shoot();
 
             super.update(origidelta);
         }else {

@@ -2,7 +2,6 @@ package com.BombingGames.WeaponOfChoice;
 
 import com.BombingGames.WurfelEngine.Core.Camera;
 import com.BombingGames.WurfelEngine.Core.Controller;
-import com.BombingGames.WurfelEngine.Core.EngineView;
 import com.BombingGames.WurfelEngine.Core.GameView;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.PlayerWithWeapon;
 import com.BombingGames.WurfelEngine.WE;
@@ -32,7 +31,7 @@ public class CustomGameView extends GameView{
     @Override
     public void init(Controller controller) {
         super.init(controller);
-        GameView.addInputProcessor(new InputListener());
+        WE.getEngineView().addInputProcessor(new InputListener());
          Camera camera = new Camera(
                 controller.getPlayer(),
                 0, //left
@@ -52,14 +51,14 @@ public class CustomGameView extends GameView{
     public void render(){
         super.render();
 
-        EngineView.getBatch().begin();
+        WE.getEngineView().getBatch().begin();
         controller.getSpinningWheel().render(this);
-        EngineView.getBatch().end();
+        WE.getEngineView().getBatch().end();
         CustomWeapon weapon = controller.getCurrentWeapon();
         if (weapon != null)
            drawString("Shots: "+weapon.getShotsLoaded()+"/"+weapon.getShots(), Gdx.graphics.getWidth()-100, Gdx.graphics.getHeight()-100, Color.WHITE.cpy());
 
-       ShapeRenderer sh = EngineView.getShapeRenderer();
+       ShapeRenderer sh = WE.getEngineView().getShapeRenderer();
        //health
        sh.begin(ShapeRenderer.ShapeType.Filled);
        sh.setColor(
@@ -170,7 +169,7 @@ public class CustomGameView extends GameView{
         @Override
         public boolean touchDown(int screenX, int screenY, int pointer, int button) {
             if (controller.getCurrentWeapon() != null) {
-                controller.getCurrentWeapon().trigger();
+                controller.getCurrentWeapon().shoot();
                 return true;
             }
             else
