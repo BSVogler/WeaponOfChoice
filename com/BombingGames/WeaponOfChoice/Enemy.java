@@ -46,14 +46,14 @@ public class Enemy extends AbstractMovableEntity{
         if (getPosition().getCoord().onLoadedMap()) {
             //follow the target
             if (target != null) {
-
-                float dX = target.getPos().getAbsX()-getPos().getAbsX();
-                float dY = target.getPos().getAbsY()-getPos().getAbsY();
-                double length = Math.sqrt(dY*dY+dX*dX);
-                //update the movement vector
-//                setMovementX((float) (dX/length));
-//                setMovementY((float) (dY/length));
-//                move(0.4f);
+				Vector3 d = new Vector3();
+                d.x = target.getPosition().getAbsX()-getPosition().getAbsX();
+                d.y = target.getPosition().getAbsY()-getPosition().getAbsY();
+				d.nor();
+				d.z = getMovement().z;
+				// update the movement vector
+				setMovement(d);
+                setSpeed(0.4f);
 
                 //attack
                 if (Arrays.equals(target.getPosition().getCoord().getRel(), getPosition().getCoord().getRel())){
