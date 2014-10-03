@@ -1,6 +1,6 @@
 package com.BombingGames.WeaponOfChoice;
 
-import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractCharacter;
+import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractMovableEntity;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.AnimatedEntity;
 import com.BombingGames.WurfelEngine.Core.Map.Point;
 import com.BombingGames.WurfelEngine.WE;
@@ -12,8 +12,8 @@ import java.util.Arrays;
  *An enemy which can follow a character.
  * @author Benedikt Vogler
  */
-public class Enemy extends AbstractCharacter{
-    private AbstractCharacter target;
+public class Enemy extends AbstractMovableEntity{
+    private AbstractMovableEntity target;
     private int runningagainstwallCounter = 0;
     private float[] lastPos;
     private static int killcounter = 0;
@@ -43,7 +43,7 @@ public class Enemy extends AbstractCharacter{
 
     @Override
     public void update(float delta) {
-        if (getPos().getCoord().onLoadedMap()) {
+        if (getPosition().getCoord().onLoadedMap()) {
             //follow the target
             if (target != null) {
 
@@ -56,11 +56,11 @@ public class Enemy extends AbstractCharacter{
 //                move(0.4f);
 
                 //attack
-                if (Arrays.equals(target.getPos().getCoord().getRel(), getPos().getCoord().getRel())){
+                if (Arrays.equals(target.getPosition().getCoord().getRel(), getPosition().getCoord().getRel())){
                     setMana((int) (getMana()+delta));
                     if (getMana()>=1000){
                         setMana(0);//reset
-                        new AnimatedEntity(46, 0, getPos().cpy(), new int[]{300}, true, false).exist();//spawn blood
+                        new AnimatedEntity(46, 0, getPosition().cpy(), new int[]{300}, true, false).spawn();//spawn blood
                         target.damage(50);
                     }
                 }
@@ -69,11 +69,11 @@ public class Enemy extends AbstractCharacter{
             super.update(delta);
 
             //if standing on same position as in last update
-            if (Arrays.equals(getPos().getRel(), lastPos))
+            if (Arrays.equals(getPosition().getRel(), lastPos))
                 runningagainstwallCounter += delta;
             else {
                 runningagainstwallCounter=0;
-                lastPos = getPos().getRel();
+                lastPos = getPosition().getRel();
             }
 
             //jump after some time
@@ -89,13 +89,8 @@ public class Enemy extends AbstractCharacter{
      * Set the target which the zombie follows.
      * @param target an character
      */
-    public void setTarget(AbstractCharacter target) {
+    public void setTarget(AbstractMovableEntity target) {
         this.target = target;
-    }
-
-    @Override
-    public Vector3 getAiming() {
-        throw new UnsupportedOperationException("Enemy can not aim at the moment.");
     }
 
     @Override
