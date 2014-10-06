@@ -1,6 +1,6 @@
 package com.BombingGames.WeaponOfChoice;
 
-import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractMovableEntity;
+import com.BombingGames.WurfelEngine.Core.Gameobjects.MovableEntity;
 import com.BombingGames.WurfelEngine.WE;
 import com.BombingGames.WurfelEngine.shooting.Weapon;
 import com.badlogic.gdx.backends.openal.Wav.Sound;
@@ -26,7 +26,7 @@ public class CustomWeapon extends Weapon {
         }
     }
     
-    public CustomWeapon(int id, AbstractMovableEntity character) {
+    public CustomWeapon(int id, MovableEntity character) {
         super(id, character);
         
         switch (id){

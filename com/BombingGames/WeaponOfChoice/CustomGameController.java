@@ -37,7 +37,7 @@ public class CustomGameController extends Controller {
         music.setLooping(true);
         music.play();
 
-        PlayerWithWeapon player = new PlayerWithWeapon(Map.getCenter(Map.getGameHeight()));
+        PlayerWithWeapon player = (PlayerWithWeapon) new PlayerWithWeapon().spawn(Map.getCenter(Map.getGameHeight()));
         setPlayer(player);
         player.setDamageSounds(new Sound[]{
             (Sound) WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/scream1.wav"),
@@ -120,7 +120,7 @@ public class CustomGameController extends Controller {
                         (int) (Map.getBlocksY()*Math.random()),
                         (float) Map.getGameHeight(),
                         true);
-                    Enemy enemy = (Enemy) new Enemy(44, randomPlace.getPoint()).spawn();
+                    Enemy enemy = (Enemy) new Enemy(44).spawn(randomPlace.getPoint());
                     enemy.setTarget(getPlayer());
                 }
 
