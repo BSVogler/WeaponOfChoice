@@ -1,8 +1,7 @@
 package com.BombingGames.WeaponOfChoice;
 
-import com.BombingGames.WurfelEngine.Core.Gameobjects.AbstractMovableEntity;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.AnimatedEntity;
-import com.BombingGames.WurfelEngine.Core.Map.Point;
+import com.BombingGames.WurfelEngine.Core.Gameobjects.MovableEntity;
 import com.BombingGames.WurfelEngine.WE;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.math.Vector3;
@@ -12,8 +11,8 @@ import java.util.Arrays;
  *An enemy which can follow a character.
  * @author Benedikt Vogler
  */
-public class Enemy extends AbstractMovableEntity{
-    private AbstractMovableEntity target;
+public class Enemy extends MovableEntity{
+    private MovableEntity target;
     private int runningagainstwallCounter = 0;
     private float[] lastPos;
     private static int killcounter = 0;
@@ -25,10 +24,9 @@ public class Enemy extends AbstractMovableEntity{
     /**
      * Zombie constructor. Use AbstractEntitiy.getInstance to create an zombie.
      * @param id
-     * @param pos
      */
-    public Enemy(int id, Point pos) {
-        super(id, 2, pos);
+    public Enemy(int id) {
+        super(id, 2);
         setTransparent(true);
         setObstacle(true);
         setDamageSounds(new Sound[]{
@@ -38,12 +36,12 @@ public class Enemy extends AbstractMovableEntity{
 
     @Override
     public void jump() {
-        super.jump(5);
+        jump(5);
     }
 
     @Override
     public void update(float delta) {
-        if (getPosition().getCoord().onLoadedMap()) {
+        if (getPosition().getCoord().onLoadedMapHorizontal()) {
             //follow the target
             if (target != null) {
 				Vector3 d = new Vector3();
@@ -60,7 +58,7 @@ public class Enemy extends AbstractMovableEntity{
                     setMana((int) (getMana()+delta));
                     if (getMana()>=1000){
                         setMana(0);//reset
-                        new AnimatedEntity(46, 0, getPosition().cpy(), new int[]{300}, true, false).spawn();//spawn blood
+                        new AnimatedEntity(46, 0, new int[]{300}, true, false).spawn(getPosition().cpy());//spawn blood
                         target.damage(50);
                     }
                 }
@@ -89,7 +87,7 @@ public class Enemy extends AbstractMovableEntity{
      * Set the target which the zombie follows.
      * @param target an character
      */
-    public void setTarget(AbstractMovableEntity target) {
+    public void setTarget(MovableEntity target) {
         this.target = target;
     }
 
