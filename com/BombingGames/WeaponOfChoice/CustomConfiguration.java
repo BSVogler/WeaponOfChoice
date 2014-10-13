@@ -25,7 +25,6 @@ public class CustomConfiguration extends Configuration {
     
     @Override
     public void initLoadingQueque(AssetManager manager) {
-        super.initLoadingQueque(manager);
         manager.load("com/BombingGames/WeaponOfChoice/SpritesBig.txt", TextureAtlas.class);
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/melee.wav", Sound.class);
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/punch.wav", Sound.class);
