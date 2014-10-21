@@ -1,6 +1,7 @@
 package com.BombingGames.WeaponOfChoice;
 
 import com.BombingGames.WurfelEngine.Core.Controller;
+import com.BombingGames.WurfelEngine.Core.Gameobjects.Block;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.PlayerWithWeapon;
 import com.BombingGames.WurfelEngine.Core.Map.Coordinate;
 import com.BombingGames.WurfelEngine.Core.Map.Map;
@@ -37,8 +38,7 @@ public class CustomGameController extends Controller {
         music.setLooping(true);
         music.play();
 
-        PlayerWithWeapon player = (PlayerWithWeapon) new PlayerWithWeapon().spawn(Map.getCenter(Map.getGameHeight()));
-        setPlayer(player);
+        PlayerWithWeapon player = (PlayerWithWeapon) new PlayerWithWeapon(1,Block.GAME_EDGELENGTH).spawn(Map.getCenter(Map.getGameHeight()));
         player.setDamageSounds(new Sound[]{
             (Sound) WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/scream1.wav"),
             (Sound) WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/scream2.wav"),

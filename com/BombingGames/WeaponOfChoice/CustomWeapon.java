@@ -3,7 +3,7 @@ package com.BombingGames.WeaponOfChoice;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.MovableEntity;
 import com.BombingGames.WurfelEngine.WE;
 import com.BombingGames.WurfelEngine.shooting.Weapon;
-import com.badlogic.gdx.backends.openal.Wav.Sound;
+import com.badlogic.gdx.backends.lwjgl.audio.Wav.Sound;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 

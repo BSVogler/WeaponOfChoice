@@ -3,7 +3,7 @@ package com.BombingGames.WeaponOfChoice;
 import com.BombingGames.WurfelEngine.Core.GameView;
 import com.BombingGames.WurfelEngine.WE;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.backends.openal.Ogg.Sound;
+import com.badlogic.gdx.backends.lwjgl.audio.Ogg.Sound;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import java.util.ArrayList;
 
