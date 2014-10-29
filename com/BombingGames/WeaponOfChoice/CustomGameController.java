@@ -26,6 +26,7 @@ public class CustomGameController extends Controller {
     private Music music;
     private long startingTime;
     private int survivedSeconds;
+	private PlayerWithWeapon player;
     
         
     @Override
@@ -38,7 +39,7 @@ public class CustomGameController extends Controller {
         music.setLooping(true);
         music.play();
 
-        PlayerWithWeapon player = (PlayerWithWeapon) new PlayerWithWeapon(1,Block.GAME_EDGELENGTH).spawn(Map.getCenter(Map.getGameHeight()));
+        player = (PlayerWithWeapon) new PlayerWithWeapon(1,Block.GAME_EDGELENGTH).spawn(Map.getCenter(Map.getGameHeight()));
         player.setDamageSounds(new Sound[]{
             (Sound) WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/scream1.wav"),
             (Sound) WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/scream2.wav"),
@@ -127,7 +128,7 @@ public class CustomGameController extends Controller {
             }
             spinningWheel.update(origidelta);
 
-            if (getPlayer().getHealt() <= 0 && !gameOver)
+            if (getPlayer().getHealth() <= 0 && !gameOver)
                 gameOver();
 
             if (currentWeapon != null && input.isButtonPressed(0))
@@ -179,4 +180,8 @@ public class CustomGameController extends Controller {
     public int getSurvivedSeconds() {
         return survivedSeconds;
     }
+
+	public PlayerWithWeapon getPlayer() {
+		return player;
+	}
 }
