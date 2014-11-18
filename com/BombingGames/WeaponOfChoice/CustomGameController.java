@@ -70,10 +70,10 @@ public class CustomGameController extends Controller {
 
     
     @Override
-    public void update(float delta){
+    public void update(float dt){
         if (!gameOver){
-            float origidelta = delta;
-            delta *= getTimespeed();
+            float origidelta = dt;
+            dt *= getTimespeed();
 
             //get input and do actions
             Input input = Gdx.input;
@@ -82,11 +82,11 @@ public class CustomGameController extends Controller {
 
                 boolean running = false;
                 if (input.isKeyPressed(Input.Keys.SHIFT_LEFT) && getPlayer().getMana()>0 &&!cooldown){
-                    getPlayer().setMana((int) (getPlayer().getMana()-delta));
+                    getPlayer().setMana((int) (getPlayer().getMana()-dt));
                     running = true;
                     if (getPlayer().getMana()<=0) cooldown=true;
                 }else {
-                    getPlayer().setMana((int) (getPlayer().getMana()+delta/2f));
+                    getPlayer().setMana((int) (getPlayer().getMana()+dt/2f));
                 }
 
                 if (getPlayer().getMana()>100) cooldown=false;
@@ -105,7 +105,7 @@ public class CustomGameController extends Controller {
 
 
 
-            roundTimer -= delta;
+            roundTimer -= dt;
             if (roundTimer <= 0){
                 //reset
                 roundTimer = roundLength;

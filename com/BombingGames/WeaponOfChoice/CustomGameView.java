@@ -112,18 +112,21 @@ public class CustomGameView extends GameView{
            drawString(
               "Game Over",
                Gdx.graphics.getWidth()/2-30,
-               Gdx.graphics.getHeight()/2-170
+               Gdx.graphics.getHeight()/2-170,
+			   true
            );  
 
            drawString(
                "Kills:"+Enemy.getKillcounter(),
                Gdx.graphics.getWidth()/2,
-               Gdx.graphics.getHeight()/2
+               Gdx.graphics.getHeight()/2,
+			   true
            );
            drawString(
                "You survived "+controller.getSurvivedSeconds()+" seconds.",
                Gdx.graphics.getWidth()/2,
-               Gdx.graphics.getHeight()/2+20
+               Gdx.graphics.getHeight()/2+20,
+			   true
            ); 
        }
     }

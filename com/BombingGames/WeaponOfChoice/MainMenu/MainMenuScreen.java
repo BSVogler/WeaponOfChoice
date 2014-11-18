@@ -1,12 +1,12 @@
 package com.BombingGames.WeaponOfChoice.MainMenu;
 
-import com.BombingGames.WurfelEngine.Core.MainMenuInterface;
+import com.BombingGames.WurfelEngine.Core.AbstractMainMenu;
  
 /**
  * The game state of the Main Menu.
  * @author Benedikt
  */
-public class MainMenuScreen implements MainMenuInterface {
+public class MainMenuScreen extends AbstractMainMenu {
     private static boolean loadMap = false;
  
     private static View View;
@@ -23,7 +23,7 @@ public class MainMenuScreen implements MainMenuInterface {
 
     
     @Override
-    public void render(float delta) {
+    public void renderImpl(float delta) {
         Controller.update((int) (delta*1000));
         View.render(Controller);
         View.update(delta*1000);
