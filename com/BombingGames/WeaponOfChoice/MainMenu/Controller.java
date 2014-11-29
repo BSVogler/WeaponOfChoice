@@ -1,8 +1,8 @@
 package com.BombingGames.WeaponOfChoice.MainMenu;
 
-import com.BombingGames.WeaponOfChoice.CustomConfiguration;
 import com.BombingGames.WeaponOfChoice.CustomGameController;
 import com.BombingGames.WeaponOfChoice.CustomGameView;
+import com.BombingGames.WurfelEngine.Core.Loading.LoadingScreen;
 import com.BombingGames.WurfelEngine.WE;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -68,7 +68,7 @@ public class Controller {
             MainMenuScreen.setLoadMap(false);
             fx.play();
             CustomGameController ctrl = new CustomGameController();
-            WE.initGame(ctrl, new CustomGameView(ctrl), new CustomConfiguration());
+            WE.initGame(ctrl, new CustomGameView(ctrl), new LoadingScreen());
         } else if (menuItems[1].isClicked()){
             fx.play();
             Gdx.app.exit();

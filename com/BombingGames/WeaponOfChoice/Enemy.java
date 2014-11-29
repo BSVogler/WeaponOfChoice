@@ -45,8 +45,8 @@ public class Enemy extends MovableEntity{
             //follow the target
             if (target != null) {
 				Vector3 d = new Vector3();
-                d.x = target.getPosition().getAbsX()-getPosition().getAbsX();
-                d.y = target.getPosition().getAbsY()-getPosition().getAbsY();
+                d.x = target.getPosition().getX()-getPosition().getX();
+                d.y = target.getPosition().getY()-getPosition().getY();
 				d.nor();
 				d.z = getMovement().z;
 				// update the movement vector
@@ -54,7 +54,7 @@ public class Enemy extends MovableEntity{
                 setSpeed(0.4f);
 
                 //attack
-                if (Arrays.equals(target.getPosition().getCoord().getRel(), getPosition().getCoord().getRel())){
+                if (Arrays.equals(target.getPosition().getCoord().getTriple(), getPosition().getCoord().getTriple())){
                     setMana((int) (getMana()+delta));
                     if (getMana()>=1000){
                         setMana(0);//reset

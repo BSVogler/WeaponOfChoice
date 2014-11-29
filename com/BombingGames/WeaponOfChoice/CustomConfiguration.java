@@ -1,7 +1,5 @@
 package com.BombingGames.WeaponOfChoice;
 
-import com.BombingGames.WurfelEngine.Core.Configuration;
-import com.BombingGames.WurfelEngine.Core.Map.Generator;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
@@ -11,12 +9,8 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
  *
  * @author Benedikt Vogler
  */
-public class CustomConfiguration extends Configuration {
+public class CustomConfiguration {
 
-    @Override
-    public boolean useLightEngine() {
-        return false;
-    }
 
     @Override
     public String getSpritesheetPath() {
@@ -45,17 +39,5 @@ public class CustomConfiguration extends Configuration {
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/music.ogg", Music.class);
         manager.load("com/BombingGames/WeaponOfChoice/Sounds/dead.ogg", Sound.class);
     }
-
-    @Override
-    public Generator getChunkGenerator() {
-        return new ArenaGenerator();
-    }
-
-    @Override
-    public boolean debugObjects() {
-        return true;
-    }
-    
-    
     
 }

@@ -119,8 +119,8 @@ public class CustomGameController extends Controller {
                     Coordinate randomPlace = new Coordinate(
                         (int) (Map.getBlocksX()*Math.random()),
                         (int) (Map.getBlocksY()*Math.random()),
-                        (float) Map.getGameHeight(),
-                        true);
+                        (float) Map.getGameHeight()
+                    );
                     Enemy enemy = (Enemy) new Enemy(44).spawn(randomPlace.getPoint());
                     enemy.setTarget(getPlayer());
                 }
