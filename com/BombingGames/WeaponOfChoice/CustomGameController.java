@@ -1,15 +1,14 @@
 package com.BombingGames.WeaponOfChoice;
 
-import com.BombingGames.WurfelEngine.Core.Controller;
-import com.BombingGames.WurfelEngine.Core.Gameobjects.Block;
-import com.BombingGames.WurfelEngine.Core.Gameobjects.PlayerWithWeapon;
-import com.BombingGames.WurfelEngine.Core.Map.Coordinate;
-import com.BombingGames.WurfelEngine.Core.Map.Map;
-import com.BombingGames.WurfelEngine.WE;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
+import com.bombinggames.wurfelengine.WE;
+import com.bombinggames.wurfelengine.core.Controller;
+import com.bombinggames.wurfelengine.core.Gameobjects.Block;
+import com.bombinggames.wurfelengine.core.Map.Chunk;
+import com.bombinggames.wurfelengine.core.Map.Coordinate;
 
 /**
  *The <i>CustomGameController</i> is for the game code. Put engine code into <i>Controller</i>.
@@ -26,7 +25,8 @@ public class CustomGameController extends Controller {
     private Music music;
     private long startingTime;
     private int survivedSeconds;
-	private PlayerWithWeapon player;
+	private Player player;
+	private int mana = 0;
     
         
     @Override
@@ -35,16 +35,15 @@ public class CustomGameController extends Controller {
         super.init();
         
         gameOver=false;
-        music = WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/music.ogg");
+        music = WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/music.ogg");
         music.setLooping(true);
         music.play();
 
-        player = (PlayerWithWeapon) new PlayerWithWeapon(1,Block.GAME_EDGELENGTH).spawn(Map.getCenter(Map.getGameHeight()));
-        player.setDamageSounds(new Sound[]{
-            (Sound) WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/scream1.wav"),
-            (Sound) WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/scream2.wav"),
-            (Sound) WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/scream3.wav"),
-            (Sound) WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/scream4.wav")
+        player = (Player) new Player(1, Block.GAME_EDGELENGTH)
+			.spawn(new Coordinate(0, 0, 8).toPoint());
+        player.setDamageSounds(new String[]{"scream1.wav", "scream2.wav",
+            "scream3.wav",
+            "scream4.wav"
         });
         
         
@@ -52,14 +51,14 @@ public class CustomGameController extends Controller {
         
         roundTimer = roundLength;
         spinningWheel = new SpinningWheel(this);
-        spinningWheel.add(new CustomWeapon(0, null));
-        spinningWheel.add(new CustomWeapon(1, null));
-        spinningWheel.add(new CustomWeapon(2, null));
-        spinningWheel.add(new CustomWeapon(3, null));
-        spinningWheel.add(new CustomWeapon(4, null));
-        spinningWheel.add(new CustomWeapon(5, null));
-        spinningWheel.add(new CustomWeapon(6, null));
-        spinningWheel.add(new CustomWeapon(7, null));
+        spinningWheel.add(new CustomWeapon((byte)0, null));
+        spinningWheel.add(new CustomWeapon((byte)1, null));
+        spinningWheel.add(new CustomWeapon((byte)2, null));
+        spinningWheel.add(new CustomWeapon((byte)3, null));
+        spinningWheel.add(new CustomWeapon((byte)4, null));
+        spinningWheel.add(new CustomWeapon((byte)5, null));
+        spinningWheel.add(new CustomWeapon((byte)6, null));
+        spinningWheel.add(new CustomWeapon((byte)7, null));
         spinningWheel.spin();
         
         startingTime = System.currentTimeMillis();
@@ -71,25 +70,24 @@ public class CustomGameController extends Controller {
     
     @Override
     public void update(float dt){
+		super.update(dt);
         if (!gameOver){
-            float origidelta = dt;
-            dt *= getTimespeed();
-
+			float origidelta = dt / WE.CVARS.getValueF("timespeed");
             //get input and do actions
             Input input = Gdx.input;
 
             if (!WE.getConsole().isActive()) {
 
                 boolean running = false;
-                if (input.isKeyPressed(Input.Keys.SHIFT_LEFT) && getPlayer().getMana()>0 &&!cooldown){
-                    getPlayer().setMana((int) (getPlayer().getMana()-dt));
+                if (input.isKeyPressed(Input.Keys.SHIFT_LEFT) && mana > 0 && !cooldown){
+                    mana = (int) (mana-dt);
                     running = true;
-                    if (getPlayer().getMana()<=0) cooldown=true;
+                    if (mana<=0) cooldown=true;
                 }else {
-                    getPlayer().setMana((int) (getPlayer().getMana()+dt/2f));
+                    mana = (int) (mana+dt/2f);
                 }
 
-                if (getPlayer().getMana()>100) cooldown=false;
+                if (mana>100) cooldown=false;
 
 
                 //walk
@@ -98,7 +96,8 @@ public class CustomGameController extends Controller {
                     input.isKeyPressed(Input.Keys.S),
                     input.isKeyPressed(Input.Keys.A),
                     input.isKeyPressed(Input.Keys.D),
-                    .25f+(running? 0.5f: 0)
+                    4.25f+(running? 3.5f: 0),
+					dt
                 );
                 if (input.isKeyPressed(Input.Keys.SPACE)) getPlayer().jump();
             }
@@ -117,11 +116,11 @@ public class CustomGameController extends Controller {
                 WE.getConsole().add("Spawning "+(round-1) +" enemys.", "Warning");
                 for (int i = 0; i < round; i++) {
                     Coordinate randomPlace = new Coordinate(
-                        (int) (Map.getBlocksX()*Math.random()),
-                        (int) (Map.getBlocksY()*Math.random()),
-                        (float) Map.getGameHeight()
-                    );
-                    Enemy enemy = (Enemy) new Enemy(44).spawn(randomPlace.getPoint());
+                        (int) (Controller.getMap().getBlocksX()*Math.random()),
+                        (int) (Controller.getMap().getBlocksY()*Math.random()),
+						Chunk.getGameHeight()
+					);
+                    Enemy enemy = (Enemy) new Enemy((byte) 44).spawn(randomPlace.toPoint());
                     enemy.setTarget(getPlayer());
                 }
 
@@ -134,7 +133,6 @@ public class CustomGameController extends Controller {
             if (currentWeapon != null && input.isButtonPressed(0))
                 currentWeapon.shoot();
 
-            super.update(origidelta);
         }else {
             music.stop();
         }
@@ -147,7 +145,7 @@ public class CustomGameController extends Controller {
         return spinningWheel;
     }
     
-    public void equipWeapon(int id){
+    public void equipWeapon(byte id){
         currentWeapon = new CustomWeapon(id, getPlayer());
         currentWeapon.reload();
     }
@@ -158,7 +156,7 @@ public class CustomGameController extends Controller {
     
     public void gameOver(){
         gameOver = true;
-        ((Sound) WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/dead.ogg")).play();
+        ((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/dead.ogg")).play();
         survivedSeconds =(int) ((System.currentTimeMillis()-startingTime)/1000);
         Gdx.app.error("Game over:", "Time:"+survivedSeconds);
         
@@ -181,7 +179,12 @@ public class CustomGameController extends Controller {
         return survivedSeconds;
     }
 
-	public PlayerWithWeapon getPlayer() {
+	public Player getPlayer() {
 		return player;
 	}
+
+	public int getMana() {
+		return mana;
+	}
+	
 }

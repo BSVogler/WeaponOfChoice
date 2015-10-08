@@ -1,6 +1,6 @@
 package com.BombingGames.WeaponOfChoice.MainMenu;
 
-import com.BombingGames.WurfelEngine.Core.AbstractMainMenu;
+import com.bombinggames.wurfelengine.core.AbstractMainMenu;
  
 /**
  * The game state of the Main Menu.

@@ -1,11 +1,8 @@
 package com.BombingGames.WeaponOfChoice;
 
-import com.BombingGames.WurfelEngine.Core.Gameobjects.AnimatedEntity;
-import com.BombingGames.WurfelEngine.Core.Gameobjects.MovableEntity;
-import com.BombingGames.WurfelEngine.WE;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.math.Vector3;
-import java.util.Arrays;
+import com.bombinggames.wurfelengine.core.Gameobjects.MovableEntity;
+import com.bombinggames.wurfelengine.core.Map.Point;
 
 /**
  *An enemy which can follow a character.
@@ -14,8 +11,9 @@ import java.util.Arrays;
 public class Enemy extends MovableEntity{
     private MovableEntity target;
     private int runningagainstwallCounter = 0;
-    private float[] lastPos;
+    private Point lastPos;
     private static int killcounter = 0;
+	private int mana = 0;
     
     public void init(){
        killcounter=0; 
@@ -25,23 +23,20 @@ public class Enemy extends MovableEntity{
      * Zombie constructor. Use AbstractEntitiy.getInstance to create an zombie.
      * @param id
      */
-    public Enemy(int id) {
+    public Enemy(byte id) {
         super(id, 2);
-        setTransparent(true);
         setObstacle(true);
-        setDamageSounds(new Sound[]{
-            (Sound) WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/impactFlesh.wav")
-        });
+        setDamageSounds(new String[]{"impactFlesh"});
     }
 
     @Override
     public void jump() {
-        jump(5);
+        jump(5, true);
     }
 
     @Override
     public void update(float delta) {
-        if (getPosition().getCoord().onLoadedMapHorizontal()) {
+        if (getPosition().toCoord().isInMemoryAreaHorizontal()) {
             //follow the target
             if (target != null) {
 				Vector3 d = new Vector3();
@@ -50,16 +45,18 @@ public class Enemy extends MovableEntity{
 				d.nor();
 				d.z = getMovement().z;
 				// update the movement vector
-				setMovement(d);
-                setSpeed(0.4f);
+				setMovement(d.scl(0.4f));
 
                 //attack
-                if (Arrays.equals(target.getPosition().getCoord().getTriple(), getPosition().getCoord().getTriple())){
-                    setMana((int) (getMana()+delta));
-                    if (getMana()>=1000){
-                        setMana(0);//reset
-                        new AnimatedEntity(46, 0, new int[]{300}, true, false).spawn(getPosition().cpy());//spawn blood
-                        target.damage(50);
+                if (
+					target.getPosition().toCoord().equals(getPosition().toCoord())
+				){
+                    mana = ((int) (mana+delta));
+                    if (mana >= 1000){
+                        mana = 0;//reset
+						//new EntityAnimation(new int[]{300}, true, false)
+                        //new EntityAnimation(46, 0, new int[]{300}, true, false).spawn(getPosition().cpy());//spawn blood
+                        target.damage((byte) 50);
                     }
                 }
             }
@@ -67,17 +64,17 @@ public class Enemy extends MovableEntity{
             super.update(delta);
 
             //if standing on same position as in last update
-            if (Arrays.equals(getPosition().getRel(), lastPos))
+            if (getPosition().equals(lastPos))
                 runningagainstwallCounter += delta;
             else {
                 runningagainstwallCounter=0;
-                lastPos = getPosition().getRel();
+                lastPos = getPosition();
             }
 
             //jump after some time
             if (runningagainstwallCounter > 500) {
                 jump();
-                setMana(0);
+               mana = 0;
                 runningagainstwallCounter=0;
             }
         }

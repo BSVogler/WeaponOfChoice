@@ -1,10 +1,10 @@
 package com.BombingGames.WeaponOfChoice;
 
-import com.BombingGames.WurfelEngine.Core.GameView;
-import com.BombingGames.WurfelEngine.WE;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.audio.Ogg.Sound;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.bombinggames.wurfelengine.WE;
+import com.bombinggames.wurfelengine.core.GameView;
 import java.util.ArrayList;
 
 /**
@@ -16,10 +16,10 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
     
     private final CustomGameController controller;
     private boolean visible;
-    private int current = -1;
+    private byte current = -1;
     private final int spintime = 5000;
     private int timer;
-    private int currentRandom;
+    private byte currentRandom;
     private float wheelSpeed;
     private float wheelTimer;
 
@@ -32,13 +32,13 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
      * Returns a new selection
      */
     public void spin(){
-        Sound dudeldi = (Sound) WE.getAsset("com/BombingGames/WeaponOfChoice/Sounds/dudeldi.ogg");
+        Sound dudeldi = (Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/dudeldi.ogg");
         dudeldi.play();
         controller.getMusic().setVolume(0.2f);
         
         visible = true;
         timer = spintime;
-        controller.setTimespeed(0.3f);
+		WE.CVARS.get("timespeed").setValue(0.3f);
         wheelSpeed=1;
         wheelTimer=1;
     }
@@ -52,7 +52,7 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
                 timer = spintime;
                 current = currentRandom;
                 controller.equipWeapon(current);
-                controller.setTimespeed(1f);
+                WE.CVARS.get("timespeed").setValue(1.0f);
                 controller.getMusic().setVolume(1f);
             }
 
@@ -64,7 +64,7 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
             wheelTimer -= delta;
             if (wheelTimer <= 0){
                 wheelTimer = wheelSpeed;
-                currentRandom = (int) (Math.random()*size());
+                currentRandom = (byte) (int) (Math.random()*size());
             }
         }
     }
@@ -77,7 +77,7 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
             sprite.setX(Gdx.graphics.getWidth()/2 - sprite.getWidth()/2);
             sprite.setY(Gdx.graphics.getHeight()/2-30*CustomWeapon.getScaling());
             sprite.scale(CustomWeapon.getScaling());
-            sprite.draw(WE.getEngineView().getBatch());
+            sprite.draw(WE.getEngineView().getSpriteBatch());
             
             if (controller.getRound()==1){
                 sprite = new Sprite(CustomWeapon.getSpritesheetBig().findRegion("warmup"));
@@ -88,7 +88,7 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
             sprite.setY(Gdx.graphics.getHeight()/2-200);
             sprite.scale(CustomWeapon.getScaling());
             sprite.flip(false, true);
-            sprite.draw(WE.getEngineView().getBatch());
+            sprite.draw(WE.getEngineView().getSpriteBatch());
                 
             get(currentRandom).renderBig(view,
                 Gdx.graphics.getWidth()/2-10*CustomWeapon.getScaling(),

@@ -6,7 +6,7 @@
         <key>texturePackerVersion</key>
         <string>3.4.0</string>
         <key>fileName</key>
-        <string>/Users/Benedikt/programmieren/WeaponOfChoice/src/com/BombingGames/WeaponOfChoice/sprites/Spritesheet prelit.tps</string>
+        <string>/Users/Benedikt/programmieren/WeaponOfChoice/src/com/bombinggames/WeaponOfChoice/sprites/Spritesheet prelit.tps</string>
         <key>autoSDSettings</key>
         <array>
             <struct type="AutoSDSettings">

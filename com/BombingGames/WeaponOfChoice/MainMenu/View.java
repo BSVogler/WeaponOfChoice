@@ -1,6 +1,5 @@
 package com.BombingGames.WeaponOfChoice.MainMenu;
 
-import com.BombingGames.WurfelEngine.WE;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
@@ -9,6 +8,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.bombinggames.wurfelengine.WE;
 
 
 /**
@@ -27,7 +27,7 @@ public class View {
      */
     public View(){
         //load textures
-        lettering = new Sprite(new Texture(Gdx.files.internal("com/BombingGames/WeaponOfChoice/MainMenu/Images/Lettering.png")));
+        lettering = new Sprite(new Texture(Gdx.files.internal("com/bombinggames/WeaponOfChoice/MainMenu/Images/Lettering.png")));
         lettering.setX((Gdx.graphics.getWidth() - lettering.getWidth())/2);
         lettering.setY(50);
         lettering.flip(false, true);
@@ -38,7 +38,7 @@ public class View {
         camera = new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         camera.setToOrtho(true, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         
-        font = new BitmapFont(Gdx.files.internal("com/BombingGames/WurfelEngine/Core/arial.fnt"), true);
+        font = new BitmapFont(Gdx.files.internal("com/bombinggames/WurfelEngine/Core/arial.fnt"), true);
         font.setColor(Color.WHITE);
     }
 
@@ -77,7 +77,7 @@ public class View {
         batch.begin();
         font.draw(batch, "FPS:"+ Gdx.graphics.getFramesPerSecond(), 20, 20);
         //font.draw(batch, Gdx.input.getX()+ ","+Gdx.input.getY(), Gdx.input.getX(), Gdx.input.getY());
-        font.drawMultiLine(batch, "Controlls:"+nl
+        font.draw(batch, "Controlls:"+nl
             +"WASD"+nl
             +"Run: Hold Shift"+nl
             +"Shoot: Click"+nl
@@ -86,11 +86,11 @@ public class View {
         batch.end();
         
         
-        font.scale(-0.7f);
+        //font.scale(-0.7f);
         batch.begin();
-        font.drawMultiLine(batch, "Engine Credits:"+nl+WE.getCredits(), 50, 400);
+        font.draw(batch, "Engine Credits:"+nl+WE.getCredits(), 50, 400);
         batch.end();
-        font.scale(0.7f);
+        //font.scale(0.7f);
     }
 
 }

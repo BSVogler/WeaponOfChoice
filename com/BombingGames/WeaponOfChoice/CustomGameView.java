@@ -1,14 +1,14 @@
 package com.BombingGames.WeaponOfChoice;
 
-import com.BombingGames.WurfelEngine.Core.Camera;
-import com.BombingGames.WurfelEngine.Core.Controller;
-import com.BombingGames.WurfelEngine.Core.GameView;
-import com.BombingGames.WurfelEngine.WE;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.bombinggames.wurfelengine.WE;
+import com.bombinggames.wurfelengine.core.Camera;
+import com.bombinggames.wurfelengine.core.Controller;
+import com.bombinggames.wurfelengine.core.GameView;
 
 
 /**
@@ -27,9 +27,9 @@ public class CustomGameView extends GameView{
          this.controller = controller;
      }
 
-    @Override
-    public void init(Controller controller) {
-        super.init(controller);
+	@Override
+	public void init(Controller controller, GameView oldView) {
+		super.init(controller, oldView);
         WE.getEngineView().addInputProcessor(new InputListener());
          Camera camera = new Camera(
                 this.controller.getPlayer(),
@@ -37,24 +37,21 @@ public class CustomGameView extends GameView{
                 0, //top
                 Gdx.graphics.getWidth(), //width 
                 Gdx.graphics.getHeight(),//height
-				this,
-				controller
+				this
             );
         
         addCamera(camera);
         this.controller.getPlayer().setCamera(camera);
     }
     
-    
-
 
     @Override
     public void render(){
         super.render();
 
-        WE.getEngineView().getBatch().begin();
+        WE.getEngineView().getSpriteBatch().begin();
         controller.getSpinningWheel().render(this);
-        WE.getEngineView().getBatch().end();
+        WE.getEngineView().getSpriteBatch().end();
         CustomWeapon weapon = controller.getCurrentWeapon();
         if (weapon != null)
            drawString("Shots: "+weapon.getShotsLoaded()+"/"+weapon.getShots(), Gdx.graphics.getWidth()-100, Gdx.graphics.getHeight()-100, Color.WHITE.cpy());
@@ -97,7 +94,7 @@ public class CustomGameView extends GameView{
        sh.rect(
            Gdx.graphics.getWidth()/2-100,
            Gdx.graphics.getHeight()-64,
-           controller.getPlayer().getMana()/10*2,
+           controller.getMana()/10*2,
            10
        );
        sh.end();
