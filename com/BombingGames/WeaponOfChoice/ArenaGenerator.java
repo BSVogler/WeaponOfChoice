@@ -1,5 +1,6 @@
 package com.BombingGames.WeaponOfChoice;
 
+import com.bombinggames.wurfelengine.core.Gameobjects.Block;
 import com.bombinggames.wurfelengine.core.Map.Generator;
 import java.util.Random;
 
@@ -12,22 +13,22 @@ public class ArenaGenerator implements Generator {
 	private double seed = 0;
 
 	@Override
-	public byte generate(int x, int y, int z) {
+	public Block generate(int x, int y, int z) {
 		if (seed == 0) {
 			seed = Math.random();
 		}
 
 		if (z == 0) {
-			return 8;
+			return Block.getInstance((byte)8);
 		} else {
 			if (z == 1 && getRandom(x, y, z) < 0.05f) //ever twenties block is a pillar 
 			{
-				return 2;
+				return Block.getInstance((byte)2);
 			}
-			if (z == 2 && generate(x, y, z - 1) == 2) {
-				return 1;
+			if (z == 2 && generate(x, y, z - 1).getId() == 2) {
+				return Block.getInstance((byte)1);
 			} else {
-				return 0;
+				return null;
 			}
 		}
 	}
@@ -58,9 +59,4 @@ public class ArenaGenerator implements Generator {
 	@Override
 	public void spawnEntities(int x, int y, int z) {
 	}
-
-	@Override
-	public void configureLogicBlocks(int x, int y, int z) {
-	}
-
 }
