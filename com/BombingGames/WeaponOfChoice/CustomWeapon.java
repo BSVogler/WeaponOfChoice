@@ -1,8 +1,6 @@
 package com.BombingGames.WeaponOfChoice;
 
 import com.badlogic.gdx.backends.lwjgl.audio.Wav.Sound;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.bombinggames.wurfelengine.WE;
 import com.bombinggames.wurfelengine.core.Gameobjects.MovableEntity;
 import com.bombinggames.wurfelengine.extension.shooting.Weapon;
@@ -12,18 +10,18 @@ import com.bombinggames.wurfelengine.extension.shooting.Weapon;
  * @author Benedikt Vogler
  */
 public class CustomWeapon extends Weapon {
-    private static final int scaling = 2;
+	private static final long serialVersionUID = 1L;
     
     public static void init(){
-        if (getSpritesheetBig() == null) {
-            setSpritesheetBig((TextureAtlas) WE.getAsset("com/bombinggames/WeaponOfChoice/SpritesBig.txt"));
-            for (TextureAtlas.AtlasRegion region : getSpritesheetBig().getRegions()) {
-                    region.flip(false, true);
-            }
-            for (Texture tex : getSpritesheetBig().getTextures()) {
-                tex.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
-            }
-        }
+//        if (getSpritesheetBig() == null) {
+//            setSpritesheetBig((TextureAtlas) WE.getAsset("com/bombinggames/WeaponOfChoice/SpritesBig.txt"));
+//            for (TextureAtlas.AtlasRegion region : getSpritesheetBig().getRegions()) {
+//                    region.flip(false, true);
+//            }
+//            for (Texture tex : getSpritesheetBig().getTextures()) {
+//                tex.setFilter(Texture.TextureFilter.Nearest, Texture.TextureFilter.Nearest);
+//            }
+//        }
     }
     
     public CustomWeapon(byte id, MovableEntity character) {
@@ -31,17 +29,17 @@ public class CustomWeapon extends Weapon {
         
         switch (id){
             case 0:
-                setFire((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/melee.wav"));
-                setReload((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/wiz.wav")); 
+                setFireSound("melee");
+                setReload("wiz"); 
             break;
                 
             case 1:
-                setFire((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/shot.wav"));
-                setReload((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/reload.wav")); 
+                setFireSound("shot"));
+                setReload("reload"); 
             break;
                 
             case 2:
-                setFire((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/punch.wav"));
+                setFireSound("punch");
                 //setReload((Sound) WEMain.getInstance().manager.get("com/bombinggames/WeaponOfChoice/Sounds/melee.wav")); 
             break;
                 
@@ -70,9 +68,5 @@ public class CustomWeapon extends Weapon {
                 setReload((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/reload.wav")); 
             break;     
         }
-    }
-    
-    public static int getScaling() {
-        return scaling;
     }
 }
