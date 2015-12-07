@@ -1,6 +1,8 @@
 package com.BombingGames.WeaponOfChoice;
 
+import com.badlogic.gdx.ai.msg.MessageManager;
 import com.badlogic.gdx.math.Vector3;
+import com.bombinggames.caveland.Game.Events;
 import com.bombinggames.wurfelengine.core.Gameobjects.MovableEntity;
 import com.bombinggames.wurfelengine.core.Map.Point;
 
@@ -56,7 +58,12 @@ public class Enemy extends MovableEntity{
                         mana = 0;//reset
 						//new EntityAnimation(new int[]{300}, true, false)
                         //new EntityAnimation(46, 0, new int[]{300}, true, false).spawn(getPosition().cpy());//spawn blood
-                        target.damage((byte) 50);
+						MessageManager.getInstance().dispatchMessage(
+							this,
+							target,
+							Events.damage.getId(),
+							(byte) 50
+						);
                     }
                 }
             }

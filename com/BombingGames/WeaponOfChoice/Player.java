@@ -1,23 +1,31 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.BombingGames.WeaponOfChoice;
 
 import com.badlogic.gdx.math.Vector2;
+import com.bombinggames.wurfelengine.core.Gameobjects.AbstractEntity;
 import com.bombinggames.wurfelengine.core.Gameobjects.Controllable;
+import com.bombinggames.wurfelengine.core.Gameobjects.MovableEntity;
 import com.bombinggames.wurfelengine.core.Gameobjects.PlayerWithWeapon;
+import com.bombinggames.wurfelengine.core.Map.Point;
 
 /**
  *
  * @author Benedikt Vogler
  */
-public class Player extends  PlayerWithWeapon implements Controllable{
-	
+public class Player extends PlayerWithWeapon implements Controllable{
+
+	private static final long serialVersionUID = 1L;
+		
 	public Player(int spritesPerDir, int height) {
 		super(spritesPerDir, height);
+		equipWeapon(new CustomWeapon((byte) 0, this));
 	}
+
+	@Override
+	public AbstractEntity spawn(Point point) {
+		super.spawn(point);
+		return this;
+	}
+	
 
 	@Override
 	public void walk(boolean up, boolean down, boolean left, boolean right, float walkingspeed, float dt) {
@@ -25,7 +33,7 @@ public class Player extends  PlayerWithWeapon implements Controllable{
 		if (up || down || left || right){
 
 			//update the direction vector
-			Vector2 dir = new Vector2(0f,0f);
+			Vector2 dir = new Vector2();
 
 			if (up)    dir.y += -1;
 			if (down)  dir.y += 1;
@@ -35,6 +43,10 @@ public class Player extends  PlayerWithWeapon implements Controllable{
 			setHorMovement(dir);
 		}
 	}
-	
+
+	@Override
+	public MovableEntity clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
 	
 }

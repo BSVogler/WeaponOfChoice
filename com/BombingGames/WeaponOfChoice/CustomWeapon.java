@@ -1,7 +1,6 @@
 package com.BombingGames.WeaponOfChoice;
 
-import com.badlogic.gdx.backends.lwjgl.audio.Wav.Sound;
-import com.bombinggames.wurfelengine.WE;
+import com.bombinggames.wurfelengine.core.GameView;
 import com.bombinggames.wurfelengine.core.Gameobjects.MovableEntity;
 import com.bombinggames.wurfelengine.extension.shooting.Weapon;
 
@@ -29,44 +28,48 @@ public class CustomWeapon extends Weapon {
         
         switch (id){
             case 0:
-                setFireSound("melee");
+                setFireSound("melee", true);
                 setReload("wiz"); 
             break;
                 
             case 1:
-                setFireSound("shot"));
+                setFireSound("shot", true);
                 setReload("reload"); 
             break;
                 
             case 2:
-                setFireSound("punch");
+                setFireSound("punch", true);
                 //setReload((Sound) WEMain.getInstance().manager.get("com/bombinggames/WeaponOfChoice/Sounds/melee.wav")); 
             break;
                 
             case 3:
-                setFire((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/shotgun.wav"));
-                setReload((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/reload.wav")); 
+                setFireSound("shotgun", true);
+                //setReload((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/reload.wav")); 
             break;    
 
             case 4:
-                setFire((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/bust.wav"));
-                setReload((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/reload.wav")); 
+                setFireSound("bust", true);
+                //setReload((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/reload.wav")); 
             break;
                                  
             case 5:
-                setFire((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/poop.wav"));
+                setFireSound("poop.wav", true);
                 //setReload((Sound) WEMain.getInstance().manager.get("com/bombinggames/WeaponOfChoice/Sounds/reload.wav")); 
             break;
                 
             case 6:
-                setFire((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/thump.wav"));
-                setReload((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/reload.wav")); 
+                setFireSound("thump", true);
+                //setReload((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/reload.wav")); 
             break;
                 
             case 7:                
-                setFire((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/fire.wav"));
-                setReload((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/reload.wav")); 
+                setFireSound("fire", true);
+                //setReload((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/reload.wav")); 
             break;     
         }
     }
+
+	void renderHUD(GameView view, int x, int y) {
+		
+	}
 }
