@@ -24,7 +24,7 @@ public class ArenaGenerator implements Generator {
 			if (z == 1 && getRandom(x, y, z) < 0.05f) { //ever twentiest block is a pillar 
 				return Block.getInstance((byte) 2);
 			}
-			if (z == 2 && generate(x, y, z - 1).getId() == 2) {
+			if (z == 2 && generate(x, y, z - 1) != null && generate(x, y, z - 1).getId() == 2) {
 				return Block.getInstance((byte) 1);
 			} else {
 				return null;

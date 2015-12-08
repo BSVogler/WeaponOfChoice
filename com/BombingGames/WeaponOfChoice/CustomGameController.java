@@ -66,6 +66,8 @@ public class CustomGameController extends Controller {
 
 		startingTime = System.currentTimeMillis();
 		survivedSeconds = 0;
+		
+		Controller.getMap().setGenerator(new ArenaGenerator());
 
 		//useLightEngine(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
 	}
