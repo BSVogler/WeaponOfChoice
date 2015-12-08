@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.bombinggames.wurfelengine.WE;
 import com.bombinggames.wurfelengine.core.GameView;
 import com.bombinggames.wurfelengine.core.Gameobjects.AbstractGameObject;
+import com.bombinggames.wurfelengine.extension.shooting.Weapon;
 import java.util.ArrayList;
 
 /**
@@ -52,7 +53,7 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
 				visible = false;
 				timer = spintime;
 				current = currentRandom;
-				controller.getPlayer().equipWeapon(new CustomWeapon(current, controller.getPlayer()));
+				controller.getPlayer().equipWeapon((Weapon) new CustomWeapon(current, controller.getPlayer()).spawn(controller.getPlayer().getPosition().cpy()));
 				WE.getCvars().get("timespeed").setValue(1.0f);
 				WE.getCvars().get("music").setValue(1f);
 			}
