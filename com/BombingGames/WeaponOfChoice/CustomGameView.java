@@ -52,6 +52,7 @@ public class CustomGameView extends GameView {
 		WE.getEngineView().getSpriteBatch().begin();
 		controller.getSpinningWheel().render(this);
 		WE.getEngineView().getSpriteBatch().end();
+		
 		Weapon weapon = controller.getPlayer().getWeapon();
 		if (weapon != null) {
 			drawString(

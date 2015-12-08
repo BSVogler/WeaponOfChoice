@@ -6,7 +6,7 @@ import com.bombinggames.wurfelengine.core.Gameobjects.AbstractGameObject;
 import com.bombinggames.wurfelengine.core.WorkingDirectory;
 
 /**
- *
+ *Main class for game Weapon of Choice. This game was an entry for Ludum Dare #??.
  * @author Benedikt Vogler
  */
 public class WeaponOfChoice {
