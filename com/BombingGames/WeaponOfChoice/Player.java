@@ -16,6 +16,7 @@ public class Player extends PlayerWithWeapon implements Controllable{
 	public Player(int spritesPerDir, int height) {
 		super(spritesPerDir, height);
 		equipWeapon(new CustomWeapon((byte) 0, this));
+		setMass(60f);
 	}
 
 	@Override
@@ -24,12 +25,7 @@ public class Player extends PlayerWithWeapon implements Controllable{
 		if (up || down || left || right){
 
 			//update the direction vector
-			Vector2 dir = new Vector2();
-
-			if (up)    dir.y += -1;
-			if (down)  dir.y += 1;
-			if (left)  dir.x += -1;
-			if (right) dir.x += 1;
+			Vector2 dir = new Vector2(left ? -1 : (right ? 1 : 0f), up ? -1 : (down ? 1 : 0f));
 			dir.nor().scl(walkingspeed);
 			setHorMovement(dir);
 		}
