@@ -2,7 +2,6 @@ package com.bombinggames.weaponofchoice;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.bombinggames.wurfelengine.WE;
 import com.bombinggames.wurfelengine.core.Controller;
@@ -24,7 +23,6 @@ public class CustomGameController extends Controller {
 	private int roundTimer;
 	private boolean gameOver;
 	private boolean cooldown = false;
-	private Music music;
 	private long startingTime;
 	private int survivedSeconds;
 	private Player player;
@@ -36,9 +34,7 @@ public class CustomGameController extends Controller {
 		super.init();
 
 		gameOver = false;
-		music = WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/music.ogg");
-		music.setLooping(true);
-		music.play();
+		WE.SOUND.setMusic("com/bombinggames/WeaponOfChoice/Sounds/music.ogg");
 
 		player = (Player) new Player(1, Block.GAME_EDGELENGTH)
 			.spawn(new Coordinate(0, 0, 8).toPoint());
@@ -54,22 +50,15 @@ public class CustomGameController extends Controller {
 
 		roundTimer = roundLength;
 		spinningWheel = new SpinningWheel(this);
-		spinningWheel.add(new CustomWeapon((byte) 0, null));
-		spinningWheel.add(new CustomWeapon((byte) 1, null));
-		spinningWheel.add(new CustomWeapon((byte) 2, null));
-		spinningWheel.add(new CustomWeapon((byte) 3, null));
-		spinningWheel.add(new CustomWeapon((byte) 4, null));
-		spinningWheel.add(new CustomWeapon((byte) 5, null));
-		spinningWheel.add(new CustomWeapon((byte) 6, null));
-		spinningWheel.add(new CustomWeapon((byte) 7, null));
+		for (byte i = 0; i < 8; i++) {
+			spinningWheel.add(new CustomWeapon(i, null));
+		}
 		spinningWheel.spin();
 
 		startingTime = System.currentTimeMillis();
 		survivedSeconds = 0;
 		
 		Controller.getMap().setGenerator(new ArenaGenerator());
-
-		//useLightEngine(Gdx.graphics.getWidth()/2, Gdx.graphics.getHeight()/2);
 	}
 
 	@Override
@@ -94,6 +83,7 @@ public class CustomGameController extends Controller {
 				}
 
 				if (mana > 100) {
+					mana = 100;
 					cooldown = false;
 				}
 
@@ -138,7 +128,7 @@ public class CustomGameController extends Controller {
 				gameOver();
 			}
 		} else {
-			music.stop();
+			WE.SOUND.disposeMusic();
 		}
 	}
 
@@ -162,10 +152,6 @@ public class CustomGameController extends Controller {
 		return gameOver;
 	}
 
-	public Music getMusic() {
-		return music;
-	}
-
 	public int getRound() {
 		return round;
 	}
@@ -181,5 +167,4 @@ public class CustomGameController extends Controller {
 	public int getMana() {
 		return mana;
 	}
-
 }

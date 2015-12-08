@@ -1,11 +1,9 @@
 package com.bombinggames.weaponofchoice;
 
 import com.badlogic.gdx.math.Vector2;
-import com.bombinggames.wurfelengine.core.Gameobjects.AbstractEntity;
 import com.bombinggames.wurfelengine.core.Gameobjects.Controllable;
 import com.bombinggames.wurfelengine.core.Gameobjects.MovableEntity;
 import com.bombinggames.wurfelengine.core.Gameobjects.PlayerWithWeapon;
-import com.bombinggames.wurfelengine.core.Map.Point;
 
 /**
  *
@@ -19,13 +17,6 @@ public class Player extends PlayerWithWeapon implements Controllable{
 		super(spritesPerDir, height);
 		equipWeapon(new CustomWeapon((byte) 0, this));
 	}
-
-	@Override
-	public AbstractEntity spawn(Point point) {
-		super.spawn(point);
-		return this;
-	}
-	
 
 	@Override
 	public void walk(boolean up, boolean down, boolean left, boolean right, float walkingspeed, float dt) {
@@ -48,5 +39,5 @@ public class Player extends PlayerWithWeapon implements Controllable{
 	public MovableEntity clone() throws CloneNotSupportedException {
 		return super.clone();
 	}
-	
+
 }
