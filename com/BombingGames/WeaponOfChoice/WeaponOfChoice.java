@@ -1,8 +1,7 @@
-package com.BombingGames.WeaponOfChoice;
+package com.bombinggames.weaponofchoice;
 
-import com.BombingGames.WeaponOfChoice.MainMenu.MainMenuScreen;
+import com.bombinggames.weaponofchoice.mainmenu.MainMenuScreen;
 import com.bombinggames.wurfelengine.WE;
-import com.bombinggames.wurfelengine.core.Gameobjects.AbstractGameObject;
 import com.bombinggames.wurfelengine.core.WorkingDirectory;
 
 /**
@@ -17,7 +16,7 @@ public class WeaponOfChoice {
     public static void main(String[] args) {
         WE.setMainMenu(new MainMenuScreen());
 		WorkingDirectory.setApplicationName("WeaponOfChoice");
-		AbstractGameObject.setCustomSpritesheet("com/bombinggames/WeaponOfChoice/sprites/Spritesheet");
+		//AbstractGameObject.setCustomSpritesheet("com/bombinggames/WeaponOfChoice/sprites/Spritesheet");
         WE.launch("Weapon of Choice - Made with WE V" + WE.VERSION, args);  
     }
     

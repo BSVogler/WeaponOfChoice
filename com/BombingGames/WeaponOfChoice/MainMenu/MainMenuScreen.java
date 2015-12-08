@@ -1,4 +1,4 @@
-package com.BombingGames.WeaponOfChoice.MainMenu;
+package com.bombinggames.weaponofchoice.mainmenu;
 
 import com.bombinggames.wurfelengine.core.AbstractMainMenu;
  

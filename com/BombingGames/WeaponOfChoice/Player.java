@@ -1,4 +1,4 @@
-package com.BombingGames.WeaponOfChoice;
+package com.bombinggames.weaponofchoice;
 
 import com.badlogic.gdx.math.Vector2;
 import com.bombinggames.wurfelengine.core.Gameobjects.AbstractEntity;

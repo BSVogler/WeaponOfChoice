@@ -1,4 +1,4 @@
-package com.BombingGames.WeaponOfChoice;
+package com.bombinggames.weaponofchoice;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -74,7 +74,7 @@ public class CustomGameController extends Controller {
 	public void update(float dt) {
 		super.update(dt);
 		if (!gameOver) {
-			float origidelta = dt / WE.CVARS.getValueF("timespeed");
+			float origidelta = dt / WE.getCvars().getValueF("timespeed");
 			//get input and do actions
 			Input input = Gdx.input;
 

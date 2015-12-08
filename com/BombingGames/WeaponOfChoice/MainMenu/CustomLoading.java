@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.BombingGames.WeaponOfChoice.MainMenu;
+package com.bombinggames.weaponofchoice.mainmenu;
 
-import com.bombinggames.wurfelengine.core.Loading.LoadingScreen;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.bombinggames.wurfelengine.core.Loading.LoadingScreen;
 
 /**
  *

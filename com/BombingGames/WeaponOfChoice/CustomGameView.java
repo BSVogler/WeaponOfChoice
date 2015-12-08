@@ -1,4 +1,4 @@
-package com.BombingGames.WeaponOfChoice;
+package com.bombinggames.weaponofchoice;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;

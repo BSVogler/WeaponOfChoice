@@ -1,4 +1,4 @@
-package com.BombingGames.WeaponOfChoice;
+package com.bombinggames.weaponofchoice;
 
 import com.badlogic.gdx.ai.msg.MessageManager;
 import com.badlogic.gdx.math.Vector3;
@@ -11,6 +11,8 @@ import com.bombinggames.wurfelengine.core.Map.Point;
  * @author Benedikt Vogler
  */
 public class Enemy extends MovableEntity{
+
+	private static final long serialVersionUID = 1L;
     private MovableEntity target;
     private int runningagainstwallCounter = 0;
     private Point lastPos;

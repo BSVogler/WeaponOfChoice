@@ -1,7 +1,5 @@
-package com.BombingGames.WeaponOfChoice.MainMenu;
+package com.bombinggames.weaponofchoice.mainmenu;
 
-import com.BombingGames.WeaponOfChoice.CustomGameController;
-import com.BombingGames.WeaponOfChoice.CustomGameView;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
@@ -9,6 +7,8 @@ import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.bombinggames.weaponofchoice.CustomGameController;
+import com.bombinggames.weaponofchoice.CustomGameView;
 import com.bombinggames.wurfelengine.WE;
 import com.bombinggames.wurfelengine.core.Loading.LoadingScreen;
 

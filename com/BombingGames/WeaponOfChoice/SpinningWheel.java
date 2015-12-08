@@ -1,4 +1,4 @@
-package com.BombingGames.WeaponOfChoice;
+package com.bombinggames.weaponofchoice;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.backends.lwjgl.audio.Ogg.Sound;
@@ -39,7 +39,7 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
 
 		visible = true;
 		timer = spintime;
-		WE.CVARS.get("timespeed").setValue(0.3f);
+		WE.getCvars().get("timespeed").setValue(0.3f);
 		wheelSpeed = 1;
 		wheelTimer = 1;
 	}
@@ -53,7 +53,7 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
 				timer = spintime;
 				current = currentRandom;
 				controller.getPlayer().equipWeapon(new CustomWeapon(current, controller.getPlayer()));
-				WE.CVARS.get("timespeed").setValue(1.0f);
+				WE.getCvars().get("timespeed").setValue(1.0f);
 				controller.getMusic().setVolume(1f);
 			}
 

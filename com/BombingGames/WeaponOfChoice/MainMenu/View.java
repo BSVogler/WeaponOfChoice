@@ -1,4 +1,4 @@
-package com.BombingGames.WeaponOfChoice.MainMenu;
+package com.bombinggames.weaponofchoice.mainmenu;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
