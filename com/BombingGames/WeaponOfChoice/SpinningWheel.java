@@ -54,7 +54,9 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
 				visible = false;
 				timer = spintime;
 				current = currentRandom;
-				controller.getPlayer().equipWeapon((Weapon) new CustomWeapon(current, controller.getPlayer()).spawn(controller.getPlayer().getPosition().cpy()));
+				controller.getPlayer().equipWeapon(
+					(Weapon) new CustomWeapon(current, controller.getPlayer()).spawn(controller.getPlayer().getPosition().cpy())
+				);
 				WE.getCvars().get("timespeed").setValue(1.0f);
 				if (WE.getCvars().getValueF("music") > 0)
 					WE.getCvars().get("music").setValue(1f);
@@ -76,7 +78,7 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
 	public void render(GameView view) {
 		if (visible) {
 			Sprite sprite;
-			sprite = new Sprite(AbstractGameObject.getSprite('i', (byte) 5, (byte) 0)); // "canvas")
+			sprite = new Sprite(AbstractGameObject.getSprite('i', (byte) 14, (byte) 0)); // "canvas")
 			sprite.flip(false, true);
 			sprite.setX(Gdx.graphics.getWidth() / 2 - sprite.getWidth() / 2);
 			sprite.setY(Gdx.graphics.getHeight() / 2 - 30);
@@ -84,9 +86,9 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
 			sprite.draw(WE.getEngineView().getSpriteBatch());
 
 			if (controller.getRound() == 1) {
-				sprite = new Sprite(AbstractGameObject.getSprite('i', (byte) 6, (byte) 0));//warmup
+				sprite = new Sprite(AbstractGameObject.getSprite('i', (byte) 13, (byte) 0));//warmup
 			} else {
-				sprite = new Sprite(AbstractGameObject.getSprite('i', (byte) 7, (byte) 0));//newround
+				sprite = new Sprite(AbstractGameObject.getSprite('i', (byte) 12, (byte) 0));//newround
 			}
 			sprite.setX(Gdx.graphics.getWidth() / 2 - sprite.getWidth() / 2);
 			sprite.setY(Gdx.graphics.getHeight() / 2 - 200);
