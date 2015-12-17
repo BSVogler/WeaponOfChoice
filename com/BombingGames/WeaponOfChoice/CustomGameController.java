@@ -65,7 +65,7 @@ public class CustomGameController extends Controller {
 	public void update(float dt) {
 		super.update(dt);
 		if (!gameOver) {
-			float origidelta = dt / WE.getCvars().getValueF("timespeed");
+			float origidelta = dt / WE.getCVars().getValueF("timespeed");
 			//get input and do actions
 			Input input = Gdx.input;
 

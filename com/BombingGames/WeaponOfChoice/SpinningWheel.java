@@ -36,12 +36,12 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
 	public void spin() {
 		Sound dudeldi = (Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/dudeldi.ogg");
 		dudeldi.play();
-		if (WE.getCvars().getValueF("music") > 0)
-			WE.getCvars().get("music").setValue(0.2f);
+		if (WE.getCVars().getValueF("music") > 0)
+			WE.getCVars().get("music").setValue(0.2f);
 
 		visible = true;
 		timer = spintime;
-		WE.getCvars().get("timespeed").setValue(0.3f);
+		WE.getCVars().get("timespeed").setValue(0.3f);
 		wheelSpeed = 1;
 		wheelTimer = 1;
 	}
@@ -57,9 +57,9 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
 				controller.getPlayer().equipWeapon(
 					(Weapon) new CustomWeapon(current, controller.getPlayer()).spawn(controller.getPlayer().getPosition().cpy())
 				);
-				WE.getCvars().get("timespeed").setValue(1.0f);
-				if (WE.getCvars().getValueF("music") > 0)
-					WE.getCvars().get("music").setValue(1f);
+				WE.getCVars().get("timespeed").setValue(1.0f);
+				if (WE.getCVars().getValueF("music") > 0)
+					WE.getCVars().get("music").setValue(1f);
 			}
 
 			wheelSpeed *= 1 + delta / 400f;//time to pass before new random item get's bigger
