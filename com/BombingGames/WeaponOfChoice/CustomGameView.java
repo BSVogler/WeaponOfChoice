@@ -140,7 +140,7 @@ public class CustomGameView extends GameView {
 			if (!WE.getConsole().isActive()) {
 				//toggle fullscreen
 				if (keycode == Input.Keys.F) {
-					WE.setFullscreen(!WE.isFullscreen());
+					WE.setFullscreen(!Gdx.graphics.isFullscreen());
 				}
 
 				//reload
