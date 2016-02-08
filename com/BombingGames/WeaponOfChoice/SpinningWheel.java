@@ -120,6 +120,7 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
 	}
 
 	@Override
+	@SuppressWarnings("CloneDeclaresCloneNotSupported")
 	public Object clone() {
 		return super.clone();
 	}
