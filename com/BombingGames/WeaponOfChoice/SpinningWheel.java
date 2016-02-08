@@ -5,7 +5,7 @@ import com.badlogic.gdx.backends.lwjgl.audio.Ogg.Sound;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.bombinggames.wurfelengine.WE;
 import com.bombinggames.wurfelengine.core.GameView;
-import com.bombinggames.wurfelengine.core.Gameobjects.AbstractGameObject;
+import com.bombinggames.wurfelengine.core.gameobjects.AbstractGameObject;
 import com.bombinggames.wurfelengine.extension.shooting.Weapon;
 import java.util.ArrayList;
 
@@ -83,7 +83,7 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
 			sprite.setX(Gdx.graphics.getWidth() / 2 - sprite.getWidth() / 2);
 			sprite.setY(Gdx.graphics.getHeight() / 2 - 30);
 			//sprite.scale(CustomWeapon.getScaling());
-			sprite.draw(WE.getEngineView().getSpriteBatch());
+			sprite.draw(view.getSpriteBatch());
 
 			if (controller.getRound() == 1) {
 				sprite = new Sprite(AbstractGameObject.getSprite('i', (byte) 13, (byte) 0));//warmup
@@ -94,7 +94,7 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
 			sprite.setY(Gdx.graphics.getHeight() / 2 - 200);
 			// sprite.scale(CustomWeapon.getScaling());
 			sprite.flip(false, true);
-			sprite.draw(WE.getEngineView().getSpriteBatch());
+			sprite.draw(view.getSpriteBatch());
 
 			get(currentRandom).renderHUD(
 				view,
