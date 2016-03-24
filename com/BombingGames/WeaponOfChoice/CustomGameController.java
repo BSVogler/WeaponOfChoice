@@ -88,7 +88,7 @@ public class CustomGameController extends Controller {
 				}
 
 				//walk
-				getPlayer().walk(
+				player.walk(
 					input.isKeyPressed(Input.Keys.W),
 					input.isKeyPressed(Input.Keys.S),
 					input.isKeyPressed(Input.Keys.A),
