@@ -1,10 +1,10 @@
 package com.bombinggames.weaponofchoice;
 
 import com.badlogic.gdx.ai.msg.MessageManager;
-import com.badlogic.gdx.math.Vector3;
 import com.bombinggames.wurfelengine.core.Events;
 import com.bombinggames.wurfelengine.core.gameobjects.MovableEntity;
 import com.bombinggames.wurfelengine.core.map.Point;
+import com.bombinggames.wurfelengine.core.map.rendering.RenderBlock;
 
 /**
  *An enemy which can follow a character.
@@ -40,37 +40,39 @@ public class Enemy extends MovableEntity{
 
     @Override
     public void update(float delta) {
-        if (getPosition().toCoord().isInMemoryAreaHorizontal()) {
-            //follow the target
-            if (target != null) {
-				Vector3 d = new Vector3();
-                d.x = target.getPosition().getX()-getPosition().getX();
-                d.y = target.getPosition().getY()-getPosition().getY();
-				d.nor();
-				d.z = getMovement().z;
-				// update the movement vector
-				setMovement(d.scl(0.4f));
-
-                //attack
-                if (
-					target.getPosition().toCoord().equals(getPosition().toCoord())
-				){
-                    mana = ((int) (mana+delta));
-                    if (mana >= 1000){
-                        mana = 0;//reset
-						//new EntityAnimation(new int[]{300}, true, false)
-                        //new EntityAnimation(46, 0, new int[]{300}, true, false).spawn(getPosition().cpy());//spawn blood
-						MessageManager.getInstance().dispatchMessage(
-							this,
-							target,
-							Events.damage.getId(),
-							(byte) 50
-						);
-                    }
-                }
-            }
-            //update as usual
-            super.update(delta);
+		if (hasPosition() && getPosition().isInMemoryAreaHorizontal()) {
+			//follow the target
+			if (target != null && target.hasPosition()) {
+				if (getPosition().distanceTo(target) > RenderBlock.GAME_EDGELENGTH * 1.5f) {
+					MessageManager.getInstance().dispatchMessage(this,
+						this,
+						Events.moveTo.getId(),
+						target.getPosition()
+					);
+					setSpeedHorizontal(0.4f);
+				} else {
+					MessageManager.getInstance().dispatchMessage(
+						this,
+						this,
+						Events.standStill.getId()
+					);
+				}
+				mana = ((int) (mana + delta));
+				if (mana >= 1000) {
+					mana = 0;//reset
+					//new EntityAnimation(new int[]{300}, true, false)
+					//new EntityAnimation(46, 0, new int[]{300}, true, false).spawn(getPosition().cpy());//spawn blood
+					MessageManager.getInstance().dispatchMessage(
+						this,
+						target,
+						Events.damage.getId(),
+						(byte) 50
+					);
+				}
+			}
+			
+			//update as usual
+			super.update(delta);
 
             //if standing on same position as in last update
             if (getPosition().equals(lastPos))
