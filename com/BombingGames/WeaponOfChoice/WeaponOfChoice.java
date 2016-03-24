@@ -18,7 +18,7 @@ public class WeaponOfChoice {
         WE.setMainMenu(new MainMenuScreen());
 		WorkingDirectory.setApplicationName("WeaponOfChoice");
 		AbstractGameObject.setCustomSpritesheet("com/bombinggames/weaponofchoice/sprites/Spritesheet");
-        WE.launch("Weapon of Choice - Made with WE V" + WE.VERSION, args);  
+        WE.launch("Weapon of Choice - Made with WE V" + WE.VERSION, args);
     }
     
 }

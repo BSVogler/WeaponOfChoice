@@ -5,9 +5,9 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Sound;
 import com.bombinggames.wurfelengine.WE;
 import com.bombinggames.wurfelengine.core.Controller;
-import com.bombinggames.wurfelengine.core.gameobjects.Block;
 import com.bombinggames.wurfelengine.core.map.Chunk;
 import com.bombinggames.wurfelengine.core.map.Coordinate;
+import com.bombinggames.wurfelengine.core.map.rendering.RenderBlock;
 
 /**
  * The <i>CustomGameController</i> is for the game code. Put engine code into
@@ -36,7 +36,7 @@ public class CustomGameController extends Controller {
 		gameOver = false;
 		WE.SOUND.setMusic("com/bombinggames/WeaponOfChoice/Sounds/music.ogg");
 
-		player = (Player) new Player(1, Block.GAME_EDGELENGTH)
+		player = (Player) new Player(1, RenderBlock.GAME_EDGELENGTH)
 			.spawn(new Coordinate(0, 0, 8).toPoint());
 		player.setDamageSounds(
 			new String[]{
