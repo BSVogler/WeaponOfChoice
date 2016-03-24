@@ -13,14 +13,15 @@ public class ArenaGenerator implements Generator {
 
 	@Override
 	public int generate(int x, int y, int z) {
+		//initailize seed
 		if (seed == 0) {
 			seed = Math.random();
 		}
 
-		if (z == 0) {
+		if (z == 0) {//ground level covered with sand
 			return 8;
 		} else {
-			if (z == 1 && getRandom(x, y, z) < 0.05f) { //ever twentiest block is a pillar 
+			if (z == 1 && getRandom(x, y, z) < 0.05f) { //every twentiest block is a pillar 
 				return 2;
 			}
 			if (z == 2 && generate(x, y, z - 1) != 0 && generate(x, y, z - 1) == 2) {
