@@ -7,39 +7,39 @@ import com.bombinggames.wurfelengine.core.map.Point;
 import com.bombinggames.wurfelengine.core.map.rendering.RenderBlock;
 
 /**
- *An enemy which can follow a character.
+ * An enemy which can follow a character.
+ *
  * @author Benedikt Vogler
  */
-public class Enemy extends MovableEntity{
+public class Enemy extends MovableEntity {
 
 	private static final long serialVersionUID = 1L;
-    private MovableEntity target;
-    private int runningagainstwallCounter = 0;
-    private Point lastPos;
-    private static int killcounter = 0;
+	private MovableEntity target;
+	private int runningagainstwallCounter = 0;
+	private Point lastPos;
+	private static int killcounter = 0;
 	private int mana = 0;
-    
-    public void init(){
-       killcounter=0; 
-    }
-    
-    /**
-     * Zombie constructor. Use AbstractEntitiy.getInstance to create an zombie.
-     * @param id
-     */
-    public Enemy(byte id) {
-        super(id, 2);
-        setObstacle(true);
-        setDamageSounds(new String[]{"impactFlesh"});
-    }
 
-    @Override
-    public void jump() {
-        jump(5, true);
-    }
+	public void init() {
+		killcounter = 0;
+	}
 
-    @Override
-    public void update(float delta) {
+	/**
+	 * Zombie constructor.
+	 */
+	public Enemy() {
+		super((byte) 44, 2);
+		setObstacle(true);
+		setDamageSounds(new String[]{"impactFlesh"});
+	}
+
+	@Override
+	public void jump() {
+		jump(5, true);
+	}
+
+	@Override
+	public void update(float delta) {
 		if (hasPosition() && getPosition().isInMemoryAreaHorizontal()) {
 			//follow the target
 			if (target != null && target.hasPosition()) {
@@ -70,42 +70,43 @@ public class Enemy extends MovableEntity{
 					);
 				}
 			}
-			
+
 			//update as usual
 			super.update(delta);
 
-            //if standing on same position as in last update
-            if (getPosition().equals(lastPos))
-                runningagainstwallCounter += delta;
-            else {
-                runningagainstwallCounter=0;
-                lastPos = getPosition();
-            }
+			//if standing on same position as in last update
+			if (getPosition().equals(lastPos)) {
+				runningagainstwallCounter += delta;
+			} else {
+				runningagainstwallCounter = 0;
+				lastPos = getPosition();
+			}
 
-            //jump after some time
-            if (runningagainstwallCounter > 500) {
-                jump();
-               mana = 0;
-                runningagainstwallCounter=0;
-            }
-        }
-    }
+			//jump after some time
+			if (runningagainstwallCounter > 500) {
+				jump();
+				mana = 0;
+				runningagainstwallCounter = 0;
+			}
+		}
+	}
 
-    /**
-     * Set the target which the zombie follows.
-     * @param target an character
-     */
-    public void setTarget(MovableEntity target) {
-        this.target = target;
-    }
+	/**
+	 * Set the target which the zombie follows.
+	 *
+	 * @param target an character
+	 */
+	public void setTarget(MovableEntity target) {
+		this.target = target;
+	}
 
-    @Override
-    public void dispose() {
-        killcounter++;
-        super.dispose();
-    }
+	@Override
+	public void dispose() {
+		killcounter++;
+		super.dispose();
+	}
 
-    public static int getKillcounter() {
-        return killcounter;
-    }
+	public static int getKillcounter() {
+		return killcounter;
+	}
 }

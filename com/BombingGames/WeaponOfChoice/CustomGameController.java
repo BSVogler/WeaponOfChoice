@@ -117,7 +117,7 @@ public class CustomGameController extends Controller {
 						(int) (Chunk.getBlocksY() * Math.random()),
 						Chunk.getGameHeight()
 					);
-					Enemy enemy = (Enemy) new Enemy((byte) 44).spawn(randomPlace.toPoint());
+					Enemy enemy = (Enemy) new Enemy().spawn(randomPlace.toPoint());
 					enemy.setTarget(getPlayer());
 				}
 
