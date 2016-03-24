@@ -83,7 +83,7 @@ public class Enemy extends MovableEntity {
 			}
 
 			//jump after some time
-			if (runningagainstwallCounter > 500) {
+			if (runningagainstwallCounter > 500 && isOnGround()) {
 				jump();
 				mana = 0;
 				runningagainstwallCounter = 0;
