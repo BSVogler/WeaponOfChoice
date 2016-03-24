@@ -4,7 +4,7 @@ import com.badlogic.gdx.ai.msg.MessageManager;
 import com.bombinggames.wurfelengine.core.Events;
 import com.bombinggames.wurfelengine.core.gameobjects.MovableEntity;
 import com.bombinggames.wurfelengine.core.map.Point;
-import com.bombinggames.wurfelengine.core.map.rendering.RenderBlock;
+import com.bombinggames.wurfelengine.core.map.rendering.RenderCell;
 
 /**
  * An enemy which can follow a character.
@@ -43,7 +43,7 @@ public class Enemy extends MovableEntity {
 		if (hasPosition() && getPosition().isInMemoryAreaHorizontal()) {
 			//follow the target
 			if (target != null && target.hasPosition()) {
-				if (getPosition().distanceTo(target) > RenderBlock.GAME_EDGELENGTH * 1.5f) {
+				if (getPosition().distanceTo(target) > RenderCell.GAME_EDGELENGTH * 1.5f) {
 					MessageManager.getInstance().dispatchMessage(this,
 						this,
 						Events.moveTo.getId(),

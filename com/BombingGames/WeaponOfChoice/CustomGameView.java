@@ -31,6 +31,9 @@ public class CustomGameView extends GameView {
 	@Override
 	public void init(Controller controller, GameView oldView) {
 		super.init(controller, oldView);
+		
+		WE.SOUND.register("dudeldi", "com/bombinggames/WeaponOfChoice/Sounds/dudeldi.ogg");
+		
 		WE.getEngineView().addInputProcessor(new InputListener());
 		Camera camera = new Camera(
 			this,
