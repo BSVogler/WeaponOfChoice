@@ -16,7 +16,7 @@ public class Enemy extends MovableEntity {
 	private static final long serialVersionUID = 1L;
 	private MovableEntity target;
 	private int runningagainstwallCounter = 0;
-	private Point lastPos;
+	private final Point lastPos = new Point(0, 0, 0);
 	private static int killcounter = 0;
 	private int mana = 0;
 
@@ -75,11 +75,11 @@ public class Enemy extends MovableEntity {
 			super.update(delta);
 
 			//if standing on same position as in last update
-			if (getPosition().equals(lastPos)) {
+			if (getPoint().equals(lastPos)) {
 				runningagainstwallCounter += delta;
 			} else {
 				runningagainstwallCounter = 0;
-				lastPos = getPosition();
+				lastPos.set(getPosition());
 			}
 
 			//jump after some time
