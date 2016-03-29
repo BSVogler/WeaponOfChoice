@@ -28,6 +28,7 @@ public class CustomWeapon extends Weapon {
     
     public CustomWeapon(byte id, MovableEntity character) {
         super(id, character);
+		setHidden(true);
         
         switch (id){
             case 0:
