@@ -19,7 +19,7 @@ public class SpinningWheel extends ArrayList<CustomWeapon> {
 	private final CustomGameController controller;
 	private boolean visible;
 	private byte current = -1;
-	private final int spintime = 5000;
+	private final int spintime = 3000;
 	private int timer;
 	private byte currentRandom;
 	private float wheelSpeed;
