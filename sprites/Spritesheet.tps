@@ -4,7 +4,7 @@
         <key>fileFormatVersion</key>
         <int>3</int>
         <key>texturePackerVersion</key>
-        <string>4.0.1</string>
+        <string>4.1.0</string>
         <key>fileName</key>
         <string>/Users/Benedikt/programmieren/WeaponOfChoice/src/sprites/Spritesheet.tps</string>
         <key>autoSDSettings</key>
@@ -192,9 +192,99 @@
             <int>200</int>
             <key>heuristicMask</key>
             <false/>
-            <key>pivotPoint</key>
-            <enum type="SpriteSettings::PivotPoint">Center</enum>
+            <key>defaultPivotPoint</key>
+            <point_f>0.5,0.5</point_f>
+            <key>writePivotPoints</key>
+            <false/>
         </struct>
+        <key>individualSpriteSettings</key>
+        <map type="IndividualSpriteSettingsMap">
+            <key type="filename">blocks/b0-0-0.png</key>
+            <key type="filename">blocks/b0-0-1.png</key>
+            <key type="filename">blocks/b0-0-2.png</key>
+            <key type="filename">blocks/b1-0-0.png</key>
+            <key type="filename">blocks/b1-0-1.png</key>
+            <key type="filename">blocks/b1-0-2.png</key>
+            <key type="filename">blocks/b2-0-0.png</key>
+            <key type="filename">blocks/b2-0-1.png</key>
+            <key type="filename">blocks/b2-0-2.png</key>
+            <key type="filename">blocks/b3-0-0.png</key>
+            <key type="filename">blocks/b3-0-1.png</key>
+            <key type="filename">blocks/b3-0-2.png</key>
+            <key type="filename">blocks/b34-0.png</key>
+            <key type="filename">blocks/b35-0.png</key>
+            <key type="filename">blocks/b71-0.png</key>
+            <key type="filename">blocks/b71-1.png</key>
+            <key type="filename">blocks/b8-0-0.png</key>
+            <key type="filename">blocks/b8-0-1.png</key>
+            <key type="filename">blocks/b8-0-2.png</key>
+            <key type="filename">blocks/b8-1-0.png</key>
+            <key type="filename">blocks/b8-1-1.png</key>
+            <key type="filename">blocks/b8-1-2.png</key>
+            <key type="filename">blocks/b9-0-0.png</key>
+            <key type="filename">blocks/b9-0-1.png</key>
+            <key type="filename">blocks/b9-0-2.png</key>
+            <key type="filename">entities/e12-0.png</key>
+            <key type="filename">entities/e12-1.png</key>
+            <key type="filename">entities/e12-2.png</key>
+            <key type="filename">entities/e12-3.png</key>
+            <key type="filename">entities/e13-0.png</key>
+            <key type="filename">entities/e14-0.png</key>
+            <key type="filename">entities/e14-1.png</key>
+            <key type="filename">entities/e15-0.png</key>
+            <key type="filename">entities/e16-0.png</key>
+            <key type="filename">entities/e17-0.png</key>
+            <key type="filename">entities/e18-0.png</key>
+            <key type="filename">entities/e19-0.png</key>
+            <key type="filename">entities/e20-0.png</key>
+            <key type="filename">entities/e21-0.png</key>
+            <key type="filename">entities/e30-0.png</key>
+            <key type="filename">entities/e30-1.png</key>
+            <key type="filename">entities/e30-2.png</key>
+            <key type="filename">entities/e30-3.png</key>
+            <key type="filename">entities/e30-4.png</key>
+            <key type="filename">entities/e30-5.png</key>
+            <key type="filename">entities/e30-6.png</key>
+            <key type="filename">entities/e30-7.png</key>
+            <key type="filename">entities/e31-0.png</key>
+            <key type="filename">entities/e31-1.png</key>
+            <key type="filename">entities/e32-0.png</key>
+            <key type="filename">entities/e44-0.png</key>
+            <key type="filename">entities/e44-1.png</key>
+            <key type="filename">entities/e44-10.png</key>
+            <key type="filename">entities/e44-11.png</key>
+            <key type="filename">entities/e44-12.png</key>
+            <key type="filename">entities/e44-13.png</key>
+            <key type="filename">entities/e44-14.png</key>
+            <key type="filename">entities/e44-15.png</key>
+            <key type="filename">entities/e44-2.png</key>
+            <key type="filename">entities/e44-3.png</key>
+            <key type="filename">entities/e44-4.png</key>
+            <key type="filename">entities/e44-5.png</key>
+            <key type="filename">entities/e44-6.png</key>
+            <key type="filename">entities/e44-7.png</key>
+            <key type="filename">entities/e44-8.png</key>
+            <key type="filename">entities/e44-9.png</key>
+            <key type="filename">entities/e60-0.png</key>
+            <key type="filename">entities/e61-0.png</key>
+            <key type="filename">entities/error.png</key>
+            <key type="filename">interface/i10-0.png</key>
+            <key type="filename">interface/i11- 4.png</key>
+            <key type="filename">interface/i11- 5.png</key>
+            <key type="filename">interface/i11- 6.png</key>
+            <key type="filename">interface/i11- 7.png</key>
+            <key type="filename">interface/i11-0.png</key>
+            <key type="filename">interface/i11-1.png</key>
+            <key type="filename">interface/i11-2.png</key>
+            <key type="filename">interface/i11-3.png</key>
+            <key type="filename">interface/i12-0.png</key>
+            <key type="filename">interface/i13.png</key>
+            <key type="filename">interface/i14-0.png</key>
+            <struct type="IndividualSpriteSettings">
+                <key>pivotPoint</key>
+                <point_f>0.5,0.5</point_f>
+            </struct>
+        </map>
         <key>fileList</key>
         <array>
             <filename>entities</filename>
