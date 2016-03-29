@@ -236,8 +236,8 @@
             <key type="filename">entities/e17-0.png</key>
             <key type="filename">entities/e18-0.png</key>
             <key type="filename">entities/e19-0.png</key>
-            <key type="filename">entities/e20-0.png</key>
             <key type="filename">entities/e21-0.png</key>
+            <key type="filename">entities/e22-0.png</key>
             <key type="filename">entities/e30-0.png</key>
             <key type="filename">entities/e30-1.png</key>
             <key type="filename">entities/e30-2.png</key>
