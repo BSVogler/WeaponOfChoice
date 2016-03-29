@@ -262,19 +262,19 @@ e19-0
   orig: 25, 21
   offset: 0, 0
   index: -1
-e20-0
-  rotate: false
-  xy: 0, 1016
-  size: 8, 8
-  orig: 160, 160
-  offset: 76, 36
-  index: -1
 e21-0
   rotate: false
   xy: 769, 871
   size: 101, 101
   orig: 160, 160
   offset: 29, 30
+  index: -1
+e22-0
+  rotate: false
+  xy: 0, 1016
+  size: 8, 8
+  orig: 160, 160
+  offset: 76, 36
   index: -1
 e30-0
   rotate: false
