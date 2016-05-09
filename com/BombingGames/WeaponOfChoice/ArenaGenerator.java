@@ -9,13 +9,15 @@ import java.util.Random;
  */
 public class ArenaGenerator implements Generator {
 
-	private double seed = 0;
+	private long seed = 0;
+	private Random generator;
 
 	@Override
 	public int generate(int x, int y, int z) {
 		//initailize seed
 		if (seed == 0) {
-			seed = Math.random();
+			seed = (long) (Math.random()*Long.MAX_VALUE);
+			generator = new Random(seed);
 		}
 
 		if (z == 0) {//ground level covered with sand
@@ -43,9 +45,8 @@ public class ArenaGenerator implements Generator {
 	private float getRandom(int x, int y, int z) {
 		//generate hash
 		int field = x * y * z;//fastes way to generate id for every coodinate
-		//bet
 
-		Random generator = new Random((long) seed);
+		generator.setSeed(seed);
 		float output = 0;
 		for (int i = 0; i < field; i++) {
 			output = generator.nextFloat();
