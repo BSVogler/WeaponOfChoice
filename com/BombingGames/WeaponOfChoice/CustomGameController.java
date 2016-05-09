@@ -7,6 +7,7 @@ import com.bombinggames.wurfelengine.WE;
 import com.bombinggames.wurfelengine.core.Controller;
 import com.bombinggames.wurfelengine.core.map.Chunk;
 import com.bombinggames.wurfelengine.core.map.Coordinate;
+import com.bombinggames.wurfelengine.core.map.Map;
 import com.bombinggames.wurfelengine.core.map.rendering.RenderCell;
 
 /**
@@ -31,6 +32,7 @@ public class CustomGameController extends Controller {
 	@Override
 	public void init() {
 		Gdx.app.log("CustomGameController", "Initializing");
+		Map.setDefaultGenerator(new ArenaGenerator());
 		super.init();
 
 		gameOver = false;
@@ -58,7 +60,6 @@ public class CustomGameController extends Controller {
 		startingTime = System.currentTimeMillis();
 		survivedSeconds = 0;
 		
-		Controller.getMap().setGenerator(new ArenaGenerator());
 	}
 
 	@Override
