@@ -40,11 +40,12 @@ public class Enemy extends MovableEntity {
 
 	@Override
 	public void update(float delta) {
-		if (hasPosition() && getPosition().isInMemoryAreaHorizontal()) {
+		if (hasPosition() && getPosition().isInMemoryAreaXY()) {
 			//follow the target
 			if (target != null && target.hasPosition()) {
 				if (getPosition().distanceTo(target) > RenderCell.GAME_EDGELENGTH * 1.5f) {
-					MessageManager.getInstance().dispatchMessage(this,
+					MessageManager.getInstance().dispatchMessage(
+						this,
 						this,
 						Events.moveTo.getId(),
 						target.getPosition()

@@ -9,6 +9,9 @@ import com.bombinggames.wurfelengine.core.map.Chunk;
 import com.bombinggames.wurfelengine.core.map.Coordinate;
 import com.bombinggames.wurfelengine.core.map.Map;
 import com.bombinggames.wurfelengine.core.map.rendering.RenderCell;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * The <i>CustomGameController</i> is for the game code. Put engine code into
@@ -141,12 +144,16 @@ public class CustomGameController extends Controller {
 	}
 
 	public void gameOver() {
-		gameOver = true;
-		((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/dead.ogg")).play();
-		survivedSeconds = (int) ((System.currentTimeMillis() - startingTime) / 1000);
-		Gdx.app.error("Game over:", "Time:" + survivedSeconds);
-
-		getPlayer().dispose();
+		try {
+			gameOver = true;
+			((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/dead.ogg")).play();
+			survivedSeconds = (int) ((System.currentTimeMillis() - startingTime) / 1000);
+			Gdx.app.error("Game over:", "Time:" + survivedSeconds);
+			
+			getPlayer().dispose();
+		} catch (FileNotFoundException ex) {
+			Logger.getLogger(CustomGameController.class.getName()).log(Level.SEVERE, null, ex);
+		}
 	}
 
 	public boolean isGameOver() {
