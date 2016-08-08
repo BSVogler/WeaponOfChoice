@@ -8,6 +8,7 @@ import com.bombinggames.wurfelengine.core.Controller;
 import com.bombinggames.wurfelengine.core.map.Chunk;
 import com.bombinggames.wurfelengine.core.map.Coordinate;
 import com.bombinggames.wurfelengine.core.map.Map;
+import com.bombinggames.wurfelengine.core.map.Point;
 import com.bombinggames.wurfelengine.core.map.rendering.RenderCell;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
@@ -116,12 +117,12 @@ public class CustomGameController extends Controller {
 				//spawn enemies
 				WE.getConsole().add("Spawning " + (round - 1) + " enemies.", "Warning");
 				for (int i = 0; i < round; i++) {
-					Coordinate randomPlace = new Coordinate(
-						(int) (Chunk.getBlocksX() * Math.random()),
-						(int) (Chunk.getBlocksY() * Math.random()),
+					Point randomPlace = player.getPosition().cpy().add(
+						(int) (Chunk.getGameWidth()* Math.random())-Chunk.getGameDepth()/2,
+						(int) (Chunk.getGameDepth()* Math.random())-Chunk.getGameDepth()/2,
 						Chunk.getGameHeight()
 					);
-					Enemy enemy = (Enemy) new Enemy().spawn(randomPlace.toPoint());
+					Enemy enemy = (Enemy) new Enemy().spawn(randomPlace);
 					enemy.setTarget(getPlayer());
 				}
 
