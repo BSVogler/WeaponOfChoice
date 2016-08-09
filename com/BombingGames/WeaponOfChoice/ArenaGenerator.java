@@ -22,10 +22,9 @@ public class ArenaGenerator implements Generator {
 
 		if (z == 0) {//ground level covered with sand
 			return 8;
+		} else if (z == 1 && getRandom(x, y, z) < 0.05f) { //every twentiest block is a pillar 
+			return 2;
 		} else {
-			if (z == 1 && getRandom(x, y, z) < 0.05f) { //every twentiest block is a pillar 
-				return 2;
-			}
 			if (z == 2 && generate(x, y, z - 1) != 0 && generate(x, y, z - 1) == 2) {
 				return 1;
 			} else {
