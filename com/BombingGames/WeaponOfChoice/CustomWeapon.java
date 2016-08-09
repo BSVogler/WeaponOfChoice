@@ -37,22 +37,22 @@ public class CustomWeapon extends Weapon {
         
         switch (id){
             case 0:
-                setFireSound("melee", true);
+                setFireSound("melee", false);
                 setReload("wiz"); 
             break;
                 
             case 1:
-                setFireSound("shot", true);
+                setFireSound("shot", false);
                 setReload("reload"); 
             break;
                 
             case 2:
-                setFireSound("punch", true);
+                setFireSound("punch", false);
                 //setReload((Sound) WEMain.getInstance().manager.get("com/bombinggames/WeaponOfChoice/Sounds/melee.wav")); 
             break;
                 
             case 3:
-                setFireSound("shotgun", true);
+                setFireSound("shotgun", false);
                 //setReload((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/reload.wav")); 
             break;    
 
@@ -62,12 +62,12 @@ public class CustomWeapon extends Weapon {
             break;
                                  
             case 5:
-                setFireSound("poop.wav", true);
+                setFireSound("poop", false);
                 //setReload((Sound) WEMain.getInstance().manager.get("com/bombinggames/WeaponOfChoice/Sounds/reload.wav")); 
             break;
                 
             case 6:
-                setFireSound("thump", true);
+                setFireSound("thump", false);
                 //setReload((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/reload.wav")); 
             break;
                 
