@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Sound;
 import com.bombinggames.wurfelengine.WE;
 import com.bombinggames.wurfelengine.core.Controller;
+import com.bombinggames.wurfelengine.core.gameobjects.MovableEntity;
 import com.bombinggames.wurfelengine.core.map.Chunk;
 import com.bombinggames.wurfelengine.core.map.Coordinate;
 import com.bombinggames.wurfelengine.core.map.Map;
@@ -63,7 +64,7 @@ public class CustomGameController extends Controller {
 
 		startingTime = System.currentTimeMillis();
 		survivedSeconds = 0;
-		
+
 	}
 
 	@Override
@@ -118,12 +119,11 @@ public class CustomGameController extends Controller {
 				WE.getConsole().add("Spawning " + (round - 1) + " enemies.", "Warning");
 				for (int i = 0; i < round; i++) {
 					Point randomPlace = player.getPosition().cpy().add(
-						(int) (Chunk.getGameWidth()* Math.random())-Chunk.getGameDepth()/2,
-						(int) (Chunk.getGameDepth()* Math.random())-Chunk.getGameDepth()/2,
+						(int) (Chunk.getGameWidth() * Math.random()) - Chunk.getGameDepth() / 2,
+						(int) (Chunk.getGameDepth() * Math.random()) - Chunk.getGameDepth() / 2,
 						Chunk.getGameHeight()
 					);
-					Enemy enemy = (Enemy) new Enemy().spawn(randomPlace);
-					enemy.setTarget(getPlayer());
+					Enemy enemy = (Enemy) new Enemy((MovableEntity) getPlayer()).spawn(randomPlace);
 				}
 
 			}
@@ -150,7 +150,7 @@ public class CustomGameController extends Controller {
 			((Sound) WE.getAsset("com/bombinggames/WeaponOfChoice/Sounds/dead.ogg")).play();
 			survivedSeconds = (int) ((System.currentTimeMillis() - startingTime) / 1000);
 			Gdx.app.error("Game over:", "Time:" + survivedSeconds);
-			
+
 			getPlayer().dispose();
 		} catch (FileNotFoundException ex) {
 			Logger.getLogger(CustomGameController.class.getName()).log(Level.SEVERE, null, ex);
