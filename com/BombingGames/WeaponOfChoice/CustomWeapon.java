@@ -26,6 +26,11 @@ public class CustomWeapon extends Weapon {
 //        }
     }
     
+	/**
+	 * 
+	 * @param id
+	 * @param character 
+	 */
     public CustomWeapon(byte id, MovableEntity character) {
         super(id, character);
 		setHidden(true);
