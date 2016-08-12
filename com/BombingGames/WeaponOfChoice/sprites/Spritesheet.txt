@@ -241,6 +241,13 @@ e3-8
   orig: 80, 138
   offset: 3, 17
   index: -1
+e6-0
+  rotate: false
+  xy: 362, 242
+  size: 160, 80
+  orig: 160, 160
+  offset: 0, 0
+  index: -1
 e8-0
   rotate: false
   xy: 0, 0
@@ -406,13 +413,6 @@ e31-1
   rotate: false
   xy: 362, 0
   size: 160, 160
-  orig: 160, 160
-  offset: 0, 0
-  index: -1
-e32-0
-  rotate: false
-  xy: 362, 242
-  size: 160, 80
   orig: 160, 160
   offset: 0, 0
   index: -1

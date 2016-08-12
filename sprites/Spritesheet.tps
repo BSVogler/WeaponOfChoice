@@ -4,7 +4,7 @@
         <key>fileFormatVersion</key>
         <int>4</int>
         <key>texturePackerVersion</key>
-        <string>4.2.0</string>
+        <string>4.2.3</string>
         <key>fileName</key>
         <string>/Users/Benedikt/programmieren/WeaponOfChoice/src/sprites/Spritesheet.tps</string>
         <key>autoSDSettings</key>
@@ -248,7 +248,6 @@
             <key type="filename">entities/e30-7.png</key>
             <key type="filename">entities/e31-0.png</key>
             <key type="filename">entities/e31-1.png</key>
-            <key type="filename">entities/e32-0.png</key>
             <key type="filename">entities/e44-0.png</key>
             <key type="filename">entities/e44-1.png</key>
             <key type="filename">entities/e44-10.png</key>
@@ -265,6 +264,7 @@
             <key type="filename">entities/e44-7.png</key>
             <key type="filename">entities/e44-8.png</key>
             <key type="filename">entities/e44-9.png</key>
+            <key type="filename">entities/e6-0.png</key>
             <key type="filename">entities/e60-0.png</key>
             <key type="filename">entities/e61-0.png</key>
             <key type="filename">entities/e8-0.png</key>
